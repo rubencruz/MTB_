@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.7.0">
+<role name="mtb"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="mtb_dw" encoding="UTF8" lc-collate="pt_BR" lc-ctype="pt_BR">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" protected="true" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="dimensao" rect-visible="true" fill-color="#e91314">
+	<role name="mtb"/>
+</schema>
+
+<schema name="fato" rect-visible="true" fill-color="#512de2">
+	<role name="mtb"/>
+</schema>
+
+<table name="dim_curso">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="67.1429" y="367.143"/>
+	<column name="sk_curso" not-null="true" default-value="nextval('dim_curso_sk_curso_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_curso">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_curso_pkey" type="pk-constr" factor="100" table="dimensao.dim_curso">
+		<columns names="sk_curso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_faixa_etaria">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="54.0111" y="692.857"/>
+	<column name="sk_faixa_etaria" not-null="true" default-value="nextval('dim_faixa_etaria_sk_faixa_etaria_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="faixa_etaria">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="inicio">
+		<type name="integer"/>
+	</column>
+	<column name="fim">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_dim_faixa_etaria" type="pk-constr" factor="100" table="dimensao.dim_faixa_etaria">
+		<columns names="sk_faixa_etaria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_genero">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="760.714" y="680"/>
+	<column name="sk_genero" not-null="true" default-value="nextval('dim_genero_sk_genero_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="nome_genero">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="sigla_genero">
+		<type name="character" length="2"/>
+	</column>
+	<constraint name="dim_genero_pkey" type="pk-constr" factor="100" table="dimensao.dim_genero">
+		<columns names="sk_genero" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_idade">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="74.4865" y="530"/>
+	<column name="sk_idade" not-null="true" default-value="nextval('dim_idade_sk_idade_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="idade">
+		<type name="integer"/>
+	</column>
+	<constraint name="dim_idade_pkey" type="pk-constr" factor="100" table="dimensao.dim_idade">
+		<columns names="sk_idade" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_municipio">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="837.65" y="507.143"/>
+	<column name="sk_municipio" not-null="true" default-value="nextval('dim_municipio_sk_municipio_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_municipio">
+		<type name="integer"/>
+	</column>
+	<column name="nome_municipio">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_municipio" type="pk-constr" factor="100" table="dimensao.dim_municipio">
+		<columns names="sk_municipio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_regiao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="412.857" y="788.686"/>
+	<column name="sk_regiao" not-null="true" default-value="nextval('dim_regiao_sk_regiao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="sigla_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_regiao">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_regiao" type="pk-constr" factor="100" table="dimensao.dim_regiao">
+		<columns names="sk_regiao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_tempo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="396.031" y="174.4"/>
+	<column name="sk_tempo" not-null="true" default-value="nextval('dim_tempo_sk_tempo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="data">
+		<type name="date"/>
+	</column>
+	<column name="ano">
+		<type name="smallint"/>
+	</column>
+	<column name="mes">
+		<type name="smallint"/>
+	</column>
+	<column name="dia_ano">
+		<type name="smallint"/>
+	</column>
+	<column name="dia_mes">
+		<type name="smallint"/>
+	</column>
+	<column name="dia_semana">
+		<type name="smallint"/>
+	</column>
+	<column name="semana_ano">
+		<type name="smallint"/>
+	</column>
+	<column name="desc_semana">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="sigla_semana">
+		<type name="character varying" length="3"/>
+	</column>
+	<column name="desc_mes">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="sigla_mes">
+		<type name="character varying" length="3"/>
+	</column>
+	<column name="trimestre">
+		<type name="character varying"/>
+	</column>
+	<constraint name="pk_dim_tempo" type="pk-constr" factor="100" table="dimensao.dim_tempo">
+		<columns names="sk_tempo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_uf">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="790.513" y="298.686"/>
+	<column name="sk_uf" not-null="true" default-value="nextval('dim_uf_sk_uf_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_ibge">
+		<type name="integer"/>
+	</column>
+	<column name="uf">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_uf">
+		<type name="character varying" length="250"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<constraint name="dim_uf_pkey" type="pk-constr" factor="100" table="dimensao.dim_uf">
+		<columns names="sk_uf" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="fato_moodle">
+	<schema name="fato"/>
+	<role name="mtb"/>
+	<position x="426.875" y="447"/>
+	<column name="sk_fato_moodle" not-null="true" default-value="nextval('fato_moodle_sk_fato_moodle_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="ano">
+		<type name="smallint"/>
+	</column>
+	<column name="mes">
+		<type name="smallint"/>
+	</column>
+	<column name="cpf">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_genero">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_faixa_etaria">
+		<type name="integer"/>
+	</column>
+	<column name="sk_idade">
+		<type name="integer"/>
+	</column>
+	<column name="sk_tempo_cadastro">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_tempo_matricula">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_tempo_qualificacao">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_uf">
+		<type name="integer"/>
+	</column>
+	<column name="sk_regiao">
+		<type name="integer"/>
+	</column>
+	<column name="sk_municipio">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_curso">
+		<type name="integer"/>
+	</column>
+	<column name="qtd_cadastro">
+		<type name="bigint"/>
+	</column>
+	<column name="qtd_matricula">
+		<type name="bigint"/>
+	</column>
+	<column name="qtd_qualificado">
+		<type name="bigint"/>
+	</column>
+</table>
+
+<constraint name="fato_moodle_sk_genero_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_genero" table="fato.fato_moodle">
+	<columns names="sk_genero" ref-type="src-columns"/>
+	<columns names="sk_genero" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_genero_fkey1" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_genero" table="fato.fato_moodle">
+	<columns names="sk_genero" ref-type="src-columns"/>
+	<columns names="sk_genero" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_faixa_etaria_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_faixa_etaria" table="fato.fato_moodle">
+	<columns names="sk_faixa_etaria" ref-type="src-columns"/>
+	<columns names="sk_faixa_etaria" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_uf_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_uf" table="fato.fato_moodle">
+	<columns names="sk_uf" ref-type="src-columns"/>
+	<columns names="sk_uf" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_idade_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_idade" table="fato.fato_moodle">
+	<columns names="sk_idade" ref-type="src-columns"/>
+	<columns names="sk_idade" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_municipio_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_municipio" table="fato.fato_moodle">
+	<columns names="sk_municipio" ref-type="src-columns"/>
+	<columns names="sk_municipio" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_tempo_cadastro_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tempo" table="fato.fato_moodle">
+	<columns names="sk_tempo_cadastro" ref-type="src-columns"/>
+	<columns names="sk_tempo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_tempo_matricula_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tempo" table="fato.fato_moodle">
+	<columns names="sk_tempo_matricula" ref-type="src-columns"/>
+	<columns names="sk_tempo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_tempo_qualificacao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tempo" table="fato.fato_moodle">
+	<columns names="sk_tempo_qualificacao" ref-type="src-columns"/>
+	<columns names="sk_tempo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_regiao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_regiao" table="fato.fato_moodle">
+	<columns names="sk_regiao" ref-type="src-columns"/>
+	<columns names="sk_regiao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_moodle_sk_curso_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_curso" table="fato.fato_moodle">
+	<columns names="sk_curso" ref-type="src-columns"/>
+	<columns names="sk_curso" ref-type="dst-columns"/>
+</constraint>
+<relationship name="rel_fato_moodle_dim_genero" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_genero"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_moodle_dim_faixa_etaria" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_faixa_etaria"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_moodle_dim_uf" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_uf"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_moodle_dim_idade" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_idade"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_moodle_dim_municipio" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_municipio"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_moodle_dim_tempo" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_tempo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_moodle_dim_regiao" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_regiao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_moodle_dim_curso" type="relfk"
+	 src-table="fato.fato_moodle"
+	 dst-table="dimensao.dim_curso"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>

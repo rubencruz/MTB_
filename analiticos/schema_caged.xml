@@ -1,0 +1,308 @@
+<Schema name="Cubo Atendimento">
+  <Cube name="CAGED" visible="true" cache="true" enabled="true">
+    <Table name="fato_caged" schema="fato">
+      <AggName name="tb_agg_uftc_atendimento" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_tipo_atendimento_Tipo_de_A" name="[Tipos de Atendimento].[Tipo de Atendimento]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_tipo_atendimento_Grupo_de_" name="[Tipos de Atendimento].[Grupo de Tipo Atendimento]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uftc_grupo_assunto" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_tempo_Mes" name="[Tempo].[Mes]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_grupo_assunto_Grupo_Assunt" name="[Grupos Assunto].[Grupo Assunto]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uftc_problem" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_problema_Problema" name="[Problemas].[Problema]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uftc_faixa_etaria" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_faixa_etaria_Faixa_Etaria" name="[Faixas Etarias].[Faixa Etaria]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uftc_genero" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_genero_Genero" name="[Generos].[Genero]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uf_tempo_credenciada" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uftc_tafe_atendimento" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_faixa_etaria_Faixa_Etaria" name="[Faixas Etarias].[Faixa Etaria]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_tipo_atendimento_Tipo_de_A" name="[Tipos de Atendimento].[Tipo de Atendimento]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uftcta_genero_atendimen" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_genero_Genero" name="[Generos].[Genero]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_tipo_atendimento_Tipo_de_A" name="[Tipos de Atendimento].[Tipo de Atendimento]" collapsed="true">
+        </AggLevel>
+      </AggName>
+      <AggName name="tb_agg_uftc_gru_probl_at" ignorecase="true">
+        <AggFactCount column="fato_atendimento_fact_count">
+        </AggFactCount>
+        <AggMeasure column="fato_atendimento_Qtd_Atendimen" name="[Measures].[Qtd. Atendimentos]">
+        </AggMeasure>
+        <AggLevel column="dim_tempo_Ano" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_credenciada_Credenciada" name="[Credenciadas].[Credenciada]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_uf_UF" name="[Estados].[UF]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="dim_grupo_problema_Grupo_Probl" name="[Grupos Problema].[Grupo Problema]" collapsed="true">
+        </AggLevel>
+      </AggName>
+    </Table>
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_tempo" highCardinality="false" name="Tempo">
+      <Hierarchy name="Ano" visible="true" hasAll="true" primaryKey="sk_tempo">
+        <Table name="dim_tempo" schema="dimensao">
+        </Table>
+        <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Mes" visible="true" hasAll="true" primaryKey="sk_tempo">
+        <Table name="dim_tempo" schema="dimensao">
+        </Table>
+        <Level name="Mes" visible="true" column="mes" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_area" highCardinality="false" name="Areas">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_area">
+        <Table name="dim_area" schema="dimensao">
+        </Table>
+        <Level name="Area" visible="true" column="sk_area" nameColumn="nome_area" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_problema" highCardinality="false" name="Problemas">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_problema">
+        <Table name="dim_problema" schema="dimensao">
+        </Table>
+        <Level name="Problema" visible="true" column="sk_problema" nameColumn="nome_problema" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_assunto" highCardinality="false" name="Assuntos">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_assunto">
+        <Table name="dim_assunto" schema="dimensao">
+        </Table>
+        <Level name="Assunto" visible="true" column="sk_assunto" nameColumn="nome_assunto" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Assunto Editado" visible="true" column="sk_assunto" nameColumn="nome_assunto_editado" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_credenciada" highCardinality="false" name="Credenciadas">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_credenciada">
+        <Table name="dim_credenciada" schema="dimensao">
+        </Table>
+        <Level name="Credenciada" visible="true" column="sk_credenciada" nameColumn="nome_credenciada" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_faixa_etaria" highCardinality="false" name="Faixas Etarias">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_faixa_etaria">
+        <Table name="dim_faixa_etaria" schema="dimensao">
+        </Table>
+        <Level name="Faixa Etaria" visible="true" column="sk_faixa_etaria" nameColumn="faixa_etaria" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_genero" highCardinality="false" name="Generos">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_genero">
+        <Table name="dim_genero" schema="dimensao">
+        </Table>
+        <Level name="Genero" visible="true" column="sk_genero" nameColumn="nome_genero" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_gestante" highCardinality="false" name="Gestantes">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_gestante">
+        <Table name="dim_gestante" schema="dimensao">
+        </Table>
+        <Level name="Gestante" visible="true" column="sk_gestante" nameColumn="gestante" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_grupo_area" highCardinality="false" name="Grupos Area">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_grupo_area">
+        <Table name="dim_grupo_area" schema="dimensao">
+        </Table>
+        <Level name="Grupo Area" visible="true" column="sk_grupo_area" nameColumn="nome_grupo_area" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_grupo_assunto" highCardinality="false" name="Grupos Assunto">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_grupo_assunto">
+        <Table name="dim_grupo_assunto" schema="dimensao">
+        </Table>
+        <Level name="Grupo Assunto" visible="true" column="sk_grupo_assunto" nameColumn="nome_grupo_assunto" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_necessidade_especial" highCardinality="false" name="Necessidades Especiais">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_necessidade_especial">
+        <Table name="dim_necessidade_especial" schema="dimensao">
+        </Table>
+        <Level name="Necessidade Especial" visible="true" column="sk_necessidade_especial" nameColumn="necessidade_especial" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_uf" highCardinality="false" name="Estados">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_uf">
+        <Table name="dim_uf" schema="dimensao">
+        </Table>
+        <Level name="UF" visible="true" column="sk_uf" nameColumn="sgl_uf" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_municipio" highCardinality="false" name="Municipios">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_municipio">
+        <Table name="dim_municipio" schema="dimensao">
+        </Table>
+        <Level name="Municipio" visible="true" column="sk_municipio" nameColumn="nome_municipio" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_grupo_problema" highCardinality="false" name="Grupos Problema">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_grupo_problema">
+        <Table name="dim_grupo_problema" schema="dimensao">
+        </Table>
+        <Level name="Grupo Problema" visible="true" column="sk_grupo_problema" nameColumn="nome_grupo_problema" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_regiao" highCardinality="false" name="Regioes">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_regiao">
+        <Table name="dim_regiao" schema="dimensao">
+        </Table>
+        <Level name="Regiao" visible="true" column="sk_regiao" nameColumn="nome_regiao" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_tipo_atendimento" highCardinality="false" name="Tipos de Atendimento">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_tipo_atendimento">
+        <Table name="dim_tipo_atendimento" schema="dimensao">
+        </Table>
+        <Level name="Tipo de Atendimento" visible="true" column="sk_tipo_atendimento" nameColumn="nome_tipo_atendimento" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Grupo de Tipo Atendimento" visible="true" column="nome_grupo_tipo_atendimento" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_posto" highCardinality="false" name="Postos">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_posto">
+        <Table name="dim_posto" schema="dimensao">
+        </Table>
+        <Level name="Posto" visible="true" column="sk_posto" nameColumn="nome_posto" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_meio_consumo" highCardinality="false" name="Meios de Consumo">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_meio_consumo">
+        <Table name="dim_meio_consumo" schema="dimensao">
+        </Table>
+        <Level name="Meio de Consumo" visible="true" column="sk_meio_consumo" nameColumn="nome_meio_consumo" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_forma_atendimento" highCardinality="false" name="Formas de Atendimento">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_forma_atendimento">
+        <Table name="dim_forma_atendimento" schema="dimensao">
+        </Table>
+        <Level name="Forma de Atendimento" visible="true" column="sk_forma_atendimento" nameColumn="nome_forma_atendimento" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Qtd. Admissao" column="qtd_admissao" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Qtd. Desligamento" column="qtd_desligamento" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Salario" column="sub_total_salario" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Tempo Emprego" column="tempo_emprego" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

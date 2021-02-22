@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.7.0">
+<role name="mtb"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="mtb_dw" encoding="UTF8" lc-collate="pt_BR" lc-ctype="pt_BR">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" protected="true" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="dimensao" rect-visible="true" fill-color="#561f8e">
+	<role name="mtb"/>
+</schema>
+
+<schema name="fato" rect-visible="true" fill-color="#275708">
+	<role name="mtb"/>
+</schema>
+
+<table name="dim_aprendiz">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="547.5" y="995"/>
+	<column name="sk_aprendiz" not-null="true" default-value="nextval('dim_aprendiz_sk_aprendiz_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="aprendiz">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="dim_aprendiz_pkey" type="pk-constr" factor="100" table="dimensao.dim_aprendiz">
+		<columns names="sk_aprendiz" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cbo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="215.344" y="995"/>
+	<column name="sk_cbo" not-null="true" default-value="nextval('dim_cbo_sk_cbo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_cbo">
+		<type name="character varying" length="400"/>
+	</column>
+	<constraint name="dim_cbo_pkey" type="pk-constr" factor="100" table="dimensao.dim_cbo">
+		<columns names="sk_cbo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cnae_classe">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="973.859" y="164.167"/>
+	<column name="sk_cnae_classe" not-null="true" default-value="nextval('dim_cnae_classe_sk_cnae_classe_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_classe">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_classe_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_classe">
+		<columns names="sk_cnae_classe" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cnae_subclasse">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="988.693" y="269.167"/>
+	<column name="sk_cnae_subclasse" not-null="true" default-value="nextval('dim_cnae_subclasse_sk_cnae_subclasse_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_subclasse">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_subclasse">
+		<columns names="sk_cnae_subclasse" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_faixa_etaria">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="899.094" y="975"/>
+	<column name="sk_faixa_etaria" not-null="true" default-value="nextval('dim_faixa_etaria_sk_faixa_etaria_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="faixa_etaria">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="inicio">
+		<type name="integer"/>
+	</column>
+	<column name="fim">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_dim_faixa_etaria" type="pk-constr" factor="100" table="dimensao.dim_faixa_etaria">
+		<columns names="sk_faixa_etaria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_genero">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="95" y="894.4"/>
+	<column name="sk_genero" not-null="true" default-value="nextval('dim_genero_sk_genero_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="nome_genero">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="sigla_genero">
+		<type name="character" length="2"/>
+	</column>
+	<constraint name="dim_genero_pkey" type="pk-constr" factor="100" table="dimensao.dim_genero">
+		<columns names="sk_genero" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_grau_instrucao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="92.3437" y="376.067"/>
+	<column name="sk_grau_instrucao" not-null="true" default-value="nextval('dim_grau_instrucao_sk_grau_instrucao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_grau_instrucao">
+		<type name="character varying"/>
+	</column>
+	<column name="ordem">
+		<type name="smallint"/>
+	</column>
+	<constraint name="dim_grau_instrucao_pkey" type="pk-constr" factor="100" table="dimensao.dim_grau_instrucao">
+		<columns names="sk_grau_instrucao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_ibge_setor">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="1018.22" y="363.567"/>
+	<column name="sk_ibge_setor" not-null="true" default-value="nextval('dim_ibge_setor_sk_ibge_setor_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo_setor">
+		<type name="integer"/>
+	</column>
+	<column name="nome_ibge_setor">
+		<type name="character varying" length="200"/>
+	</column>
+	<constraint name="dim_ibge_setor_pkey" type="pk-constr" factor="100" table="dimensao.dim_ibge_setor">
+		<columns names="sk_ibge_setor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_ibge_subsetor">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="1031.79" y="576.067"/>
+	<column name="sk_ibge_subsetor" not-null="true" default-value="nextval('dim_ibge_subsetor_sk_ibge_subsetor_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo_subsetor">
+		<type name="integer"/>
+	</column>
+	<column name="nome_ibge_subsetor">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="codigo_setor">
+		<type name="integer"/>
+	</column>
+	<column name="nome_setor">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_ibge_subsetor_pkey" type="pk-constr" factor="100" table="dimensao.dim_ibge_subsetor">
+		<columns names="sk_ibge_subsetor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_tipo_movimento_desagregado">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="503.338" y="157.733"/>
+	<column name="sk_tipo_movimento_desagregado" not-null="true" default-value="nextval('dim_movimento_desagregado_sk_movimento_desagregado_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="nome_tipo_movimento_desagregado">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="dim_movimento_desagregado_pkey" type="pk-constr" factor="100" table="dimensao.dim_tipo_movimento_desagregado">
+		<columns names="sk_tipo_movimento_desagregado" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_municipio">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="109.167" y="255.133"/>
+	<column name="sk_municipio" not-null="true" default-value="nextval('dim_municipio_sk_municipio_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_municipio">
+		<type name="integer"/>
+	</column>
+	<column name="nome_municipio">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_municipio" type="pk-constr" factor="100" table="dimensao.dim_municipio">
+		<columns names="sk_municipio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_periodo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="88.9634" y="498.467"/>
+	<column name="sk_periodo" not-null="true" default-value="nextval('dim_periodo_sk_periodo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="ano">
+		<type name="smallint"/>
+	</column>
+	<column name="mes">
+		<type name="smallint"/>
+	</column>
+	<column name="sigla_mes">
+		<type name="character varying" length="3"/>
+	</column>
+	<column name="trimestre">
+		<type name="smallint"/>
+	</column>
+	<constraint name="dim_periodo_pkey" type="pk-constr" factor="100" table="dimensao.dim_periodo">
+		<columns names="sk_periodo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_portador_deficiencia">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="1029.29" y="472.633"/>
+	<column name="sk_portador_deficiencia" not-null="true" default-value="nextval('dim_portador_deficiencia_sk_portador_deficiencia_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="portador_deficiencia">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_portador_deficiencia_pkey" type="pk-constr" factor="100" table="dimensao.dim_portador_deficiencia">
+		<columns names="sk_portador_deficiencia" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_raca_cor">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="1095.2" y="715.967"/>
+	<column name="sk_raca_cor" not-null="true" default-value="nextval('dim_raca_cor_sk_raca_cor_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_raca">
+		<type name="character varying"/>
+	</column>
+	<column name="cor">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_raca_cor_pkey" type="pk-constr" factor="100" table="dimensao.dim_raca_cor">
+		<columns names="sk_raca_cor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_regiao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="1049.83" y="852.633"/>
+	<column name="sk_regiao" not-null="true" default-value="nextval('dim_regiao_sk_regiao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="sigla_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_regiao">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_regiao" type="pk-constr" factor="100" table="dimensao.dim_regiao">
+		<columns names="sk_regiao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_tipo_deficiencia">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="89.1667" y="786.7"/>
+	<column name="sk_tipo_deficiencia" not-null="true" default-value="nextval('dim_tipo_deficiencia_sk_tipo_deficiencia_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_tipo_deficiencia">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_tipo_deficiencia_pkey" type="pk-constr" factor="100" table="dimensao.dim_tipo_deficiencia">
+		<columns names="sk_tipo_deficiencia" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_uf">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="90.0208" y="637.533"/>
+	<column name="sk_uf" not-null="true" default-value="nextval('dim_uf_sk_uf_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_ibge">
+		<type name="integer"/>
+	</column>
+	<column name="uf">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_uf">
+		<type name="character varying" length="250"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<constraint name="dim_uf_pkey" type="pk-constr" factor="100" table="dimensao.dim_uf">
+		<columns names="sk_uf" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="fato_caged">
+	<schema name="fato"/>
+	<role name="mtb"/>
+	<position x="560.927" y="410.667"/>
+	<column name="sk_fato_caged" not-null="true" default-value="nextval('fato_caged_sk_fato_caged_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="ano">
+		<type name="smallint"/>
+	</column>
+	<column name="mes">
+		<type name="smallint"/>
+	</column>
+	<column name="cpf">
+		<type name="bigint"/>
+	</column>
+	<column name="pis">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_periodo">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_regiao">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_uf">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_municipio">
+		<type name="integer"/>
+	</column>
+	<column name="sk_faixa_etaria">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_grau_instrucao">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_portador_deficiencia">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_tipo_deficiencia">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_cbo">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_classe">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_subclasse">
+		<type name="integer"/>
+	</column>
+	<column name="sk_ibge_subsetor">
+		<type name="integer"/>
+	</column>
+	<column name="sk_ibge_setor">
+		<type name="integer"/>
+	</column>
+	<column name="sk_aprendiz">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_raca_cor">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_genero">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_tipo_movimento_desagregado">
+		<type name="smallint"/>
+	</column>
+	<column name="qtd">
+		<type name="bigint"/>
+	</column>
+	<column name="qtd_admissao">
+		<type name="bigint"/>
+	</column>
+	<column name="qtd_desligamento">
+		<type name="bigint"/>
+	</column>
+	<column name="qtd_ativo">
+		<type name="bigint"/>
+	</column>
+	<column name="salario">
+		<type name="numeric"/>
+	</column>
+	<column name="qtd_salario">
+		<type name="smallint"/>
+	</column>
+	<column name="tempo_emprego">
+		<type name="numeric"/>
+	</column>
+	<constraint name="fato_caged_pkey" type="pk-constr" factor="100" table="fato.fato_caged">
+		<columns names="sk_fato_caged" ref-type="src-columns"/>
+	</constraint>
+	<rule name="rl_insert_2016" event-type="ON INSERT"
+		 exec-type="INSTEAD">
+		<condition><![CDATA[ (new.ano = 2016) ]]></condition>
+		<commands><![CDATA[CREATE RULE rl_insert_2016 AS
+    ON INSERT TO fato.fato_caged
+   WHERE (new.ano = 2016) DO INSTEAD  INSERT INTO fato.fato_caged_2016 (sk_fato_caged, ano, mes, cpf, pis, sk_periodo, sk_regiao, sk_uf, sk_municipio, sk_faixa_etaria, sk_grau_instrucao, sk_portador_deficiencia, sk_tipo_deficiencia, sk_cbo, sk_cnae_classe, sk_cnae_subclasse, sk_ibge_subsetor, sk_ibge_setor, sk_aprendiz, sk_raca_cor, sk_genero, sk_tipo_movimento_desagregado, qtd, qtd_admissao, qtd_desligamento, qtd_ativo, salario, qtd_salario, tempo_emprego)
+  VALUES (new.sk_fato_caged, new.ano, new.mes, new.cpf, new.pis, new.sk_periodo, new.sk_regiao, new.sk_uf, new.sk_municipio, new.sk_faixa_etaria, new.sk_grau_instrucao, new.sk_portador_deficiencia, new.sk_tipo_deficiencia, new.sk_cbo, new.sk_cnae_classe, new.sk_cnae_subclasse, new.sk_ibge_subsetor, new.sk_ibge_setor, new.sk_aprendiz, new.sk_raca_cor, new.sk_genero, new.sk_tipo_movimento_desagregado, new.qtd, new.qtd_admissao, new.qtd_desligamento, new.qtd_ativo, new.salario, new.qtd_salario, new.tempo_empre]]></commands>
+	</rule>
+	<rule name="rl_insert_2017" event-type="ON INSERT"
+		 exec-type="INSTEAD">
+		<condition><![CDATA[ (new.ano = 2017) ]]></condition>
+		<commands><![CDATA[CREATE RULE rl_insert_2017 AS
+    ON INSERT TO fato.fato_caged
+   WHERE (new.ano = 2017) DO INSTEAD  INSERT INTO fato.fato_caged_2017 (sk_fato_caged, ano, mes, cpf, pis, sk_periodo, sk_regiao, sk_uf, sk_municipio, sk_faixa_etaria, sk_grau_instrucao, sk_portador_deficiencia, sk_tipo_deficiencia, sk_cbo, sk_cnae_classe, sk_cnae_subclasse, sk_ibge_subsetor, sk_ibge_setor, sk_aprendiz, sk_raca_cor, sk_genero, sk_tipo_movimento_desagregado, qtd, qtd_admissao, qtd_desligamento, qtd_ativo, salario, qtd_salario, tempo_emprego)
+  VALUES (new.sk_fato_caged, new.ano, new.mes, new.cpf, new.pis, new.sk_periodo, new.sk_regiao, new.sk_uf, new.sk_municipio, new.sk_faixa_etaria, new.sk_grau_instrucao, new.sk_portador_deficiencia, new.sk_tipo_deficiencia, new.sk_cbo, new.sk_cnae_classe, new.sk_cnae_subclasse, new.sk_ibge_subsetor, new.sk_ibge_setor, new.sk_aprendiz, new.sk_raca_cor, new.sk_genero, new.sk_tipo_movimento_desagregado, new.qtd, new.qtd_admissao, new.qtd_desligamento, new.qtd_ativo, new.salario, new.qtd_salario, new.tempo_empre]]></commands>
+	</rule>
+	<rule name="rl_insert_2018" event-type="ON INSERT"
+		 exec-type="INSTEAD">
+		<condition><![CDATA[ (new.ano = 2018) ]]></condition>
+		<commands><![CDATA[CREATE RULE rl_insert_2018 AS
+    ON INSERT TO fato.fato_caged
+   WHERE (new.ano = 2018) DO INSTEAD  INSERT INTO fato.fato_caged_2018 (sk_fato_caged, ano, mes, cpf, pis, sk_periodo, sk_regiao, sk_uf, sk_municipio, sk_faixa_etaria, sk_grau_instrucao, sk_portador_deficiencia, sk_tipo_deficiencia, sk_cbo, sk_cnae_classe, sk_cnae_subclasse, sk_ibge_subsetor, sk_ibge_setor, sk_aprendiz, sk_raca_cor, sk_genero, sk_tipo_movimento_desagregado, qtd, qtd_admissao, qtd_desligamento, qtd_ativo, salario, qtd_salario, tempo_emprego)
+  VALUES (new.sk_fato_caged, new.ano, new.mes, new.cpf, new.pis, new.sk_periodo, new.sk_regiao, new.sk_uf, new.sk_municipio, new.sk_faixa_etaria, new.sk_grau_instrucao, new.sk_portador_deficiencia, new.sk_tipo_deficiencia, new.sk_cbo, new.sk_cnae_classe, new.sk_cnae_subclasse, new.sk_ibge_subsetor, new.sk_ibge_setor, new.sk_aprendiz, new.sk_raca_cor, new.sk_genero, new.sk_tipo_movimento_desagregado, new.qtd, new.qtd_admissao, new.qtd_desligamento, new.qtd_ativo, new.salario, new.qtd_salario, new.tempo_empre]]></commands>
+	</rule>
+</table>
+
+<constraint name="fato_caged_sk_periodo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_periodo" table="fato.fato_caged">
+	<columns names="sk_periodo" ref-type="src-columns"/>
+	<columns names="sk_periodo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_regiao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_regiao" table="fato.fato_caged">
+	<columns names="sk_regiao" ref-type="src-columns"/>
+	<columns names="sk_regiao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_uf_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_uf" table="fato.fato_caged">
+	<columns names="sk_uf" ref-type="src-columns"/>
+	<columns names="sk_uf" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_municipio_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_municipio" table="fato.fato_caged">
+	<columns names="sk_municipio" ref-type="src-columns"/>
+	<columns names="sk_municipio" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_faixa_etaria_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_faixa_etaria" table="fato.fato_caged">
+	<columns names="sk_faixa_etaria" ref-type="src-columns"/>
+	<columns names="sk_faixa_etaria" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_grau_instrucao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_grau_instrucao" table="fato.fato_caged">
+	<columns names="sk_grau_instrucao" ref-type="src-columns"/>
+	<columns names="sk_grau_instrucao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_portador_deficiencia_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_portador_deficiencia" table="fato.fato_caged">
+	<columns names="sk_portador_deficiencia" ref-type="src-columns"/>
+	<columns names="sk_portador_deficiencia" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_tipo_deficiencia_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tipo_deficiencia" table="fato.fato_caged">
+	<columns names="sk_tipo_deficiencia" ref-type="src-columns"/>
+	<columns names="sk_tipo_deficiencia" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_cbo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cbo" table="fato.fato_caged">
+	<columns names="sk_cbo" ref-type="src-columns"/>
+	<columns names="sk_cbo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_cnae_classe_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_classe" table="fato.fato_caged">
+	<columns names="sk_cnae_classe" ref-type="src-columns"/>
+	<columns names="sk_cnae_classe" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_cnae_subclasse_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_subclasse" table="fato.fato_caged">
+	<columns names="sk_cnae_subclasse" ref-type="src-columns"/>
+	<columns names="sk_cnae_subclasse" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_ibge_subsetor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_ibge_subsetor" table="fato.fato_caged">
+	<columns names="sk_ibge_subsetor" ref-type="src-columns"/>
+	<columns names="sk_ibge_subsetor" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_ibge_setor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_ibge_setor" table="fato.fato_caged">
+	<columns names="sk_ibge_setor" ref-type="src-columns"/>
+	<columns names="sk_ibge_setor" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_aprendiz_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_aprendiz" table="fato.fato_caged">
+	<columns names="sk_aprendiz" ref-type="src-columns"/>
+	<columns names="sk_aprendiz" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_raca_cor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_raca_cor" table="fato.fato_caged">
+	<columns names="sk_raca_cor" ref-type="src-columns"/>
+	<columns names="sk_raca_cor" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_genero_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_genero" table="fato.fato_caged">
+	<columns names="sk_genero" ref-type="src-columns"/>
+	<columns names="sk_genero" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_caged_sk_tipo_movimento_desagregado_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tipo_movimento_desagregado" table="fato.fato_caged">
+	<columns names="sk_tipo_movimento_desagregado" ref-type="src-columns"/>
+	<columns names="sk_tipo_movimento_desagregado" ref-type="dst-columns"/>
+</constraint>
+<relationship name="rel_fato_caged_dim_periodo" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_periodo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_regiao" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_regiao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_uf" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_uf"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_municipio" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_municipio"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_faixa_etaria" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_faixa_etaria"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_grau_instrucao" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_grau_instrucao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_portador_deficiencia" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_portador_deficiencia"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_tipo_deficiencia" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_tipo_deficiencia"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_cbo" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_cbo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_cnae_classe" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_cnae_classe"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_cnae_subclasse" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_cnae_subclasse"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_ibge_subsetor" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_ibge_subsetor"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_ibge_setor" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_ibge_setor"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_aprendiz" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_aprendiz"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_raca_cor" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_raca_cor"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_genero" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_genero"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_caged_dim_tipo_movimento_desagregado" type="relfk"
+	 src-table="fato.fato_caged"
+	 dst-table="dimensao.dim_tipo_movimento_desagregado"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>

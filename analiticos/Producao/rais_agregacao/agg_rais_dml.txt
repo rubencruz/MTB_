@@ -1,0 +1,1296 @@
+-- Populate aggregate table agg_rais_base
+INSERT INTO agg_rais_base (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_mun
+INSERT INTO agg_rais_base_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo
+INSERT INTO agg_rais_base_cbo (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_mun
+INSERT INTO agg_rais_base_cbo_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_esc
+INSERT INTO agg_rais_base_esc (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_grau_instrucao_escolaridad,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_grau_instrucao.sk_grau_instrucao as dim_grau_instrucao_escolaridad,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_grau_instrucao as dim_grau_instrucao,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_grau_instrucao = dim_grau_instrucao.sk_grau_instrucao
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_grau_instrucao.sk_grau_instrucao,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_esc_mun
+INSERT INTO agg_rais_base_esc_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_grau_instrucao_escolaridad,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_grau_instrucao.sk_grau_instrucao as dim_grau_instrucao_escolaridad,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_grau_instrucao as dim_grau_instrucao,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_grau_instrucao = dim_grau_instrucao.sk_grau_instrucao
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_grau_instrucao.sk_grau_instrucao,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_esc
+INSERT INTO agg_rais_base_cbo_esc (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_grau_instrucao_escolaridad,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_grau_instrucao.sk_grau_instrucao as dim_grau_instrucao_escolaridad,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_grau_instrucao as dim_grau_instrucao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_grau_instrucao = dim_grau_instrucao.sk_grau_instrucao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_grau_instrucao.sk_grau_instrucao,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_esc_mun
+INSERT INTO agg_rais_base_cbo_esc_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_grau_instrucao_escolaridad,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_grau_instrucao.sk_grau_instrucao as dim_grau_instrucao_escolaridad,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_grau_instrucao as dim_grau_instrucao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_grau_instrucao = dim_grau_instrucao.sk_grau_instrucao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_grau_instrucao.sk_grau_instrucao,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_fai
+INSERT INTO agg_rais_base_fai (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_faixa_etaria_faixa_etaria,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixa_etaria,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_fai_mun
+INSERT INTO agg_rais_base_fai_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_faixa_etaria_faixa_etaria,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixa_etaria,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_fai
+INSERT INTO agg_rais_base_cbo_fai (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_faixa_etaria_faixa_etaria,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixa_etaria,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_fai_mun
+INSERT INTO agg_rais_base_cbo_fai_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_faixa_etaria_faixa_etaria,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixa_etaria,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_tp
+INSERT INTO agg_rais_base_tp (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_tipo_deficiencia_tipo_pcd,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia as dim_tipo_deficiencia_tipo_pcd,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tipo_deficiencia as dim_tipo_deficiencia,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_tipo_deficiencia = dim_tipo_deficiencia.sk_tipo_deficiencia
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_tp_mun
+INSERT INTO agg_rais_base_tp_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_tipo_deficiencia_tipo_pcd,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia as dim_tipo_deficiencia_tipo_pcd,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tipo_deficiencia as dim_tipo_deficiencia,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_tipo_deficiencia = dim_tipo_deficiencia.sk_tipo_deficiencia
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_tp
+INSERT INTO agg_rais_base_cbo_tp (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_tipo_deficiencia_tipo_pcd,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia as dim_tipo_deficiencia_tipo_pcd,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tipo_deficiencia as dim_tipo_deficiencia,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_tipo_deficiencia = dim_tipo_deficiencia.sk_tipo_deficiencia
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_tp_mun
+INSERT INTO agg_rais_base_cbo_tp_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_tipo_deficiencia_tipo_pcd,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia as dim_tipo_deficiencia_tipo_pcd,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tipo_deficiencia as dim_tipo_deficiencia,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_tipo_deficiencia = dim_tipo_deficiencia.sk_tipo_deficiencia
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tipo_deficiencia.sk_tipo_deficiencia,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_subc
+INSERT INTO agg_rais_base_subc (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cnae_subclasse_cnae_subcla,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cnae_subclasse.sk_cnae_subclasse as dim_cnae_subclasse_cnae_subcla,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cnae_subclasse as dim_cnae_subclasse,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cnae_subclasse = dim_cnae_subclasse.sk_cnae_subclasse
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cnae_subclasse.sk_cnae_subclasse,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_subc_mun
+INSERT INTO agg_rais_base_subc_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cnae_subclasse_cnae_subcla,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cnae_subclasse.sk_cnae_subclasse as dim_cnae_subclasse_cnae_subcla,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cnae_subclasse as dim_cnae_subclasse,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cnae_subclasse = dim_cnae_subclasse.sk_cnae_subclasse
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cnae_subclasse.sk_cnae_subclasse,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_subc
+INSERT INTO agg_rais_base_cbo_subc (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_cnae_subclasse_cnae_subcla,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_cnae_subclasse.sk_cnae_subclasse as dim_cnae_subclasse_cnae_subcla,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_cnae_subclasse as dim_cnae_subclasse,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_cnae_subclasse = dim_cnae_subclasse.sk_cnae_subclasse
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_cnae_subclasse.sk_cnae_subclasse,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_subc_mun
+INSERT INTO agg_rais_base_cbo_subc_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_cnae_subclasse_cnae_subcla,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_cnae_subclasse.sk_cnae_subclasse as dim_cnae_subclasse_cnae_subcla,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_cnae_subclasse as dim_cnae_subclasse,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_cnae_subclasse = dim_cnae_subclasse.sk_cnae_subclasse
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_cnae_subclasse.sk_cnae_subclasse,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_ibge
+INSERT INTO agg_rais_base_ibge (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_ibge_setor_ibge_setor,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_ibge_setor.sk_ibge_setor as dim_ibge_setor_ibge_setor,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_ibge_setor as dim_ibge_setor,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_ibge_setor = dim_ibge_setor.sk_ibge_setor
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_ibge_setor.sk_ibge_setor,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_ibge_mun
+INSERT INTO agg_rais_base_ibge_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_ibge_setor_ibge_setor,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_ibge_setor.sk_ibge_setor as dim_ibge_setor_ibge_setor,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_ibge_setor as dim_ibge_setor,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_ibge_setor = dim_ibge_setor.sk_ibge_setor
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_ibge_setor.sk_ibge_setor,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_ibge
+INSERT INTO agg_rais_base_cbo_ibge (
+    dim_ano_ano,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_ibge_setor_ibge_setor,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_ibge_setor.sk_ibge_setor as dim_ibge_setor_ibge_setor,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_ibge_setor as dim_ibge_setor,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_ibge_setor = dim_ibge_setor.sk_ibge_setor
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_ibge_setor.sk_ibge_setor,
+    dim_genero.sk_genero;
+
+
+
+-- Populate aggregate table agg_rais_base_cbo_ibge_mun
+INSERT INTO agg_rais_base_cbo_ibge_mun (
+    dim_ano_ano,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_ibge_setor_ibge_setor,
+    dim_genero_genero,
+    fato_rais_qtd_trabalhadores,
+    fato_rais_qtd_estoque,
+    fato_rais_remuneracao_media,
+    fato_rais_qtd_remuneracao_medi,
+    fato_rais_fact_count)
+select
+    dim_ano.sk_ano as dim_ano_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_ibge_setor.sk_ibge_setor as dim_ibge_setor_ibge_setor,
+    dim_genero.sk_genero as dim_genero_genero,
+    sum(fato_rais.qtd) as fato_rais_qtd_trabalhadores,
+    sum(fato_rais.qtd_estoque) as fato_rais_qtd_estoque,
+    sum(fato_rais.sub_total_remuneracao_media) as fato_rais_remuneracao_media,
+    sum(fato_rais.qtd_remuneracao_media) as fato_rais_qtd_remuneracao_medi,
+    count(*) as fato_rais_fact_count
+from
+    fato.fato_rais as fato_rais,
+    dimensao.dim_ano as dim_ano,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_ibge_setor as dim_ibge_setor,
+    dimensao.dim_genero as dim_genero
+where
+    fato_rais.sk_ano = dim_ano.sk_ano
+and
+    fato_rais.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_rais.sk_uf = dim_uf.sk_uf
+and
+    fato_rais.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_rais.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_rais.sk_ibge_setor = dim_ibge_setor.sk_ibge_setor
+and
+    fato_rais.sk_genero = dim_genero.sk_genero
+group by
+    dim_ano.sk_ano,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_ibge_setor.sk_ibge_setor,
+    dim_genero.sk_genero;
+
+
+

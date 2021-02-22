@@ -1,0 +1,356 @@
+-- Aggregate table agg_rais_base
+-- Estimated 16800 rows, 1075200 bytes
+CREATE TABLE agg_rais_base (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_mun
+-- Estimated 83786555 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo
+-- Estimated 45105499 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_mun
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_esc
+-- Estimated 201600 rows, 16934400 bytes
+CREATE TABLE agg_rais_base_esc (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_grau_instrucao_escolaridad int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_esc_mun
+-- Estimated 185570034 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_esc_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_grau_instrucao_escolaridad int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_esc
+-- Estimated 169301877 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_esc (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_grau_instrucao_escolaridad int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_esc_mun
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_esc_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_grau_instrucao_escolaridad int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_fai
+-- Estimated 151200 rows, 12700800 bytes
+CREATE TABLE agg_rais_base_fai (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_faixa_etaria_faixa_etaria int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_fai_mun
+-- Estimated 180344875 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_fai_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_faixa_etaria_faixa_etaria int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_fai
+-- Estimated 159888404 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_fai (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_faixa_etaria_faixa_etaria int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_fai_mun
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_fai_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_faixa_etaria_faixa_etaria int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_tp
+-- Estimated 117600 rows, 9878400 bytes
+CREATE TABLE agg_rais_base_tp (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_tipo_deficiencia_tipo_pcd int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_tp_mun
+-- Estimated 174615346 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_tp_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_tipo_deficiencia_tipo_pcd int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_tp
+-- Estimated 149998763 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_tp (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_tipo_deficiencia_tipo_pcd int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_tp_mun
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_tp_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_tipo_deficiencia_tipo_pcd int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_subc
+-- Estimated 21938649 rows, 1842846581 bytes
+CREATE TABLE agg_rais_base_subc (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cnae_subclasse_cnae_subcla int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_subc_mun
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_subc_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cnae_subclasse_cnae_subcla int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_subc
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_subc (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_cnae_subclasse_cnae_subcla int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_subc_mun
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_subc_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_cnae_subclasse_cnae_subcla int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_ibge
+-- Estimated 134400 rows, 11289600 bytes
+CREATE TABLE agg_rais_base_ibge (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_ibge_setor_ibge_setor int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_ibge_mun
+-- Estimated 177807120 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_ibge_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_ibge_setor_ibge_setor int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_ibge
+-- Estimated 155452755 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_ibge (
+    dim_ano_ano int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_ibge_setor_ibge_setor int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+
+-- Aggregate table agg_rais_base_cbo_ibge_mun
+-- Estimated 202525288 rows, 2147483647 bytes
+CREATE TABLE agg_rais_base_cbo_ibge_mun (
+    dim_ano_ano int,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_ibge_setor_ibge_setor int,
+    dim_genero_genero int,
+    fato_rais_qtd_trabalhadores FLOAT8,
+    fato_rais_qtd_estoque FLOAT8,
+    fato_rais_remuneracao_media FLOAT8,
+    fato_rais_qtd_remuneracao_medi FLOAT8,
+    fato_rais_fact_count INT8);
+

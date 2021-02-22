@@ -1,0 +1,58 @@
+<Schema name="MTB2">
+  <Cube name="Cubo RAIS" visible="true" cache="true" enabled="true">
+    <Table name="fato_rais" schema="fato">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_ano" highCardinality="false" name="Ano">
+      <Hierarchy name="Ano" visible="true" hasAll="true" primaryKey="sk_ano">
+        <Table name="dim_ano" schema="dimensao">
+        </Table>
+        <Level name="Ano" visible="true" column="sk_ano" nameColumn="ano" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_uf" highCardinality="false" name="UF">
+      <Hierarchy name="UF" visible="true" hasAll="true" primaryKey="sk_uf">
+        <Table name="dim_uf" schema="dimensao">
+        </Table>
+        <Level name="UF" visible="true" column="sk_uf" nameColumn="uf" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_regiao" highCardinality="false" name="Regiao">
+      <Hierarchy name="Regiao" visible="true" hasAll="true" primaryKey="sk_regiao">
+        <Table name="dim_regiao" schema="dimensao">
+        </Table>
+        <Level name="Regiao" visible="true" column="sk_regiao" nameColumn="nome_regiao" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_municipio" highCardinality="false" name="Municipio">
+      <Hierarchy name="Municipio" visible="true" hasAll="true" primaryKey="sk_municipio">
+        <Table name="dim_municipio" schema="dimensao">
+        </Table>
+        <Level name="Municipio" visible="true" column="sk_municipio" nameColumn="nome_municipio" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_faixa_etaria" highCardinality="false" name="Faixa Etaria">
+      <Hierarchy name="Faixa Etaria" visible="true" hasAll="true" primaryKey="sk_faixa_etaria">
+        <Table name="dim_faixa_etaria" schema="dimensao">
+        </Table>
+        <Level name="Faixa Etaria" visible="true" column="sk_faixa_etaria" nameColumn="faixa_etaria" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_grau_instrucao" highCardinality="false" name="Grau Instrucao">
+      <Hierarchy name="Grau Instrucao" visible="true" hasAll="true" primaryKey="sk_grau_instrucao">
+        <Table name="dim_grau_instrucao" schema="dimensao">
+        </Table>
+        <Level name="Grau Instrucao" visible="true" column="sk_grau_instrucao" nameColumn="nome_grau_instrucao" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Qtd_Estoque" column="qtd_estoque" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Remuneracao Media" column="remuneracao_media" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

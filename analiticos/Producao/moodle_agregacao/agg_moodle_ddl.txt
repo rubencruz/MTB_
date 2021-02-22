@@ -1,0 +1,123 @@
+-- Aggregate table agg_moodle_mat
+-- Estimated 513302 rows, 10266049 bytes
+CREATE TABLE agg_moodle_mat (
+    dim_genero_genero_Key int,
+    dim_tempo_ano int2,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes int2,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+
+-- Aggregate table agg_moodle_mat_curso
+-- Estimated 566834 rows, 13604016 bytes
+CREATE TABLE agg_moodle_mat_curso (
+    dim_genero_genero_Key int,
+    dim_curso_curso_Key int,
+    dim_tempo_ano int2,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes int2,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+
+-- Aggregate table agg_moodle_mat_curso_faixa
+-- Estimated 566834 rows, 15871352 bytes
+CREATE TABLE agg_moodle_mat_curso_faixa (
+    dim_genero_genero_Key int,
+    dim_faixa_etaria_faixas_Key int,
+    dim_curso_curso_Key int,
+    dim_tempo_ano int2,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes int2,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+
+-- Aggregate table agg_moodle_mat_curso_faixa_mun
+-- Estimated 566834 rows, 18138688 bytes
+CREATE TABLE agg_moodle_mat_curso_faixa_mun (
+    dim_genero_genero_Key int,
+    dim_faixa_etaria_faixas_Key int,
+    dim_curso_curso_Key int,
+    dim_tempo_ano int2,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes int2,
+    dim_municipio_municipio_Key int,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+
+-- Aggregate table agg_moodle_qual
+-- Estimated 513302 rows, 10266049 bytes
+CREATE TABLE agg_moodle_qual (
+    dim_genero_genero_Key int,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes_qualificacao int2,
+    dim_tempo_ano_qualificacao int2,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+
+-- Aggregate table agg_moodle_qual_curso
+-- Estimated 566834 rows, 13604016 bytes
+CREATE TABLE agg_moodle_qual_curso (
+    dim_genero_genero_Key int,
+    dim_curso_curso_Key int,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes_qualificacao int2,
+    dim_tempo_ano_qualificacao int2,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+
+-- Aggregate table agg_moodle_qual_curso_faixa
+-- Estimated 566834 rows, 15871352 bytes
+CREATE TABLE agg_moodle_qual_curso_faixa (
+    dim_genero_genero_Key int,
+    dim_faixa_etaria_faixas_Key int,
+    dim_curso_curso_Key int,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes_qualificacao int2,
+    dim_tempo_ano_qualificacao int2,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+
+-- Aggregate table agg_moodle_qual_curso_faixa_mu
+-- Estimated 566834 rows, 18138688 bytes
+CREATE TABLE agg_moodle_qual_curso_faixa_mu (
+    dim_genero_genero_Key int,
+    dim_faixa_etaria_faixas_Key int,
+    dim_curso_curso_Key int,
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_municipio_municipio_Key int,
+    dim_tempo_mes_qualificacao int2,
+    dim_tempo_ano_qualificacao int2,
+    fato_moodle_cadastros FLOAT8,
+    fato_moodle_matriculas FLOAT8,
+    fato_moodle_qualificados FLOAT8,
+    fato_moodle_fact_count INT8);
+    
+CREATE TABLE agg_moodle_qtd (
+    dim_tempo_data date,
+    fato_moodle_cadastros int default 0,
+    fato_moodle_matriculas FLOAT8 default 0,
+    fato_moodle_qualificados FLOAT8 default 0,
+    fato_moodle_fact_count INT8);
+    

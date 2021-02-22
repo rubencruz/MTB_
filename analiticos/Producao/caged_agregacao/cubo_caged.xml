@@ -1,0 +1,164 @@
+<Schema name="CAGED">
+  <Cube name="cubo_caged" caption="CAGED" visible="true" cache="true" enabled="true">
+    <Table name="fato_caged" schema="fato">
+    </Table>
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_periodo" highCardinality="false" name="tempo">
+      <Hierarchy name="ano" visible="true" hasAll="true" primaryKey="sk_periodo">
+        <Table name="dim_periodo" schema="dimensao">
+        </Table>
+        <Level name="ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never" caption="Ano">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="mes" visible="true" hasAll="true" primaryKey="sk_periodo">
+        <Table name="dim_periodo" schema="dimensao">
+        </Table>
+        <Level name="mes" visible="true" column="mes" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="Mes">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_municipio" highCardinality="false" name="municipio">
+      <Hierarchy name="municipio" visible="true" hasAll="true" primaryKey="sk_municipio" caption="Municipio">
+        <Table name="dim_municipio" schema="dimensao">
+        </Table>
+        <Level name="municipio" visible="true" column="sk_municipio" nameColumn="nome_municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Munic&#237;pio">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_uf" highCardinality="false" name="uf">
+      <Hierarchy name="uf" visible="true" hasAll="true" primaryKey="sk_uf">
+        <Table name="dim_uf" schema="dimensao">
+        </Table>
+        <Level name="uf" visible="true" column="sk_uf" nameColumn="uf" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_regiao" highCardinality="false" name="regiao">
+      <Hierarchy name="regiao" visible="true" hasAll="true" primaryKey="sk_regiao">
+        <Table name="dim_regiao" schema="dimensao">
+        </Table>
+        <Level name="regiao" visible="true" column="sk_regiao" nameColumn="nome_regiao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_faixa_etaria" highCardinality="false" name="faixa_etaria">
+      <Hierarchy name="h_faixa_etaria" visible="true" hasAll="true" primaryKey="sk_faixa_etaria">
+        <Table name="dim_faixa_etaria" schema="dimensao">
+        </Table>
+        <Level name="faixa_etaria" visible="true" column="sk_faixa_etaria" nameColumn="faixa_etaria" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_grau_instrucao" highCardinality="false" name="escolaridade">
+      <Hierarchy name="escolaridade" visible="true" hasAll="true" primaryKey="sk_grau_instrucao">
+        <Table name="dim_grau_instrucao" schema="dimensao">
+        </Table>
+        <Level name="l_escolaridade" visible="true" column="sk_grau_instrucao" nameColumn="nome_grau_instrucao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_portador_deficiencia" highCardinality="false" name="pcd">
+      <Hierarchy name="pcd" visible="true" hasAll="true" primaryKey="sk_portador_deficiencia">
+        <Table name="dim_portador_deficiencia" schema="dimensao">
+        </Table>
+        <Level name="pcd" visible="true" column="sk_portador_deficiencia" nameColumn="portador_deficiencia" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_tipo_deficiencia" highCardinality="false" name="tipo_pcd">
+      <Hierarchy name="tipo_pcd" visible="true" hasAll="true" primaryKey="sk_tipo_deficiencia">
+        <Table name="dim_tipo_deficiencia" schema="dimensao">
+        </Table>
+        <Level name="tipo_pcd" visible="true" column="sk_tipo_deficiencia" nameColumn="nome_tipo_deficiencia" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_cbo" highCardinality="false" name="cbo">
+      <Hierarchy name="cbo" visible="true" hasAll="true" primaryKey="sk_cbo">
+        <Table name="dim_cbo" schema="dimensao">
+        </Table>
+        <Level name="cbo" visible="true" column="sk_cbo" nameColumn="nome_cbo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_cnae_subclasse" highCardinality="false" name="cnae_subclasse">
+      <Hierarchy name="cnae_subclasse" visible="true" hasAll="true" primaryKey="sk_cnae_subclasse">
+        <Table name="dim_cnae_subclasse" schema="dimensao">
+        </Table>
+        <Level name="cnae_subclasse" visible="true" column="sk_cnae_subclasse" nameColumn="nome_subclasse" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_cnae_classe" highCardinality="false" name="cnae_classe">
+      <Hierarchy name="cnae_classe" visible="true" hasAll="true" primaryKey="sk_cnae_classe">
+        <Table name="dim_cnae_classe" schema="dimensao">
+        </Table>
+        <Level name="cnae_classe" visible="true" column="sk_cnae_classe" nameColumn="nome_classe" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_ibge_subsetor" highCardinality="false" name="ibge_subsetor">
+      <Hierarchy name="ibge_subsetor" visible="true" hasAll="true" primaryKey="sk_ibge_subsetor">
+        <Table name="dim_ibge_subsetor" schema="dimensao">
+        </Table>
+        <Level name="ibge_subsetor" visible="true" column="sk_ibge_subsetor" nameColumn="nome_ibge_subsetor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_ibge_setor" highCardinality="false" name="ibge_setor">
+      <Hierarchy name="ibge_setor" visible="true" hasAll="true" primaryKey="sk_ibge_setor">
+        <Table name="dim_ibge_setor" schema="dimensao">
+        </Table>
+        <Level name="ibge_setor" visible="true" column="sk_ibge_setor" nameColumn="nome_ibge_setor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_raca_cor" highCardinality="false" name="raca_cor">
+      <Hierarchy name="raca_cor" visible="true" hasAll="true" primaryKey="sk_raca_cor">
+        <Table name="dim_raca_cor" schema="dimensao">
+        </Table>
+        <Level name="raca" visible="true" column="sk_raca_cor" nameColumn="nome_raca" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="cor" visible="true" column="sk_raca_cor" nameColumn="cor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_genero" highCardinality="false" name="genero">
+      <Hierarchy name="genero" visible="true" hasAll="true" primaryKey="sk_genero">
+        <Table name="dim_genero" schema="dimensao">
+        </Table>
+        <Level name="genero" visible="true" column="sk_genero" nameColumn="nome_genero" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="false" foreignKey="sk_periodo" highCardinality="false" name="ano">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_periodo">
+        <Table name="dim_periodo" schema="dimensao">
+        </Table>
+        <Level name="ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="false" foreignKey="sk_periodo" highCardinality="false" name="mes">
+      <Hierarchy visible="true" hasAll="true" primaryKey="sk_periodo">
+        <Table name="dim_periodo" schema="dimensao">
+        </Table>
+        <Level name="mes" visible="true" column="mes" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="qtd_trabalhadores" column="cpf" aggregator="distinct count" visible="true">
+    </Measure>
+    <Measure name="salario_medio" column="salario" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="qtd_salario_medio" column="qtd_salario" datatype="Integer" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="qtd_admissao" column="qtd_admissao" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="qtd_desligamento" column="qtd_desligamento" aggregator="sum" visible="true">
+    </Measure>
+    <CalculatedMember name="valor_saldo_media" formula="[Measures].[salario_medio]/[Measures].[qtd_salario_medio]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="qtd_saldo" formula="[Measures].[qtd_admissao]-[Measures].[qtd_desligamento]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+</Schema>

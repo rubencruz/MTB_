@@ -1,0 +1,347 @@
+#######################################################################
+WARNING:  no libwebkitgtk-1.0 detected, some features will be unavailable
+    Consider installing the package with apt-get or yum.
+    e.g. 'sudo apt-get install libwebkitgtk-1.0-0'
+#######################################################################
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=4G; support was removed in 8.0
+20:57:27,249 INFO  [KarafBoot] Checking to see if org.pentaho.clean.karaf.cache is enabled
+20:57:27,355 INFO  [KarafInstance] 
+*******************************************************************************
+*** Karaf Instance Number: 2 at /opt/data-integration/./system/karaf/caches ***
+***   /kitchen/data-1                                                       ***
+*** FastBin Provider Port:52902                                             ***
+*** Karaf Port:8803                                                         ***
+*** OSGI Service Port:9052                                                  ***
+*******************************************************************************
+out 07, 2018 8:57:28 PM org.apache.karaf.main.Main$KarafLockCallback lockAquired
+INFO: Lock acquired. Setting startlevel to 100
+2018/10/07 20:57:28 - Kitchen - Start of run.
+2018-10-07 20:57:30.807:INFO:oejs.Server:jetty-8.1.15.v20140411
+2018-10-07 20:57:30.834:INFO:oejs.AbstractConnector:Started NIOSocketConnectorWrapper@0.0.0.0:9052
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/core
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/beans
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/parameterized-types
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/security
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/wsdl/
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2005/08/addressing
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/08/addressing
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-management (152) [org.apache.cxf.management.InstrumentationManager]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-http (156) [org.apache.cxf.transport.http.HTTPTransportFactory, org.apache.cxf.transport.http.HTTPWSDLExtensionLoader, org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder, org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder, org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-wsdl (189) [org.apache.cxf.wsdl.WSDLManager]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-policy (203) [org.apache.cxf.ws.policy.PolicyEngine, org.apache.cxf.policy.PolicyDataEngine, org.apache.cxf.ws.policy.AssertionBuilderRegistry, org.apache.cxf.ws.policy.PolicyInterceptorProviderRegistry, org.apache.cxf.ws.policy.PolicyBuilder, org.apache.cxf.ws.policy.PolicyAnnotationListener, org.apache.cxf.ws.policy.attachment.ServiceModelPolicyProvider, org.apache.cxf.ws.policy.attachment.external.DomainExpressionBuilderRegistry, org.apache.cxf.ws.policy.attachment.external.EndpointReferenceDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.external.URIDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.wsdl11.Wsdl11AttachmentPolicyProvider, org.apache.cxf.ws.policy.mtom.MTOMAssertionBuilder, org.apache.cxf.ws.policy.mtom.MTOMPolicyInterceptorProvider]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/transports/http/configuration
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-soap (192) [org.apache.cxf.binding.soap.SoapBindingFactory, org.apache.cxf.binding.soap.SoapTransportFactory]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs-client
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-xml (191) [org.apache.cxf.binding.xml.XMLBindingFactory, org.apache.cxf.binding.xml.wsdl11.XMLWSDLExtensionLoader]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/bindings/soap
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/simple
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-frontend-jaxws (194) [org.apache.cxf.jaxws.context.WebServiceContextResourceResolver]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxws
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/binding/coloc
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-local (199) [org.apache.cxf.transport.local.LocalTransportFactory]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-object (200) [org.apache.cxf.binding.object.ObjectBindingFactory]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/binding/object
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/policy
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/ns/ws-policy
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2006/07/ws-policy
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/09/policy
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2000/09/xmldsig#
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-addr (220) [org.apache.cxf.ws.addressing.policy.AddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.UsingAddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.AddressingPolicyInterceptorProvider, org.apache.cxf.ws.addressing.impl.AddressingWSDLExtensionLoader, org.apache.cxf.ws.addressing.WSAddressingFeature$WSAddressingFeatureApplier, org.apache.cxf.ws.addressing.MAPAggregator$MAPAggregatorLoader]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/ws/addressing
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-security (222) [org.apache.cxf.ws.security.policy.WSSecurityPolicyLoader, org.apache.cxf.ws.security.cache.CacheCleanupListener]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-rm (224) [org.apache.cxf.ws.rm.RMManager, org.apache.cxf.ws.rm.policy.RMPolicyInterceptorProvider, org.apache.cxf.ws.rm.policy.RM10AssertionBuilder, org.apache.cxf.ws.rm.policy.RM12AssertionBuilder, org.apache.cxf.ws.rm.policy.WSRMP12PolicyLoader, org.apache.cxf.ws.rm.policy.MC11PolicyLoader, org.apache.cxf.ws.rm.policy.RSPPolicyLoader]
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/ws/rm/manager
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2005/02/rm/policy
+out 07, 2018 8:57:31 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-javascript (225) [org.apache.cxf.javascript.JavascriptServerListener]
+out 07, 2018 8:57:31 PM org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1 onSuccess
+INFO: New Caching Service registered
+2018/10/07 20:57:34 - job_carga_caged - Start of job execution
+2018/10/07 20:57:34 - job_carga_caged - Starting entry [ktr_carga_caged]
+2018/10/07 20:57:34 - ktr_carga_caged - Loading transformation from XML file [/home/unb/MTB/ETL/ods/mtb/caged_dw/ktr_carga_caged.ktr]
+out 07, 2018 8:57:34 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /marketplace
+2018/10/07 20:57:34 - ktr_carga_caged - Using run configuration [Pentaho local]
+2018/10/07 20:57:34 - ktr_carga_caged - Using legacy execution engine
+2018/10/07 20:57:34 - ktr_carga_caged - Dispatching started for transformation [ktr_carga_caged]
+out 07, 2018 8:57:34 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /lineage
+out 07, 2018 8:57:34 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /i18n
+2018/10/07 20:57:34 - Carrega tabela.0 - Connected to database [comexao_ods] (commit=100000000)
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/data-integration/launcher/../lib/slf4j-log4j12-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/data-integration/plugins/pentaho-big-data-plugin/lib/slf4j-log4j12-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2018/10/07 20:57:34 - Le Arquivo.0 - Header row skipped in file '/mnt/unb/bases_mte/CAGED/CAGED_TRABALHADOR_AJUSTADO_062018.txt'
+2018/10/07 20:57:36 - Le Arquivo.0 - Line number : 50000
+2018/10/07 20:57:36 - Separa Ano e Mes.0 - Linenr 50000
+2018/10/07 20:57:39 - Le Arquivo.0 - Line number : 100000
+2018/10/07 20:57:41 - Separa Ano e Mes.0 - Linenr 100000
+2018/10/07 20:57:43 - Select values.0 - linenr 50000
+2018/10/07 20:57:45 - Carrega tabela.0 - linenr 50000
+2018/10/07 20:57:50 - Le Arquivo.0 - Line number : 150000
+2018/10/07 20:57:52 - Separa Ano e Mes.0 - Linenr 150000
+2018/10/07 20:57:54 - Select values.0 - linenr 100000
+2018/10/07 20:57:56 - Carrega tabela.0 - linenr 100000
+2018/10/07 20:58:00 - Le Arquivo.0 - Line number : 200000
+2018/10/07 20:58:02 - Separa Ano e Mes.0 - Linenr 200000
+2018/10/07 20:58:04 - Select values.0 - linenr 150000
+2018/10/07 20:58:06 - Carrega tabela.0 - linenr 150000
+2018/10/07 20:58:11 - Le Arquivo.0 - Line number : 250000
+2018/10/07 20:58:13 - Separa Ano e Mes.0 - Linenr 250000
+2018/10/07 20:58:15 - Select values.0 - linenr 200000
+2018/10/07 20:58:17 - Carrega tabela.0 - linenr 200000
+2018/10/07 20:58:21 - Le Arquivo.0 - Line number : 300000
+2018/10/07 20:58:23 - Separa Ano e Mes.0 - Linenr 300000
+2018/10/07 20:58:25 - Select values.0 - linenr 250000
+2018/10/07 20:58:27 - Carrega tabela.0 - linenr 250000
+2018/10/07 20:58:32 - Le Arquivo.0 - Line number : 350000
+2018/10/07 20:58:34 - Separa Ano e Mes.0 - Linenr 350000
+2018/10/07 20:58:36 - Select values.0 - linenr 300000
+2018/10/07 20:58:38 - Carrega tabela.0 - linenr 300000
+2018/10/07 20:58:42 - Le Arquivo.0 - Line number : 400000
+2018/10/07 20:58:44 - Separa Ano e Mes.0 - Linenr 400000
+2018/10/07 20:58:46 - Select values.0 - linenr 350000
+2018/10/07 20:58:48 - Carrega tabela.0 - linenr 350000
+2018/10/07 20:58:52 - Le Arquivo.0 - Line number : 450000
+2018/10/07 20:58:54 - Separa Ano e Mes.0 - Linenr 450000
+2018/10/07 20:58:56 - Select values.0 - linenr 400000
+2018/10/07 20:58:58 - Carrega tabela.0 - linenr 400000
+2018/10/07 20:59:03 - Le Arquivo.0 - Line number : 500000
+2018/10/07 20:59:05 - Separa Ano e Mes.0 - Linenr 500000
+2018/10/07 20:59:07 - Select values.0 - linenr 450000
+2018/10/07 20:59:09 - Carrega tabela.0 - linenr 450000
+2018/10/07 20:59:13 - Le Arquivo.0 - Line number : 550000
+2018/10/07 20:59:15 - Separa Ano e Mes.0 - Linenr 550000
+2018/10/07 20:59:17 - Select values.0 - linenr 500000
+2018/10/07 20:59:19 - Carrega tabela.0 - linenr 500000
+2018/10/07 20:59:23 - Le Arquivo.0 - Line number : 600000
+2018/10/07 20:59:25 - Separa Ano e Mes.0 - Linenr 600000
+2018/10/07 20:59:27 - Select values.0 - linenr 550000
+2018/10/07 20:59:29 - Carrega tabela.0 - linenr 550000
+2018/10/07 20:59:34 - Le Arquivo.0 - Line number : 650000
+2018/10/07 20:59:36 - Separa Ano e Mes.0 - Linenr 650000
+2018/10/07 20:59:38 - Select values.0 - linenr 600000
+2018/10/07 20:59:40 - Carrega tabela.0 - linenr 600000
+2018/10/07 20:59:44 - Le Arquivo.0 - Line number : 700000
+2018/10/07 20:59:46 - Separa Ano e Mes.0 - Linenr 700000
+2018/10/07 20:59:48 - Select values.0 - linenr 650000
+2018/10/07 20:59:50 - Carrega tabela.0 - linenr 650000
+2018/10/07 20:59:54 - Le Arquivo.0 - Line number : 750000
+2018/10/07 20:59:56 - Separa Ano e Mes.0 - Linenr 750000
+2018/10/07 20:59:58 - Select values.0 - linenr 700000
+2018/10/07 21:00:00 - Carrega tabela.0 - linenr 700000
+2018/10/07 21:00:05 - Le Arquivo.0 - Line number : 800000
+2018/10/07 21:00:07 - Separa Ano e Mes.0 - Linenr 800000
+2018/10/07 21:00:09 - Select values.0 - linenr 750000
+2018/10/07 21:00:11 - Carrega tabela.0 - linenr 750000
+2018/10/07 21:00:15 - Le Arquivo.0 - Line number : 850000
+2018/10/07 21:00:17 - Separa Ano e Mes.0 - Linenr 850000
+2018/10/07 21:00:19 - Select values.0 - linenr 800000
+2018/10/07 21:00:21 - Carrega tabela.0 - linenr 800000
+2018/10/07 21:00:26 - Le Arquivo.0 - Line number : 900000
+2018/10/07 21:00:28 - Separa Ano e Mes.0 - Linenr 900000
+2018/10/07 21:00:30 - Select values.0 - linenr 850000
+2018/10/07 21:00:32 - Carrega tabela.0 - linenr 850000
+2018/10/07 21:00:36 - Le Arquivo.0 - Line number : 950000
+2018/10/07 21:00:38 - Separa Ano e Mes.0 - Linenr 950000
+2018/10/07 21:00:40 - Select values.0 - linenr 900000
+2018/10/07 21:00:42 - Carrega tabela.0 - linenr 900000
+2018/10/07 21:00:46 - Le Arquivo.0 - Line number : 1000000
+2018/10/07 21:00:48 - Separa Ano e Mes.0 - Linenr 1000000
+2018/10/07 21:00:50 - Select values.0 - linenr 950000
+2018/10/07 21:00:52 - Carrega tabela.0 - linenr 950000
+2018/10/07 21:00:57 - Le Arquivo.0 - Line number : 1050000
+2018/10/07 21:00:59 - Separa Ano e Mes.0 - Linenr 1050000
+2018/10/07 21:01:01 - Select values.0 - linenr 1000000
+2018/10/07 21:01:03 - Carrega tabela.0 - linenr 1000000
+2018/10/07 21:01:07 - Le Arquivo.0 - Line number : 1100000
+2018/10/07 21:01:09 - Separa Ano e Mes.0 - Linenr 1100000
+2018/10/07 21:01:11 - Select values.0 - linenr 1050000
+2018/10/07 21:01:13 - Carrega tabela.0 - linenr 1050000
+2018/10/07 21:01:18 - Le Arquivo.0 - Line number : 1150000
+2018/10/07 21:01:20 - Separa Ano e Mes.0 - Linenr 1150000
+2018/10/07 21:01:22 - Select values.0 - linenr 1100000
+2018/10/07 21:01:24 - Carrega tabela.0 - linenr 1100000
+2018/10/07 21:01:28 - Le Arquivo.0 - Line number : 1200000
+2018/10/07 21:01:30 - Separa Ano e Mes.0 - Linenr 1200000
+2018/10/07 21:01:32 - Select values.0 - linenr 1150000
+2018/10/07 21:01:34 - Carrega tabela.0 - linenr 1150000
+2018/10/07 21:01:38 - Le Arquivo.0 - Line number : 1250000
+2018/10/07 21:01:40 - Separa Ano e Mes.0 - Linenr 1250000
+2018/10/07 21:01:42 - Select values.0 - linenr 1200000
+2018/10/07 21:01:44 - Carrega tabela.0 - linenr 1200000
+2018/10/07 21:01:49 - Le Arquivo.0 - Line number : 1300000
+2018/10/07 21:01:51 - Separa Ano e Mes.0 - Linenr 1300000
+2018/10/07 21:01:53 - Select values.0 - linenr 1250000
+2018/10/07 21:01:55 - Carrega tabela.0 - linenr 1250000
+2018/10/07 21:01:59 - Le Arquivo.0 - Line number : 1350000
+2018/10/07 21:02:01 - Separa Ano e Mes.0 - Linenr 1350000
+2018/10/07 21:02:03 - Select values.0 - linenr 1300000
+2018/10/07 21:02:05 - Carrega tabela.0 - linenr 1300000
+2018/10/07 21:02:10 - Le Arquivo.0 - Line number : 1400000
+2018/10/07 21:02:12 - Separa Ano e Mes.0 - Linenr 1400000
+2018/10/07 21:02:14 - Select values.0 - linenr 1350000
+2018/10/07 21:02:16 - Carrega tabela.0 - linenr 1350000
+2018/10/07 21:02:20 - Le Arquivo.0 - Line number : 1450000
+2018/10/07 21:02:22 - Separa Ano e Mes.0 - Linenr 1450000
+2018/10/07 21:02:24 - Select values.0 - linenr 1400000
+2018/10/07 21:02:26 - Carrega tabela.0 - linenr 1400000
+2018/10/07 21:02:30 - Le Arquivo.0 - Line number : 1500000
+2018/10/07 21:02:33 - Separa Ano e Mes.0 - Linenr 1500000
+2018/10/07 21:02:35 - Select values.0 - linenr 1450000
+2018/10/07 21:02:37 - Carrega tabela.0 - linenr 1450000
+2018/10/07 21:02:41 - Le Arquivo.0 - Line number : 1550000
+2018/10/07 21:02:43 - Separa Ano e Mes.0 - Linenr 1550000
+2018/10/07 21:02:45 - Select values.0 - linenr 1500000
+2018/10/07 21:02:47 - Carrega tabela.0 - linenr 1500000
+2018/10/07 21:02:51 - Le Arquivo.0 - Line number : 1600000
+2018/10/07 21:02:53 - Separa Ano e Mes.0 - Linenr 1600000
+2018/10/07 21:02:55 - Select values.0 - linenr 1550000
+2018/10/07 21:02:57 - Carrega tabela.0 - linenr 1550000
+2018/10/07 21:03:01 - Le Arquivo.0 - Line number : 1650000
+2018/10/07 21:03:04 - Separa Ano e Mes.0 - Linenr 1650000
+2018/10/07 21:03:06 - Select values.0 - linenr 1600000
+2018/10/07 21:03:08 - Carrega tabela.0 - linenr 1600000
+2018/10/07 21:03:12 - Le Arquivo.0 - Line number : 1700000
+2018/10/07 21:03:14 - Separa Ano e Mes.0 - Linenr 1700000
+2018/10/07 21:03:16 - Select values.0 - linenr 1650000
+2018/10/07 21:03:18 - Carrega tabela.0 - linenr 1650000
+2018/10/07 21:03:22 - Le Arquivo.0 - Line number : 1750000
+2018/10/07 21:03:24 - Separa Ano e Mes.0 - Linenr 1750000
+2018/10/07 21:03:26 - Select values.0 - linenr 1700000
+2018/10/07 21:03:28 - Carrega tabela.0 - linenr 1700000
+2018/10/07 21:03:33 - Le Arquivo.0 - Line number : 1800000
+2018/10/07 21:03:35 - Separa Ano e Mes.0 - Linenr 1800000
+2018/10/07 21:03:37 - Select values.0 - linenr 1750000
+2018/10/07 21:03:39 - Carrega tabela.0 - linenr 1750000
+2018/10/07 21:03:43 - Le Arquivo.0 - Line number : 1850000
+2018/10/07 21:03:45 - Separa Ano e Mes.0 - Linenr 1850000
+2018/10/07 21:03:47 - Select values.0 - linenr 1800000
+2018/10/07 21:03:49 - Carrega tabela.0 - linenr 1800000
+2018/10/07 21:03:53 - Le Arquivo.0 - Line number : 1900000
+2018/10/07 21:03:55 - Separa Ano e Mes.0 - Linenr 1900000
+2018/10/07 21:03:57 - Select values.0 - linenr 1850000
+2018/10/07 21:03:59 - Carrega tabela.0 - linenr 1850000
+2018/10/07 21:04:04 - Le Arquivo.0 - Line number : 1950000
+2018/10/07 21:04:06 - Separa Ano e Mes.0 - Linenr 1950000
+2018/10/07 21:04:08 - Select values.0 - linenr 1900000
+2018/10/07 21:04:10 - Carrega tabela.0 - linenr 1900000
+2018/10/07 21:04:14 - Le Arquivo.0 - Line number : 2000000
+2018/10/07 21:04:16 - Separa Ano e Mes.0 - Linenr 2000000
+2018/10/07 21:04:18 - Select values.0 - linenr 1950000
+2018/10/07 21:04:20 - Carrega tabela.0 - linenr 1950000
+2018/10/07 21:04:24 - Le Arquivo.0 - Line number : 2050000
+2018/10/07 21:04:26 - Separa Ano e Mes.0 - Linenr 2050000
+2018/10/07 21:04:28 - Select values.0 - linenr 2000000
+2018/10/07 21:04:30 - Carrega tabela.0 - linenr 2000000
+2018/10/07 21:04:35 - Le Arquivo.0 - Line number : 2100000
+2018/10/07 21:04:37 - Separa Ano e Mes.0 - Linenr 2100000
+2018/10/07 21:04:39 - Select values.0 - linenr 2050000
+2018/10/07 21:04:41 - Carrega tabela.0 - linenr 2050000
+2018/10/07 21:04:45 - Le Arquivo.0 - Line number : 2150000
+2018/10/07 21:04:47 - Separa Ano e Mes.0 - Linenr 2150000
+2018/10/07 21:04:49 - Select values.0 - linenr 2100000
+2018/10/07 21:04:51 - Carrega tabela.0 - linenr 2100000
+2018/10/07 21:04:55 - Le Arquivo.0 - Line number : 2200000
+2018/10/07 21:04:57 - Separa Ano e Mes.0 - Linenr 2200000
+2018/10/07 21:04:59 - Select values.0 - linenr 2150000
+2018/10/07 21:05:01 - Carrega tabela.0 - linenr 2150000
+2018/10/07 21:05:05 - Le Arquivo.0 - Line number : 2250000
+2018/10/07 21:05:07 - Separa Ano e Mes.0 - Linenr 2250000
+2018/10/07 21:05:09 - Select values.0 - linenr 2200000
+2018/10/07 21:05:11 - Carrega tabela.0 - linenr 2200000
+2018/10/07 21:05:16 - Le Arquivo.0 - Line number : 2300000
+2018/10/07 21:05:18 - Separa Ano e Mes.0 - Linenr 2300000
+2018/10/07 21:05:20 - Select values.0 - linenr 2250000
+2018/10/07 21:05:22 - Carrega tabela.0 - linenr 2250000
+2018/10/07 21:05:26 - Le Arquivo.0 - Line number : 2350000
+2018/10/07 21:05:28 - Separa Ano e Mes.0 - Linenr 2350000
+2018/10/07 21:05:30 - Select values.0 - linenr 2300000
+2018/10/07 21:05:32 - Carrega tabela.0 - linenr 2300000
+2018/10/07 21:05:36 - Le Arquivo.0 - Line number : 2400000
+2018/10/07 21:05:38 - Separa Ano e Mes.0 - Linenr 2400000
+2018/10/07 21:05:40 - Select values.0 - linenr 2350000
+2018/10/07 21:05:42 - Carrega tabela.0 - linenr 2350000
+2018/10/07 21:05:47 - Le Arquivo.0 - Line number : 2450000
+2018/10/07 21:05:49 - Separa Ano e Mes.0 - Linenr 2450000
+2018/10/07 21:05:51 - Select values.0 - linenr 2400000
+2018/10/07 21:05:53 - Carrega tabela.0 - linenr 2400000
+2018/10/07 21:05:57 - Le Arquivo.0 - Line number : 2500000
+2018/10/07 21:05:59 - Separa Ano e Mes.0 - Linenr 2500000
+2018/10/07 21:06:01 - Select values.0 - linenr 2450000
+2018/10/07 21:06:03 - Carrega tabela.0 - linenr 2450000
+2018/10/07 21:06:08 - Le Arquivo.0 - Line number : 2550000
+2018/10/07 21:06:10 - Separa Ano e Mes.0 - Linenr 2550000
+2018/10/07 21:06:12 - Select values.0 - linenr 2500000
+2018/10/07 21:06:14 - Carrega tabela.0 - linenr 2500000
+2018/10/07 21:06:18 - Le Arquivo.0 - Line number : 2600000
+2018/10/07 21:06:20 - Separa Ano e Mes.0 - Linenr 2600000
+2018/10/07 21:06:22 - Select values.0 - linenr 2550000
+2018/10/07 21:06:24 - Carrega tabela.0 - linenr 2550000
+2018/10/07 21:06:28 - Le Arquivo.0 - Line number : 2650000
+2018/10/07 21:06:30 - Separa Ano e Mes.0 - Linenr 2650000
+2018/10/07 21:06:32 - Select values.0 - linenr 2600000
+2018/10/07 21:06:34 - Le Arquivo.0 - Finished processing (I=2677453, O=0, R=0, W=2677452, U=0, E=0)
+2018/10/07 21:06:34 - Carrega tabela.0 - linenr 2600000
+2018/10/07 21:06:36 - Separa Ano e Mes.0 - Finished processing (I=0, O=0, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:38 - Corrige sal_mensal_declarado.0 - Finished processing (I=0, O=0, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:40 - Corrige CBO.0 - Finished processing (I=0, O=0, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:42 - corige_dia_mov.0 - Finished processing (I=0, O=0, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:42 - Select values.0 - linenr 2650000
+2018/10/07 21:06:44 - Corrige CNAE1.0 - Finished processing (I=0, O=0, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:44 - Carrega tabela.0 - linenr 2650000
+2018/10/07 21:06:46 - Corrige grau instrucao.0 - Finished processing (I=0, O=0, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:48 - Select values.0 - Finished processing (I=0, O=0, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:50 - Carrega tabela.0 - Finished processing (I=0, O=2677452, R=2677452, W=2677452, U=0, E=0)
+2018/10/07 21:06:50 - job_carga_caged - Starting entry [Success]
+2018/10/07 21:06:50 - job_carga_caged - Finished job entry [Success] (result=[true])
+2018/10/07 21:06:50 - job_carga_caged - Finished job entry [ktr_carga_caged] (result=[true])
+2018/10/07 21:06:50 - job_carga_caged - Job execution finished
+2018/10/07 21:06:50 - Kitchen - Finished!
+2018/10/07 21:06:50 - Kitchen - Start=2018/10/07 20:57:28.277, Stop=2018/10/07 21:06:50.020
+2018/10/07 21:06:50 - Kitchen - Processing ended after 9 minutes and 21 seconds (561 seconds total).

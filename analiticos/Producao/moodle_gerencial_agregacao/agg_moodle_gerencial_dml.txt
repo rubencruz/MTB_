@@ -1,0 +1,90 @@
+-- Populate aggregate table agg_gerencial_base
+INSERT INTO agg_gerencial_base (
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes,
+    dim_tempo_ano,
+    fato_gerencial_qtd_no_mercado,
+    fato_gerencial_qtd_entraran_me,
+    fato_gerencial_qtd_sairam_merc,
+    fato_gerencial_qtd_seguro_dese,
+    fato_gerencial_qtd_fora_mercad,
+    fato_gerencial_fact_count)
+select
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo.mes as dim_tempo_mes,
+    dim_tempo.ano as dim_tempo_ano,
+    sum(fato_gerencial.qtd_dentro_mercado) as fato_gerencial_qtd_no_mercado,
+    sum(fato_gerencial.qtd_entraram_mercado) as fato_gerencial_qtd_entraran_me,
+    sum(fato_gerencial.qtd_sairam_mercado) as fato_gerencial_qtd_sairam_merc,
+    sum(fato_gerencial.qtd_seguro_desemprego) as fato_gerencial_qtd_seguro_dese,
+    sum(fato_gerencial.qtd_fora_mercado) as fato_gerencial_qtd_fora_mercad,
+    count(*) as fato_gerencial_fact_count
+from
+    fato.fato_gerencial as fato_gerencial,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tempo as dim_tempo
+where
+    fato_gerencial.sk_uf = dim_uf.sk_uf
+and
+    fato_gerencial.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_gerencial.sk_tempo_matricula = dim_tempo.sk_tempo
+group by
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo.mes,
+    dim_tempo.ano;
+
+
+
+-- Populate aggregate table agg_gerencial_base_mun
+INSERT INTO agg_gerencial_base_mun (
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes,
+    dim_tempo_ano,
+    dim_municipio_municipio_Key,
+    fato_gerencial_qtd_no_mercado,
+    fato_gerencial_qtd_entraran_me,
+    fato_gerencial_qtd_sairam_merc,
+    fato_gerencial_qtd_seguro_dese,
+    fato_gerencial_qtd_fora_mercad,
+    fato_gerencial_fact_count)
+select
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo.mes as dim_tempo_mes,
+    dim_tempo.ano as dim_tempo_ano,
+    dim_municipio.sk_municipio as dim_municipio_municipio_Key,
+    sum(fato_gerencial.qtd_dentro_mercado) as fato_gerencial_qtd_no_mercado,
+    sum(fato_gerencial.qtd_entraram_mercado) as fato_gerencial_qtd_entraran_me,
+    sum(fato_gerencial.qtd_sairam_mercado) as fato_gerencial_qtd_sairam_merc,
+    sum(fato_gerencial.qtd_seguro_desemprego) as fato_gerencial_qtd_seguro_dese,
+    sum(fato_gerencial.qtd_fora_mercado) as fato_gerencial_qtd_fora_mercad,
+    count(*) as fato_gerencial_fact_count
+from
+    fato.fato_gerencial as fato_gerencial,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tempo as dim_tempo,
+    dimensao.dim_municipio as dim_municipio
+where
+    fato_gerencial.sk_uf = dim_uf.sk_uf
+and
+    fato_gerencial.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_gerencial.sk_tempo_matricula = dim_tempo.sk_tempo
+and
+    fato_gerencial.sk_municipio = dim_municipio.sk_municipio
+group by
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo.mes,
+    dim_tempo.ano,
+    dim_municipio.sk_municipio;
+
+
+

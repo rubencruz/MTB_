@@ -1,0 +1,216 @@
+-- Populate aggregate table agg_caged_base
+INSERT INTO agg_caged_base (
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_genero_genero,
+    dim_periodo_ano,
+    dim_periodo_mes,
+    fato_caged_qtd_trabalhadores,
+    fato_caged_salario_medio,
+    fato_caged_qtd_salario_medio,
+    fato_caged_qtd_admissao,
+    fato_caged_qtd_desligamento,
+    fato_caged_fact_count)
+select
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_genero.sk_genero as dim_genero_genero,
+    dim_periodo.ano as dim_periodo_ano,
+    dim_periodo.mes as dim_periodo_mes,
+    count(distinct fato_caged.cpf) as fato_caged_qtd_trabalhadores,
+    sum(fato_caged.salario) as fato_caged_salario_medio,
+    sum(fato_caged.qtd_salario) as fato_caged_qtd_salario_medio,
+    sum(fato_caged.qtd_admissao) as fato_caged_qtd_admissao,
+    sum(fato_caged.qtd_desligamento) as fato_caged_qtd_desligamento,
+    count(*) as fato_caged_fact_count
+from
+    fato.fato_caged as fato_caged,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_periodo as dim_periodo
+where
+    fato_caged.sk_uf = dim_uf.sk_uf
+and
+    fato_caged.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_caged.sk_genero = dim_genero.sk_genero
+and
+    fato_caged.sk_periodo = dim_periodo.sk_periodo
+group by
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_genero.sk_genero,
+    dim_periodo.ano,
+    dim_periodo.mes;
+
+
+
+-- Populate aggregate table agg_caged_base_mun
+INSERT INTO agg_caged_base_mun (
+    dim_periodo_mes,
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_genero_genero,
+    dim_periodo_ano,
+    fato_caged_qtd_trabalhadores,
+    fato_caged_salario_medio,
+    fato_caged_qtd_salario_medio,
+    fato_caged_qtd_admissao,
+    fato_caged_qtd_desligamento,
+    fato_caged_fact_count)
+select
+    dim_periodo.mes as dim_periodo_mes,
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_genero.sk_genero as dim_genero_genero,
+    dim_periodo.ano as dim_periodo_ano,
+    count(distinct fato_caged.cpf) as fato_caged_qtd_trabalhadores,
+    sum(fato_caged.salario) as fato_caged_salario_medio,
+    sum(fato_caged.qtd_salario) as fato_caged_qtd_salario_medio,
+    sum(fato_caged.qtd_admissao) as fato_caged_qtd_admissao,
+    sum(fato_caged.qtd_desligamento) as fato_caged_qtd_desligamento,
+    count(*) as fato_caged_fact_count
+from
+    fato.fato_caged as fato_caged,
+    dimensao.dim_periodo as dim_periodo,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_genero as dim_genero
+where
+    fato_caged.sk_periodo = dim_periodo.sk_periodo
+and
+    fato_caged.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_caged.sk_uf = dim_uf.sk_uf
+and
+    fato_caged.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_caged.sk_genero = dim_genero.sk_genero
+group by
+    dim_periodo.mes,
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_genero.sk_genero,
+    dim_periodo.ano;
+
+
+
+-- Populate aggregate table agg_caged_base_cbo
+INSERT INTO agg_caged_base_cbo (
+    dim_periodo_mes,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    dim_periodo_ano,
+    fato_caged_qtd_trabalhadores,
+    fato_caged_salario_medio,
+    fato_caged_qtd_salario_medio,
+    fato_caged_qtd_admissao,
+    fato_caged_qtd_desligamento,
+    fato_caged_fact_count)
+select
+    dim_periodo.mes as dim_periodo_mes,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    dim_periodo.ano as dim_periodo_ano,
+    count(distinct fato_caged.cpf) as fato_caged_qtd_trabalhadores,
+    sum(fato_caged.salario) as fato_caged_salario_medio,
+    sum(fato_caged.qtd_salario) as fato_caged_qtd_salario_medio,
+    sum(fato_caged.qtd_admissao) as fato_caged_qtd_admissao,
+    sum(fato_caged.qtd_desligamento) as fato_caged_qtd_desligamento,
+    count(*) as fato_caged_fact_count
+from
+    fato.fato_caged as fato_caged,
+    dimensao.dim_periodo as dim_periodo,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero
+where
+    fato_caged.sk_periodo = dim_periodo.sk_periodo
+and
+    fato_caged.sk_uf = dim_uf.sk_uf
+and
+    fato_caged.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_caged.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_caged.sk_genero = dim_genero.sk_genero
+group by
+    dim_periodo.mes,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero,
+    dim_periodo.ano;
+
+
+
+-- Populate aggregate table agg_caged_base_cbo_mun
+INSERT INTO agg_caged_base_cbo_mun (
+    dim_municipio_municipio,
+    dim_uf_uf,
+    dim_regiao_regiao,
+    dim_cbo_cbo,
+    dim_genero_genero,
+    dim_periodo_ano,
+    dim_periodo_mes,
+    fato_caged_qtd_trabalhadores,
+    fato_caged_salario_medio,
+    fato_caged_qtd_salario_medio,
+    fato_caged_qtd_admissao,
+    fato_caged_qtd_desligamento,
+    fato_caged_fact_count)
+select
+    dim_municipio.sk_municipio as dim_municipio_municipio,
+    dim_uf.sk_uf as dim_uf_uf,
+    dim_regiao.sk_regiao as dim_regiao_regiao,
+    dim_cbo.sk_cbo as dim_cbo_cbo,
+    dim_genero.sk_genero as dim_genero_genero,
+    dim_periodo.ano as dim_periodo_ano,
+    dim_periodo.mes as dim_periodo_mes,
+    count(distinct fato_caged.cpf) as fato_caged_qtd_trabalhadores,
+    sum(fato_caged.salario) as fato_caged_salario_medio,
+    sum(fato_caged.qtd_salario) as fato_caged_qtd_salario_medio,
+    sum(fato_caged.qtd_admissao) as fato_caged_qtd_admissao,
+    sum(fato_caged.qtd_desligamento) as fato_caged_qtd_desligamento,
+    count(*) as fato_caged_fact_count
+from
+    fato.fato_caged as fato_caged,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_cbo as dim_cbo,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_periodo as dim_periodo
+where
+    fato_caged.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_caged.sk_uf = dim_uf.sk_uf
+and
+    fato_caged.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_caged.sk_cbo = dim_cbo.sk_cbo
+and
+    fato_caged.sk_genero = dim_genero.sk_genero
+and
+    fato_caged.sk_periodo = dim_periodo.sk_periodo
+group by
+    dim_municipio.sk_municipio,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_cbo.sk_cbo,
+    dim_genero.sk_genero,
+    dim_periodo.ano,
+    dim_periodo.mes;
+
+
+

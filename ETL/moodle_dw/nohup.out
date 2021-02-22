@@ -1,0 +1,530 @@
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+org.pentaho.di.core.exception.KettleDatabaseException: 
+An error occurred executing SQL: 
+select cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, min(X_mat.data_matricula) as data_cadastro, min(X_mat.id) as id_ue
+-- X_mat.cpf, X_mat.courseid, X_mat.data_matricula, X_mat.student_id, X_qual.data_qualificacao, case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+from
+(
+    select 
+	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+	 1 as qtd_qualificacao
+	from
+	ods_moodle.mdl_badge_issued bi		
+	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+	where u.alternatename <> '000.000.000-00'
+     -- where date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+	group by u.alternatename, bi.userid, b.courseid
+	--having count(1) > 1
+	--order by 1
+   
+)X_qual
+right join
+(
+	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+	max(u.id) as student_id, max(ue.id) as id
+	from 	
+	ods_moodle.mdl_user_enrolments ue 
+	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+	group by u.alternatename, e.courseid	
+	
+) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+group by X_mat.cpf
+
+ERROR: syntax error at or near "group"
+  Posição: 1298
+
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+  Posição: 1298
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+	... 4 more
+org.pentaho.di.core.exception.KettleDatabaseException: 
+An error occurred executing SQL: 
+select 
+date_part('year',X_mat.data_matricula) as ano_referencia, date_part('month',X_mat.data_matricula) as mes_referencia,
+cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, X_mat.courseid, 
+X_mat.data_matricula, X_mat.student_id, 
+X_qual.data_qualificacao, X_mat.id as id_ue,
+case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+from
+(
+    select 
+	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+	 1 as qtd_qualificacao
+	from
+	ods_moodle.mdl_badge_issued bi		
+	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+	where u.alternatename <> '000.000.000-00'
+     -- and date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+	group by u.alternatename, bi.userid, b.courseid
+	-- having count(1) > 1
+	-- order by 1   
+)X_qual
+right join
+(
+	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+	max(u.id) as student_id, max(ue.id) as id
+	from 	
+	ods_moodle.mdl_user_enrolments ue 
+	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+	
+	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+	group by u.alternatename, e.courseid	
+	-- LIMIT 10
+) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+
+
+ERROR: syntax error at or near "group"
+  Posição: 1357
+
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+  Posição: 1357
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+	... 4 more
+2019/01/13 10:48:49 - Table input.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erro inesperado
+2019/01/13 10:48:49 - input - moodle.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erro inesperado
+2019/01/13 10:48:49 - Table input.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseException: 
+2019/01/13 10:48:49 - Table input.0 - An error occurred executing SQL: 
+2019/01/13 10:48:49 - Table input.0 - select cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, min(X_mat.data_matricula) as data_cadastro, min(X_mat.id) as id_ue
+2019/01/13 10:48:49 - Table input.0 - -- X_mat.cpf, X_mat.courseid, X_mat.data_matricula, X_mat.student_id, X_qual.data_qualificacao, case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+2019/01/13 10:48:49 - Table input.0 - from
+2019/01/13 10:48:49 - Table input.0 - (
+2019/01/13 10:48:49 - Table input.0 -     select 
+2019/01/13 10:48:49 - Table input.0 - 	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+2019/01/13 10:48:49 - Table input.0 - 	 1 as qtd_qualificacao
+2019/01/13 10:48:49 - Table input.0 - 	from
+2019/01/13 10:48:49 - Table input.0 - 	ods_moodle.mdl_badge_issued bi		
+2019/01/13 10:48:49 - Table input.0 - 	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+2019/01/13 10:48:49 - Table input.0 - 	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+2019/01/13 10:48:49 - Table input.0 - 	where u.alternatename <> '000.000.000-00'
+2019/01/13 10:48:49 - Table input.0 -      -- where date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+2019/01/13 10:48:49 - Table input.0 - 	group by u.alternatename, bi.userid, b.courseid
+2019/01/13 10:48:49 - Table input.0 - 	--having count(1) > 1
+2019/01/13 10:48:49 - Table input.0 - 	--order by 1
+2019/01/13 10:48:49 - Table input.0 -    
+2019/01/13 10:48:49 - Table input.0 - )X_qual
+2019/01/13 10:48:49 - Table input.0 - right join
+2019/01/13 10:48:49 - Table input.0 - (
+2019/01/13 10:48:49 - Table input.0 - 	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+2019/01/13 10:48:49 - Table input.0 - 	max(u.id) as student_id, max(ue.id) as id
+2019/01/13 10:48:49 - Table input.0 - 	from 	
+2019/01/13 10:48:49 - Table input.0 - 	ods_moodle.mdl_user_enrolments ue 
+2019/01/13 10:48:49 - Table input.0 - 	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+2019/01/13 10:48:49 - Table input.0 - 	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+2019/01/13 10:48:49 - Table input.0 - 	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+2019/01/13 10:48:49 - Table input.0 - 	group by u.alternatename, e.courseid	
+2019/01/13 10:48:49 - Table input.0 - 	
+2019/01/13 10:48:49 - Table input.0 - ) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+2019/01/13 10:48:49 - Table input.0 - group by X_mat.cpf
+2019/01/13 10:48:49 - Table input.0 - 
+2019/01/13 10:48:49 - Table input.0 - ERROR: syntax error at or near "group"
+2019/01/13 10:48:49 - Table input.0 -   Posição: 1298
+2019/01/13 10:48:49 - Table input.0 - 
+2019/01/13 10:48:49 - Table input.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+2019/01/13 10:48:49 - Table input.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+2019/01/13 10:48:49 - Table input.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+2019/01/13 10:48:49 - Table input.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2019/01/13 10:48:49 - Table input.0 - 	at java.lang.Thread.run(Thread.java:748)
+2019/01/13 10:48:49 - Table input.0 - Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+2019/01/13 10:48:49 - Table input.0 -   Posição: 1298
+2019/01/13 10:48:49 - Table input.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+2019/01/13 10:48:49 - Table input.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+2019/01/13 10:48:49 - Table input.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+2019/01/13 10:48:49 - Table input.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+2019/01/13 10:48:49 - Table input.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+2019/01/13 10:48:49 - Table input.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+2019/01/13 10:48:49 - Table input.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+2019/01/13 10:48:49 - Table input.0 - 	... 4 more
+2019/01/13 10:48:49 - input - moodle.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseException: 
+2019/01/13 10:48:49 - input - moodle.0 - An error occurred executing SQL: 
+2019/01/13 10:48:49 - input - moodle.0 - select 
+2019/01/13 10:48:49 - input - moodle.0 - date_part('year',X_mat.data_matricula) as ano_referencia, date_part('month',X_mat.data_matricula) as mes_referencia,
+2019/01/13 10:48:49 - input - moodle.0 - cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, X_mat.courseid, 
+2019/01/13 10:48:49 - input - moodle.0 - X_mat.data_matricula, X_mat.student_id, 
+2019/01/13 10:48:49 - input - moodle.0 - X_qual.data_qualificacao, X_mat.id as id_ue,
+2019/01/13 10:48:49 - input - moodle.0 - case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+2019/01/13 10:48:49 - input - moodle.0 - from
+2019/01/13 10:48:49 - input - moodle.0 - (
+2019/01/13 10:48:49 - input - moodle.0 -     select 
+2019/01/13 10:48:49 - input - moodle.0 - 	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+2019/01/13 10:48:49 - input - moodle.0 - 	 1 as qtd_qualificacao
+2019/01/13 10:48:49 - input - moodle.0 - 	from
+2019/01/13 10:48:49 - input - moodle.0 - 	ods_moodle.mdl_badge_issued bi		
+2019/01/13 10:48:49 - input - moodle.0 - 	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+2019/01/13 10:48:49 - input - moodle.0 - 	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+2019/01/13 10:48:49 - input - moodle.0 - 	where u.alternatename <> '000.000.000-00'
+2019/01/13 10:48:49 - input - moodle.0 -      -- and date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+2019/01/13 10:48:49 - input - moodle.0 - 	group by u.alternatename, bi.userid, b.courseid
+2019/01/13 10:48:49 - input - moodle.0 - 	-- having count(1) > 1
+2019/01/13 10:48:49 - input - moodle.0 - 	-- order by 1   
+2019/01/13 10:48:49 - input - moodle.0 - )X_qual
+2019/01/13 10:48:49 - input - moodle.0 - right join
+2019/01/13 10:48:49 - input - moodle.0 - (
+2019/01/13 10:48:49 - input - moodle.0 - 	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+2019/01/13 10:48:49 - input - moodle.0 - 	max(u.id) as student_id, max(ue.id) as id
+2019/01/13 10:48:49 - input - moodle.0 - 	from 	
+2019/01/13 10:48:49 - input - moodle.0 - 	ods_moodle.mdl_user_enrolments ue 
+2019/01/13 10:48:49 - input - moodle.0 - 	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+2019/01/13 10:48:49 - input - moodle.0 - 	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+2019/01/13 10:48:49 - input - moodle.0 - 	
+2019/01/13 10:48:49 - input - moodle.0 - 	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+2019/01/13 10:48:49 - input - moodle.0 - 	group by u.alternatename, e.courseid	
+2019/01/13 10:48:49 - input - moodle.0 - 	-- LIMIT 10
+2019/01/13 10:48:49 - input - moodle.0 - ) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+2019/01/13 10:48:49 - input - moodle.0 - 
+2019/01/13 10:48:49 - input - moodle.0 - 
+2019/01/13 10:48:49 - input - moodle.0 - ERROR: syntax error at or near "group"
+2019/01/13 10:48:49 - input - moodle.0 -   Posição: 1357
+2019/01/13 10:48:49 - input - moodle.0 - 
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2019/01/13 10:48:49 - input - moodle.0 - 	at java.lang.Thread.run(Thread.java:748)
+2019/01/13 10:48:49 - input - moodle.0 - Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+2019/01/13 10:48:49 - input - moodle.0 -   Posição: 1357
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+2019/01/13 10:48:49 - input - moodle.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+2019/01/13 10:48:49 - input - moodle.0 - 	... 4 more
+2019/01/13 10:48:49 - ktr_staging_moodle - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erros detectados!
+2019/01/13 10:48:50 - ktr_staging_moodle - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erros detectados!
+2019/01/13 10:48:50 - Kitchen - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Finished with errors
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+org.pentaho.di.core.exception.KettleDatabaseException: 
+An error occurred executing SQL: 
+select 
+date_part('year',X_mat.data_matricula) as ano_referencia, date_part('month',X_mat.data_matricula) as mes_referencia,
+cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, X_mat.courseid, 
+X_mat.data_matricula, X_mat.student_id, 
+X_qual.data_qualificacao, X_mat.id as id_ue,
+case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+from
+(
+    select 
+	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+	 1 as qtd_qualificacao
+	from
+	ods_moodle.mdl_badge_issued bi		
+	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+	where u.alternatename <> '000.000.000-00'
+     -- and date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+	group by u.alternatename, bi.userid, b.courseid
+	-- having count(1) > 1
+	-- order by 1   
+)X_qual
+right join
+(
+	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+	max(u.id) as student_id, max(ue.id) as id
+	from 	
+	ods_moodle.mdl_user_enrolments ue 
+	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+	
+	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+	group by u.alternatename, e.courseid	
+	-- LIMIT 10
+) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+
+
+ERROR: syntax error at or near "group"
+  Posição: 1357
+
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+  Posição: 1357
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+	... 4 more
+2019/01/13 10:52:34 - input - moodle.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erro inesperado
+org.pentaho.di.core.exception.KettleDatabaseException: 
+An error occurred executing SQL: 
+select cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, min(X_mat.data_matricula) as data_cadastro, min(X_mat.id) as id_ue
+-- X_mat.cpf, X_mat.courseid, X_mat.data_matricula, X_mat.student_id, X_qual.data_qualificacao, case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+from
+(
+    select 
+	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+	 1 as qtd_qualificacao
+	from
+	ods_moodle.mdl_badge_issued bi		
+	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+	where u.alternatename <> '000.000.000-00'
+     -- where date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+	group by u.alternatename, bi.userid, b.courseid
+	--having count(1) > 1
+	--order by 1
+   
+)X_qual
+right join
+(
+	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+	max(u.id) as student_id, max(ue.id) as id
+	from 	
+	ods_moodle.mdl_user_enrolments ue 
+	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+	group by u.alternatename, e.courseid	
+	
+) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+group by X_mat.cpf
+
+ERROR: syntax error at or near "group"
+  Posição: 1298
+
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+  Posição: 1298
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+	... 4 more
+2019/01/13 10:52:34 - input - moodle.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseException: 
+2019/01/13 10:52:34 - input - moodle.0 - An error occurred executing SQL: 
+2019/01/13 10:52:34 - input - moodle.0 - select 
+2019/01/13 10:52:34 - input - moodle.0 - date_part('year',X_mat.data_matricula) as ano_referencia, date_part('month',X_mat.data_matricula) as mes_referencia,
+2019/01/13 10:52:34 - input - moodle.0 - cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, X_mat.courseid, 
+2019/01/13 10:52:34 - input - moodle.0 - X_mat.data_matricula, X_mat.student_id, 
+2019/01/13 10:52:34 - input - moodle.0 - X_qual.data_qualificacao, X_mat.id as id_ue,
+2019/01/13 10:52:34 - input - moodle.0 - case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+2019/01/13 10:52:34 - input - moodle.0 - from
+2019/01/13 10:52:34 - input - moodle.0 - (
+2019/01/13 10:52:34 - input - moodle.0 -     select 
+2019/01/13 10:52:34 - input - moodle.0 - 	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+2019/01/13 10:52:34 - input - moodle.0 - 	 1 as qtd_qualificacao
+2019/01/13 10:52:34 - input - moodle.0 - 	from
+2019/01/13 10:52:34 - input - moodle.0 - 	ods_moodle.mdl_badge_issued bi		
+2019/01/13 10:52:34 - input - moodle.0 - 	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+2019/01/13 10:52:34 - input - moodle.0 - 	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+2019/01/13 10:52:34 - input - moodle.0 - 	where u.alternatename <> '000.000.000-00'
+2019/01/13 10:52:34 - input - moodle.0 -      -- and date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+2019/01/13 10:52:34 - input - moodle.0 - 	group by u.alternatename, bi.userid, b.courseid
+2019/01/13 10:52:34 - input - moodle.0 - 	-- having count(1) > 1
+2019/01/13 10:52:34 - input - moodle.0 - 	-- order by 1   
+2019/01/13 10:52:34 - input - moodle.0 - )X_qual
+2019/01/13 10:52:34 - input - moodle.0 - right join
+2019/01/13 10:52:34 - input - moodle.0 - (
+2019/01/13 10:52:34 - input - moodle.0 - 	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+2019/01/13 10:52:34 - input - moodle.0 - 	max(u.id) as student_id, max(ue.id) as id
+2019/01/13 10:52:34 - input - moodle.0 - 	from 	
+2019/01/13 10:52:34 - input - moodle.0 - 	ods_moodle.mdl_user_enrolments ue 
+2019/01/13 10:52:34 - input - moodle.0 - 	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+2019/01/13 10:52:34 - input - moodle.0 - 	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+2019/01/13 10:52:34 - input - moodle.0 - 	
+2019/01/13 10:52:34 - input - moodle.0 - 	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+2019/01/13 10:52:34 - input - moodle.0 - 	group by u.alternatename, e.courseid	
+2019/01/13 10:52:34 - input - moodle.0 - 	-- LIMIT 10
+2019/01/13 10:52:34 - input - moodle.0 - ) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+2019/01/13 10:52:34 - input - moodle.0 - 
+2019/01/13 10:52:34 - input - moodle.0 - 
+2019/01/13 10:52:34 - input - moodle.0 - ERROR: syntax error at or near "group"
+2019/01/13 10:52:34 - input - moodle.0 -   Posição: 1357
+2019/01/13 10:52:34 - input - moodle.0 - 
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2019/01/13 10:52:34 - input - moodle.0 - 	at java.lang.Thread.run(Thread.java:748)
+2019/01/13 10:52:34 - input - moodle.0 - Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+2019/01/13 10:52:34 - input - moodle.0 -   Posição: 1357
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+2019/01/13 10:52:34 - input - moodle.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+2019/01/13 10:52:34 - input - moodle.0 - 	... 4 more
+2019/01/13 10:52:34 - Table input.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erro inesperado
+2019/01/13 10:52:34 - Table input.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseException: 
+2019/01/13 10:52:34 - Table input.0 - An error occurred executing SQL: 
+2019/01/13 10:52:34 - Table input.0 - select cast(replace(replace( replace(X_mat.cpf,' ',''),'.',''),'-','') as bigint) as cpf, min(X_mat.data_matricula) as data_cadastro, min(X_mat.id) as id_ue
+2019/01/13 10:52:34 - Table input.0 - -- X_mat.cpf, X_mat.courseid, X_mat.data_matricula, X_mat.student_id, X_qual.data_qualificacao, case when X_qual.data_qualificacao is null then 0 else 1 end as qtd_qualificacao, 1 as qtd_matricula
+2019/01/13 10:52:34 - Table input.0 - from
+2019/01/13 10:52:34 - Table input.0 - (
+2019/01/13 10:52:34 - Table input.0 -     select 
+2019/01/13 10:52:34 - Table input.0 - 	u.alternatename as cpf, bi.userid, b.courseid, max(to_timestamp(bi.dateissued)::date) as data_qualificacao,
+2019/01/13 10:52:34 - Table input.0 - 	 1 as qtd_qualificacao
+2019/01/13 10:52:34 - Table input.0 - 	from
+2019/01/13 10:52:34 - Table input.0 - 	ods_moodle.mdl_badge_issued bi		
+2019/01/13 10:52:34 - Table input.0 - 	inner join ods_moodle.mdl_badge b on (b.id = bi.badgeid)
+2019/01/13 10:52:34 - Table input.0 - 	inner join ods_moodle.mdl_user u on (u.id=bi.userid)
+2019/01/13 10:52:34 - Table input.0 - 	where u.alternatename <> '000.000.000-00'
+2019/01/13 10:52:34 - Table input.0 -      -- where date_part( 'month', to_timestamp(bi.dateissued)::date) = 10
+2019/01/13 10:52:34 - Table input.0 - 	group by u.alternatename, bi.userid, b.courseid
+2019/01/13 10:52:34 - Table input.0 - 	--having count(1) > 1
+2019/01/13 10:52:34 - Table input.0 - 	--order by 1
+2019/01/13 10:52:34 - Table input.0 -    
+2019/01/13 10:52:34 - Table input.0 - )X_qual
+2019/01/13 10:52:34 - Table input.0 - right join
+2019/01/13 10:52:34 - Table input.0 - (
+2019/01/13 10:52:34 - Table input.0 - 	select u.alternatename as cpf, e.courseid, max(to_timestamp( ue.timecreated)::date) as data_matricula, 
+2019/01/13 10:52:34 - Table input.0 - 	max(u.id) as student_id, max(ue.id) as id
+2019/01/13 10:52:34 - Table input.0 - 	from 	
+2019/01/13 10:52:34 - Table input.0 - 	ods_moodle.mdl_user_enrolments ue 
+2019/01/13 10:52:34 - Table input.0 - 	inner join ods_moodle.mdl_enrol e on (ue.enrolid = e.id)
+2019/01/13 10:52:34 - Table input.0 - 	inner join ods_moodle.mdl_user u on (u.id = ue.userid)
+2019/01/13 10:52:34 - Table input.0 - 	where u.alternatename <> '000.000.000-00' and date_part('year',to_timestamp( ue.timecreated)::date) = 
+2019/01/13 10:52:34 - Table input.0 - 	group by u.alternatename, e.courseid	
+2019/01/13 10:52:34 - Table input.0 - 	
+2019/01/13 10:52:34 - Table input.0 - ) X_mat on (X_qual.cpf = X_mat.cpf and  X_qual.userid = X_mat.student_id and X_qual.courseid = X_mat.courseid)
+2019/01/13 10:52:34 - Table input.0 - group by X_mat.cpf
+2019/01/13 10:52:34 - Table input.0 - 
+2019/01/13 10:52:34 - Table input.0 - ERROR: syntax error at or near "group"
+2019/01/13 10:52:34 - Table input.0 -   Posição: 1298
+2019/01/13 10:52:34 - Table input.0 - 
+2019/01/13 10:52:34 - Table input.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1729)
+2019/01/13 10:52:34 - Table input.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.doQuery(TableInput.java:224)
+2019/01/13 10:52:34 - Table input.0 - 	at org.pentaho.di.trans.steps.tableinput.TableInput.processRow(TableInput.java:138)
+2019/01/13 10:52:34 - Table input.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2019/01/13 10:52:34 - Table input.0 - 	at java.lang.Thread.run(Thread.java:748)
+2019/01/13 10:52:34 - Table input.0 - Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "group"
+2019/01/13 10:52:34 - Table input.0 -   Posição: 1298
+2019/01/13 10:52:34 - Table input.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+2019/01/13 10:52:34 - Table input.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+2019/01/13 10:52:34 - Table input.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+2019/01/13 10:52:34 - Table input.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+2019/01/13 10:52:34 - Table input.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:405)
+2019/01/13 10:52:34 - Table input.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:285)
+2019/01/13 10:52:34 - Table input.0 - 	at org.pentaho.di.core.database.Database.openQuery(Database.java:1718)
+2019/01/13 10:52:34 - Table input.0 - 	... 4 more
+2019/01/13 10:52:34 - ktr_staging_moodle - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erros detectados!
+2019/01/13 10:52:34 - ktr_staging_moodle - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erros detectados!
+2019/01/13 10:52:34 - Kitchen - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Finished with errors
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+2019/01/13 11:59:47 - Fato_moodle_pro.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : An error occurred intialising this step: 
+2019/01/13 11:59:47 - Fato_moodle_pro.0 - Couldn't execute SQL: TRUNCATE TABLE fato.fato_moodle
+2019/01/13 11:59:47 - Fato_moodle_pro.0 - 
+2019/01/13 11:59:47 - Fato_moodle_pro.0 - ERROR: schema "fato" does not exist
+2019/01/13 11:59:47 - Fato_moodle_pro.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erro inicializando step [Fato_moodle_pro]
+2019/01/13 11:59:47 - ktr_replicacao_moodle_prod - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Step [Fato_moodle_pro.0] falhou durante inicializa��o!
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Unable to prepare for execution of the transformation
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - Falhou a inicializa��o de pelo menos um step. A Execu��o n�o pode sere iniciada!
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1149)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.trans.Trans.execute(Trans.java:607)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.entries.trans.JobEntryTrans.execute(JobEntryTrans.java:1062)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.execute(Job.java:716)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.execute(Job.java:859)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.execute(Job.java:859)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.execute(Job.java:859)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.execute(Job.java:859)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.execute(Job.java:859)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.execute(Job.java:532)
+2019/01/13 11:59:47 - ktr_replicar_dados_pro - 	at org.pentaho.di.job.Job.run(Job.java:424)
+2019/01/13 12:11:14 - cpf.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Because of an error, this step can't continue: 
+2019/01/13 12:11:14 - cpf.0 - Error looking up row in database
+2019/01/13 12:11:14 - cpf.0 - An I/O error occurred while sending to the backend.
+2019/01/13 12:11:14 - ktr_staging_gerencial - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erros detectados!
+2019/01/13 12:11:14 - conexao_mtb_dw - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Error disconnecting from database:
+2019/01/13 12:11:14 - conexao_mtb_dw - 
+2019/01/13 12:11:14 - conexao_mtb_dw - Error comitting connection
+2019/01/13 12:11:14 - conexao_mtb_dw - An I/O error occurred while sending to the backend.
+2019/01/13 12:11:14 - conexao_mtb_dw - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseException: 
+2019/01/13 12:11:14 - conexao_mtb_dw - Error comitting connection
+2019/01/13 12:11:14 - conexao_mtb_dw - An I/O error occurred while sending to the backend.
+2019/01/13 12:11:14 - conexao_mtb_dw - 
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.pentaho.di.core.database.Database.commit(Database.java:769)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.pentaho.di.core.database.Database.commit(Database.java:741)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.pentaho.di.core.database.Database.disconnect(Database.java:620)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.pentaho.di.trans.steps.tableinput.TableInput.dispose(TableInput.java:271)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:96)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at java.lang.Thread.run(Thread.java:748)
+2019/01/13 12:11:14 - conexao_mtb_dw - Caused by: org.postgresql.util.PSQLException: An I/O error occurred while sending to the backend.
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:281)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.postgresql.jdbc2.AbstractJdbc2Connection.executeTransactionCommand(AbstractJdbc2Connection.java:814)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.postgresql.jdbc2.AbstractJdbc2Connection.commit(AbstractJdbc2Connection.java:838)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.pentaho.di.core.database.Database.commit(Database.java:760)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	... 5 more
+2019/01/13 12:11:14 - conexao_mtb_dw - Caused by: java.io.EOFException
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.postgresql.core.PGStream.ReceiveChar(PGStream.java:284)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1741)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+2019/01/13 12:11:14 - conexao_mtb_dw - 	... 8 more
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Unexpected batch update error committing the database connection.
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseBatchException: 
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - Error updating batch
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - Entrada em lote 0 INSERT INTO staging.stg_moodle_gerencial (ano, mes, cpf, qtd_entraram_mercado, qtd_sairam_mercado, qtd_seguro_desemprego, qtd_dentro_mercado, ultima_data_matricula, genero, uf, cd_municipio_ibge, nome_municipio, data_nascimento, qtd_fora_mercado) VALUES ( 2018,  9,  10588,  0,  0,  0,  1,  '2018-09-04 00:00:00.000000 -03:00:00',  1,  'BA',  510503,  'TEIXEIRA DE FREITAS',  '1981-11-11 00:00:00.000000 -03:00:00',  0) foi abortada. Chame getNextException para ver a causa.
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.core.database.Database.createKettleDatabaseBatchException(Database.java:1377)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.core.database.Database.emptyAndCommit(Database.java:1366)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:571)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:96)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at java.lang.Thread.run(Thread.java:748)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - Caused by: java.sql.BatchUpdateException: Entrada em lote 0 INSERT INTO staging.stg_moodle_gerencial (ano, mes, cpf, qtd_entraram_mercado, qtd_sairam_mercado, qtd_seguro_desemprego, qtd_dentro_mercado, ultima_data_matricula, genero, uf, cd_municipio_ibge, nome_municipio, data_nascimento, qtd_fora_mercado) VALUES ( 2018,  9,  10588,  0,  0,  0,  1,  '2018-09-04 00:00:00.000000 -03:00:00',  1,  'BA',  510503,  'TEIXEIRA DE FREITAS',  '1981-11-11 00:00:00.000000 -03:00:00',  0) foi abortada. Chame getNextException para ver a causa.
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement$BatchResultHandler.handleError(AbstractJdbc2Statement.java:2743)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:411)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeBatch(AbstractJdbc2Statement.java:2892)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.core.database.Database.emptyAndCommit(Database.java:1353)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	... 3 more
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Unexpected error rolling back the database connection.
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : org.pentaho.di.core.exception.KettleDatabaseException: 
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - Error performing rollback on connection
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - This connection has been closed.
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.core.database.Database.rollback(Database.java:848)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.core.database.Database.rollback(Database.java:826)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:606)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:96)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at java.lang.Thread.run(Thread.java:748)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - Caused by: org.postgresql.util.PSQLException: This connection has been closed.
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Connection.checkClosed(AbstractJdbc2Connection.java:843)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.postgresql.jdbc2.AbstractJdbc2Connection.rollback(AbstractJdbc2Connection.java:860)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	at org.pentaho.di.core.database.Database.rollback(Database.java:839)
+2019/01/13 12:11:14 - stg_moodle_gerencial.0 - 	... 4 more
+2019/01/13 12:11:15 - ktr_staging_gerencial - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Erros detectados!
+2019/01/13 12:11:15 - Kitchen - ERROR (version 5.2.0.0, build 1 from 2014-09-30_19-48-28 by buildguy) : Finished with errors

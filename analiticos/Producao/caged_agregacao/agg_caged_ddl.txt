@@ -1,0 +1,64 @@
+-- Aggregate table agg_caged_base
+-- Estimated 887040 rows, 60318720 bytes
+CREATE TABLE agg_caged_base (
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_genero_genero int,
+    dim_periodo_ano int2,
+    dim_periodo_mes int2,
+    fato_caged_qtd_trabalhadores INT8,
+    fato_caged_salario_medio FLOAT8,
+    fato_caged_qtd_salario_medio FLOAT8,
+    fato_caged_qtd_admissao FLOAT8,
+    fato_caged_qtd_desligamento FLOAT8,
+    fato_caged_fact_count INT8);
+
+-- Aggregate table agg_caged_base_mun
+-- Estimated 52450487 rows, 2147483647 bytes
+CREATE TABLE agg_caged_base_mun (
+    dim_periodo_mes int2,
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_genero_genero int,
+    dim_periodo_ano int2,
+    fato_caged_qtd_trabalhadores INT8,
+    fato_caged_salario_medio FLOAT8,
+    fato_caged_qtd_salario_medio FLOAT8,
+    fato_caged_qtd_admissao FLOAT8,
+    fato_caged_qtd_desligamento FLOAT8,
+    fato_caged_fact_count INT8);
+
+-- Aggregate table agg_caged_base_cbo
+-- Estimated 52450487 rows, 2147483647 bytes
+CREATE TABLE agg_caged_base_cbo (
+    dim_periodo_mes int2,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    dim_periodo_ano int2,
+    fato_caged_qtd_trabalhadores INT8,
+    fato_caged_salario_medio FLOAT8,
+    fato_caged_qtd_salario_medio FLOAT8,
+    fato_caged_qtd_admissao FLOAT8,
+    fato_caged_qtd_desligamento FLOAT8,
+    fato_caged_fact_count INT8);
+
+-- Aggregate table agg_caged_base_cbo_mun
+-- Estimated 52450487 rows, 2147483647 bytes
+CREATE TABLE agg_caged_base_cbo_mun (
+    dim_municipio_municipio int,
+    dim_uf_uf int,
+    dim_regiao_regiao int,
+    dim_cbo_cbo int,
+    dim_genero_genero int,
+    dim_periodo_ano int2,
+    dim_periodo_mes int2,
+    fato_caged_qtd_trabalhadores INT8,
+    fato_caged_salario_medio FLOAT8,
+    fato_caged_qtd_salario_medio FLOAT8,
+    fato_caged_qtd_admissao FLOAT8,
+    fato_caged_qtd_desligamento FLOAT8,
+    fato_caged_fact_count INT8);
+

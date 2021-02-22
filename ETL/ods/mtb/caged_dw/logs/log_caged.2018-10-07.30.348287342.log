@@ -1,0 +1,599 @@
+#######################################################################
+WARNING:  no libwebkitgtk-1.0 detected, some features will be unavailable
+    Consider installing the package with apt-get or yum.
+    e.g. 'sudo apt-get install libwebkitgtk-1.0-0'
+#######################################################################
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=4G; support was removed in 8.0
+20:09:32,111 INFO  [KarafBoot] Checking to see if org.pentaho.clean.karaf.cache is enabled
+20:09:32,209 INFO  [KarafInstance] 
+*******************************************************************************
+*** Karaf Instance Number: 2 at /opt/data-integration/./system/karaf/caches ***
+***   /kitchen/data-1                                                       ***
+*** FastBin Provider Port:52902                                             ***
+*** Karaf Port:8803                                                         ***
+*** OSGI Service Port:9052                                                  ***
+*******************************************************************************
+out 07, 2018 8:09:32 PM org.apache.karaf.main.Main$KarafLockCallback lockAquired
+INFO: Lock acquired. Setting startlevel to 100
+2018/10/07 20:09:33 - Kitchen - Start of run.
+2018-10-07 20:09:35.492:INFO:oejs.Server:jetty-8.1.15.v20140411
+2018-10-07 20:09:35.518:INFO:oejs.AbstractConnector:Started NIOSocketConnectorWrapper@0.0.0.0:9052
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/core
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/beans
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/parameterized-types
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/security
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/wsdl/
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2005/08/addressing
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/08/addressing
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-management (152) [org.apache.cxf.management.InstrumentationManager]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-http (156) [org.apache.cxf.transport.http.HTTPTransportFactory, org.apache.cxf.transport.http.HTTPWSDLExtensionLoader, org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder, org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder, org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-wsdl (189) [org.apache.cxf.wsdl.WSDLManager]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-policy (203) [org.apache.cxf.ws.policy.PolicyEngine, org.apache.cxf.policy.PolicyDataEngine, org.apache.cxf.ws.policy.AssertionBuilderRegistry, org.apache.cxf.ws.policy.PolicyInterceptorProviderRegistry, org.apache.cxf.ws.policy.PolicyBuilder, org.apache.cxf.ws.policy.PolicyAnnotationListener, org.apache.cxf.ws.policy.attachment.ServiceModelPolicyProvider, org.apache.cxf.ws.policy.attachment.external.DomainExpressionBuilderRegistry, org.apache.cxf.ws.policy.attachment.external.EndpointReferenceDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.external.URIDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.wsdl11.Wsdl11AttachmentPolicyProvider, org.apache.cxf.ws.policy.mtom.MTOMAssertionBuilder, org.apache.cxf.ws.policy.mtom.MTOMPolicyInterceptorProvider]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/transports/http/configuration
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-soap (192) [org.apache.cxf.binding.soap.SoapBindingFactory, org.apache.cxf.binding.soap.SoapTransportFactory]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs-client
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-xml (191) [org.apache.cxf.binding.xml.XMLBindingFactory, org.apache.cxf.binding.xml.wsdl11.XMLWSDLExtensionLoader]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/bindings/soap
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/simple
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-frontend-jaxws (194) [org.apache.cxf.jaxws.context.WebServiceContextResourceResolver]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxws
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/binding/coloc
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-local (199) [org.apache.cxf.transport.local.LocalTransportFactory]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-object (200) [org.apache.cxf.binding.object.ObjectBindingFactory]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/binding/object
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/policy
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/ns/ws-policy
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2006/07/ws-policy
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/09/policy
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2000/09/xmldsig#
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-addr (220) [org.apache.cxf.ws.addressing.policy.AddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.UsingAddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.AddressingPolicyInterceptorProvider, org.apache.cxf.ws.addressing.impl.AddressingWSDLExtensionLoader, org.apache.cxf.ws.addressing.WSAddressingFeature$WSAddressingFeatureApplier, org.apache.cxf.ws.addressing.MAPAggregator$MAPAggregatorLoader]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/ws/addressing
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-security (222) [org.apache.cxf.ws.security.policy.WSSecurityPolicyLoader, org.apache.cxf.ws.security.cache.CacheCleanupListener]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-rm (224) [org.apache.cxf.ws.rm.RMManager, org.apache.cxf.ws.rm.policy.RMPolicyInterceptorProvider, org.apache.cxf.ws.rm.policy.RM10AssertionBuilder, org.apache.cxf.ws.rm.policy.RM12AssertionBuilder, org.apache.cxf.ws.rm.policy.WSRMP12PolicyLoader, org.apache.cxf.ws.rm.policy.MC11PolicyLoader, org.apache.cxf.ws.rm.policy.RSPPolicyLoader]
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/ws/rm/manager
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2005/02/rm/policy
+out 07, 2018 8:09:36 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-javascript (225) [org.apache.cxf.javascript.JavascriptServerListener]
+out 07, 2018 8:09:36 PM org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1 onSuccess
+INFO: New Caching Service registered
+2018/10/07 20:09:38 - job_carga_caged - Start of job execution
+2018/10/07 20:09:38 - job_carga_caged - Starting entry [ktr_carga_caged]
+2018/10/07 20:09:38 - ktr_carga_caged - Loading transformation from XML file [/home/unb/MTB/ETL/ods/mtb/caged_dw/ktr_carga_caged.ktr]
+out 07, 2018 8:09:38 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /marketplace
+2018/10/07 20:09:38 - ktr_carga_caged - Using run configuration [Pentaho local]
+2018/10/07 20:09:38 - ktr_carga_caged - Using legacy execution engine
+2018/10/07 20:09:38 - ktr_carga_caged - Dispatching started for transformation [ktr_carga_caged]
+out 07, 2018 8:09:39 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /lineage
+out 07, 2018 8:09:39 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /i18n
+2018/10/07 20:09:39 - Carrega tabela.0 - Connected to database [comexao_ods] (commit=100000000)
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/data-integration/launcher/../lib/slf4j-log4j12-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/data-integration/plugins/pentaho-big-data-plugin/lib/slf4j-log4j12-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2018/10/07 20:09:39 - Le Arquivo.0 - Header row skipped in file '/mnt/unb/bases_mte/CAGED/CAGED_TRABALHADOR_AJUSTADO_042018.txt'
+2018/10/07 20:09:40 - Le Arquivo.0 - Line number : 50000
+2018/10/07 20:09:40 - Separa Ano e Mes.0 - Linenr 50000
+2018/10/07 20:09:47 - Le Arquivo.0 - Line number : 100000
+2018/10/07 20:09:51 - Separa Ano e Mes.0 - Linenr 100000
+2018/10/07 20:09:55 - Select values.0 - linenr 50000
+2018/10/07 20:09:59 - Carrega tabela.0 - linenr 50000
+2018/10/07 20:10:07 - Le Arquivo.0 - Line number : 150000
+2018/10/07 20:10:11 - Separa Ano e Mes.0 - Linenr 150000
+2018/10/07 20:10:14 - Select values.0 - linenr 100000
+2018/10/07 20:10:18 - Carrega tabela.0 - linenr 100000
+2018/10/07 20:10:26 - Le Arquivo.0 - Line number : 200000
+2018/10/07 20:10:30 - Separa Ano e Mes.0 - Linenr 200000
+2018/10/07 20:10:34 - Select values.0 - linenr 150000
+2018/10/07 20:10:38 - Carrega tabela.0 - linenr 150000
+2018/10/07 20:10:46 - Le Arquivo.0 - Line number : 250000
+2018/10/07 20:10:50 - Separa Ano e Mes.0 - Linenr 250000
+2018/10/07 20:10:53 - Select values.0 - linenr 200000
+2018/10/07 20:10:57 - Carrega tabela.0 - linenr 200000
+2018/10/07 20:11:05 - Le Arquivo.0 - Line number : 300000
+2018/10/07 20:11:09 - Separa Ano e Mes.0 - Linenr 300000
+2018/10/07 20:11:13 - Select values.0 - linenr 250000
+2018/10/07 20:11:17 - Carrega tabela.0 - linenr 250000
+2018/10/07 20:11:25 - Le Arquivo.0 - Line number : 350000
+2018/10/07 20:11:28 - Separa Ano e Mes.0 - Linenr 350000
+2018/10/07 20:11:32 - Select values.0 - linenr 300000
+2018/10/07 20:11:36 - Carrega tabela.0 - linenr 300000
+2018/10/07 20:11:44 - Le Arquivo.0 - Line number : 400000
+2018/10/07 20:11:48 - Separa Ano e Mes.0 - Linenr 400000
+2018/10/07 20:11:51 - Select values.0 - linenr 350000
+2018/10/07 20:11:55 - Carrega tabela.0 - linenr 350000
+2018/10/07 20:12:03 - Le Arquivo.0 - Line number : 450000
+2018/10/07 20:12:07 - Separa Ano e Mes.0 - Linenr 450000
+2018/10/07 20:12:10 - Select values.0 - linenr 400000
+2018/10/07 20:12:14 - Carrega tabela.0 - linenr 400000
+2018/10/07 20:12:22 - Le Arquivo.0 - Line number : 500000
+2018/10/07 20:12:26 - Separa Ano e Mes.0 - Linenr 500000
+2018/10/07 20:12:30 - Select values.0 - linenr 450000
+2018/10/07 20:12:33 - Carrega tabela.0 - linenr 450000
+2018/10/07 20:12:42 - Le Arquivo.0 - Line number : 550000
+2018/10/07 20:12:46 - Separa Ano e Mes.0 - Linenr 550000
+2018/10/07 20:12:49 - Select values.0 - linenr 500000
+2018/10/07 20:12:53 - Carrega tabela.0 - linenr 500000
+2018/10/07 20:13:01 - Le Arquivo.0 - Line number : 600000
+2018/10/07 20:13:05 - Separa Ano e Mes.0 - Linenr 600000
+2018/10/07 20:13:09 - Select values.0 - linenr 550000
+2018/10/07 20:13:12 - Carrega tabela.0 - linenr 550000
+2018/10/07 20:13:20 - Le Arquivo.0 - Line number : 650000
+2018/10/07 20:13:24 - Separa Ano e Mes.0 - Linenr 650000
+2018/10/07 20:13:28 - Select values.0 - linenr 600000
+2018/10/07 20:13:32 - Carrega tabela.0 - linenr 600000
+2018/10/07 20:13:40 - Le Arquivo.0 - Line number : 700000
+2018/10/07 20:13:44 - Separa Ano e Mes.0 - Linenr 700000
+2018/10/07 20:13:47 - Select values.0 - linenr 650000
+2018/10/07 20:13:51 - Carrega tabela.0 - linenr 650000
+2018/10/07 20:13:59 - Le Arquivo.0 - Line number : 750000
+2018/10/07 20:14:03 - Separa Ano e Mes.0 - Linenr 750000
+2018/10/07 20:14:07 - Select values.0 - linenr 700000
+2018/10/07 20:14:10 - Carrega tabela.0 - linenr 700000
+2018/10/07 20:14:19 - Le Arquivo.0 - Line number : 800000
+2018/10/07 20:14:22 - Separa Ano e Mes.0 - Linenr 800000
+2018/10/07 20:14:26 - Select values.0 - linenr 750000
+2018/10/07 20:14:30 - Carrega tabela.0 - linenr 750000
+2018/10/07 20:14:38 - Le Arquivo.0 - Line number : 850000
+2018/10/07 20:14:42 - Separa Ano e Mes.0 - Linenr 850000
+2018/10/07 20:14:46 - Select values.0 - linenr 800000
+2018/10/07 20:14:50 - Carrega tabela.0 - linenr 800000
+2018/10/07 20:14:58 - Le Arquivo.0 - Line number : 900000
+2018/10/07 20:15:02 - Separa Ano e Mes.0 - Linenr 900000
+2018/10/07 20:15:05 - Select values.0 - linenr 850000
+2018/10/07 20:15:09 - Carrega tabela.0 - linenr 850000
+2018/10/07 20:15:17 - Le Arquivo.0 - Line number : 950000
+2018/10/07 20:15:21 - Separa Ano e Mes.0 - Linenr 950000
+2018/10/07 20:15:25 - Select values.0 - linenr 900000
+2018/10/07 20:15:29 - Carrega tabela.0 - linenr 900000
+2018/10/07 20:15:37 - Le Arquivo.0 - Line number : 1000000
+2018/10/07 20:15:41 - Separa Ano e Mes.0 - Linenr 1000000
+2018/10/07 20:15:44 - Select values.0 - linenr 950000
+2018/10/07 20:15:48 - Carrega tabela.0 - linenr 950000
+2018/10/07 20:15:56 - Le Arquivo.0 - Line number : 1050000
+2018/10/07 20:16:00 - Separa Ano e Mes.0 - Linenr 1050000
+2018/10/07 20:16:03 - Select values.0 - linenr 1000000
+2018/10/07 20:16:07 - Carrega tabela.0 - linenr 1000000
+2018/10/07 20:16:15 - Le Arquivo.0 - Line number : 1100000
+2018/10/07 20:16:19 - Separa Ano e Mes.0 - Linenr 1100000
+2018/10/07 20:16:23 - Select values.0 - linenr 1050000
+2018/10/07 20:16:27 - Carrega tabela.0 - linenr 1050000
+2018/10/07 20:16:35 - Le Arquivo.0 - Line number : 1150000
+2018/10/07 20:16:38 - Separa Ano e Mes.0 - Linenr 1150000
+2018/10/07 20:16:42 - Select values.0 - linenr 1100000
+2018/10/07 20:16:46 - Carrega tabela.0 - linenr 1100000
+2018/10/07 20:16:54 - Le Arquivo.0 - Line number : 1200000
+2018/10/07 20:16:58 - Separa Ano e Mes.0 - Linenr 1200000
+2018/10/07 20:17:02 - Select values.0 - linenr 1150000
+2018/10/07 20:17:05 - Carrega tabela.0 - linenr 1150000
+2018/10/07 20:17:14 - Le Arquivo.0 - Line number : 1250000
+2018/10/07 20:17:17 - Separa Ano e Mes.0 - Linenr 1250000
+2018/10/07 20:17:21 - Select values.0 - linenr 1200000
+2018/10/07 20:17:25 - Carrega tabela.0 - linenr 1200000
+2018/10/07 20:17:33 - Le Arquivo.0 - Line number : 1300000
+2018/10/07 20:17:37 - Separa Ano e Mes.0 - Linenr 1300000
+2018/10/07 20:17:40 - Select values.0 - linenr 1250000
+2018/10/07 20:17:44 - Carrega tabela.0 - linenr 1250000
+2018/10/07 20:17:52 - Le Arquivo.0 - Line number : 1350000
+2018/10/07 20:17:56 - Separa Ano e Mes.0 - Linenr 1350000
+2018/10/07 20:18:00 - Select values.0 - linenr 1300000
+2018/10/07 20:18:04 - Carrega tabela.0 - linenr 1300000
+2018/10/07 20:18:12 - Le Arquivo.0 - Line number : 1400000
+2018/10/07 20:18:16 - Separa Ano e Mes.0 - Linenr 1400000
+2018/10/07 20:18:20 - Select values.0 - linenr 1350000
+2018/10/07 20:18:23 - Carrega tabela.0 - linenr 1350000
+2018/10/07 20:18:31 - Le Arquivo.0 - Line number : 1450000
+2018/10/07 20:18:35 - Separa Ano e Mes.0 - Linenr 1450000
+2018/10/07 20:18:39 - Select values.0 - linenr 1400000
+2018/10/07 20:18:43 - Carrega tabela.0 - linenr 1400000
+2018/10/07 20:18:51 - Le Arquivo.0 - Line number : 1500000
+2018/10/07 20:18:55 - Separa Ano e Mes.0 - Linenr 1500000
+2018/10/07 20:18:58 - Select values.0 - linenr 1450000
+2018/10/07 20:19:02 - Carrega tabela.0 - linenr 1450000
+2018/10/07 20:19:10 - Le Arquivo.0 - Line number : 1550000
+2018/10/07 20:19:14 - Separa Ano e Mes.0 - Linenr 1550000
+2018/10/07 20:19:18 - Select values.0 - linenr 1500000
+2018/10/07 20:19:21 - Carrega tabela.0 - linenr 1500000
+2018/10/07 20:19:30 - Le Arquivo.0 - Line number : 1600000
+2018/10/07 20:19:33 - Separa Ano e Mes.0 - Linenr 1600000
+2018/10/07 20:19:37 - Select values.0 - linenr 1550000
+2018/10/07 20:19:41 - Carrega tabela.0 - linenr 1550000
+2018/10/07 20:19:49 - Le Arquivo.0 - Line number : 1650000
+2018/10/07 20:19:53 - Separa Ano e Mes.0 - Linenr 1650000
+2018/10/07 20:19:56 - Select values.0 - linenr 1600000
+2018/10/07 20:20:00 - Carrega tabela.0 - linenr 1600000
+2018/10/07 20:20:08 - Le Arquivo.0 - Line number : 1700000
+2018/10/07 20:20:12 - Separa Ano e Mes.0 - Linenr 1700000
+2018/10/07 20:20:15 - Select values.0 - linenr 1650000
+2018/10/07 20:20:19 - Carrega tabela.0 - linenr 1650000
+2018/10/07 20:20:27 - Le Arquivo.0 - Line number : 1750000
+2018/10/07 20:20:31 - Separa Ano e Mes.0 - Linenr 1750000
+2018/10/07 20:20:35 - Select values.0 - linenr 1700000
+2018/10/07 20:20:39 - Carrega tabela.0 - linenr 1700000
+2018/10/07 20:20:47 - Le Arquivo.0 - Line number : 1800000
+2018/10/07 20:20:51 - Separa Ano e Mes.0 - Linenr 1800000
+2018/10/07 20:20:54 - Select values.0 - linenr 1750000
+2018/10/07 20:20:58 - Carrega tabela.0 - linenr 1750000
+2018/10/07 20:21:06 - Le Arquivo.0 - Line number : 1850000
+2018/10/07 20:21:10 - Separa Ano e Mes.0 - Linenr 1850000
+2018/10/07 20:21:14 - Select values.0 - linenr 1800000
+2018/10/07 20:21:18 - Carrega tabela.0 - linenr 1800000
+2018/10/07 20:21:26 - Le Arquivo.0 - Line number : 1900000
+2018/10/07 20:21:30 - Separa Ano e Mes.0 - Linenr 1900000
+2018/10/07 20:21:33 - Select values.0 - linenr 1850000
+2018/10/07 20:21:37 - Carrega tabela.0 - linenr 1850000
+2018/10/07 20:21:45 - Le Arquivo.0 - Line number : 1950000
+2018/10/07 20:21:49 - Separa Ano e Mes.0 - Linenr 1950000
+2018/10/07 20:21:53 - Select values.0 - linenr 1900000
+2018/10/07 20:21:57 - Carrega tabela.0 - linenr 1900000
+2018/10/07 20:22:05 - Le Arquivo.0 - Line number : 2000000
+2018/10/07 20:22:08 - Separa Ano e Mes.0 - Linenr 2000000
+2018/10/07 20:22:12 - Select values.0 - linenr 1950000
+2018/10/07 20:22:16 - Carrega tabela.0 - linenr 1950000
+2018/10/07 20:22:24 - Le Arquivo.0 - Line number : 2050000
+2018/10/07 20:22:28 - Separa Ano e Mes.0 - Linenr 2050000
+2018/10/07 20:22:31 - Select values.0 - linenr 2000000
+2018/10/07 20:22:35 - Carrega tabela.0 - linenr 2000000
+2018/10/07 20:22:43 - Le Arquivo.0 - Line number : 2100000
+2018/10/07 20:22:47 - Separa Ano e Mes.0 - Linenr 2100000
+2018/10/07 20:22:51 - Select values.0 - linenr 2050000
+2018/10/07 20:22:55 - Carrega tabela.0 - linenr 2050000
+2018/10/07 20:23:03 - Le Arquivo.0 - Line number : 2150000
+2018/10/07 20:23:07 - Separa Ano e Mes.0 - Linenr 2150000
+2018/10/07 20:23:11 - Select values.0 - linenr 2100000
+2018/10/07 20:23:14 - Carrega tabela.0 - linenr 2100000
+2018/10/07 20:23:22 - Le Arquivo.0 - Line number : 2200000
+2018/10/07 20:23:26 - Separa Ano e Mes.0 - Linenr 2200000
+2018/10/07 20:23:30 - Select values.0 - linenr 2150000
+2018/10/07 20:23:34 - Carrega tabela.0 - linenr 2150000
+2018/10/07 20:23:42 - Le Arquivo.0 - Line number : 2250000
+2018/10/07 20:23:46 - Separa Ano e Mes.0 - Linenr 2250000
+2018/10/07 20:23:49 - Select values.0 - linenr 2200000
+2018/10/07 20:23:53 - Carrega tabela.0 - linenr 2200000
+2018/10/07 20:24:01 - Le Arquivo.0 - Line number : 2300000
+2018/10/07 20:24:05 - Separa Ano e Mes.0 - Linenr 2300000
+2018/10/07 20:24:09 - Select values.0 - linenr 2250000
+2018/10/07 20:24:13 - Carrega tabela.0 - linenr 2250000
+2018/10/07 20:24:21 - Le Arquivo.0 - Line number : 2350000
+2018/10/07 20:24:25 - Separa Ano e Mes.0 - Linenr 2350000
+2018/10/07 20:24:28 - Select values.0 - linenr 2300000
+2018/10/07 20:24:32 - Carrega tabela.0 - linenr 2300000
+2018/10/07 20:24:40 - Le Arquivo.0 - Line number : 2400000
+2018/10/07 20:24:44 - Separa Ano e Mes.0 - Linenr 2400000
+2018/10/07 20:24:48 - Select values.0 - linenr 2350000
+2018/10/07 20:24:52 - Carrega tabela.0 - linenr 2350000
+2018/10/07 20:25:00 - Le Arquivo.0 - Line number : 2450000
+2018/10/07 20:25:03 - Separa Ano e Mes.0 - Linenr 2450000
+2018/10/07 20:25:07 - Select values.0 - linenr 2400000
+2018/10/07 20:25:11 - Carrega tabela.0 - linenr 2400000
+2018/10/07 20:25:19 - Le Arquivo.0 - Line number : 2500000
+2018/10/07 20:25:23 - Separa Ano e Mes.0 - Linenr 2500000
+2018/10/07 20:25:27 - Select values.0 - linenr 2450000
+2018/10/07 20:25:31 - Carrega tabela.0 - linenr 2450000
+2018/10/07 20:25:39 - Le Arquivo.0 - Line number : 2550000
+2018/10/07 20:25:42 - Separa Ano e Mes.0 - Linenr 2550000
+2018/10/07 20:25:46 - Select values.0 - linenr 2500000
+2018/10/07 20:25:50 - Carrega tabela.0 - linenr 2500000
+2018/10/07 20:25:58 - Le Arquivo.0 - Line number : 2600000
+2018/10/07 20:26:02 - Separa Ano e Mes.0 - Linenr 2600000
+2018/10/07 20:26:06 - Select values.0 - linenr 2550000
+2018/10/07 20:26:09 - Carrega tabela.0 - linenr 2550000
+2018/10/07 20:26:18 - Le Arquivo.0 - Line number : 2650000
+2018/10/07 20:26:22 - Separa Ano e Mes.0 - Linenr 2650000
+2018/10/07 20:26:25 - Select values.0 - linenr 2600000
+2018/10/07 20:26:29 - Carrega tabela.0 - linenr 2600000
+2018/10/07 20:26:37 - Le Arquivo.0 - Line number : 2700000
+2018/10/07 20:26:41 - Separa Ano e Mes.0 - Linenr 2700000
+2018/10/07 20:26:45 - Select values.0 - linenr 2650000
+2018/10/07 20:26:49 - Carrega tabela.0 - linenr 2650000
+2018/10/07 20:26:57 - Le Arquivo.0 - Line number : 2750000
+2018/10/07 20:27:01 - Separa Ano e Mes.0 - Linenr 2750000
+2018/10/07 20:27:04 - Select values.0 - linenr 2700000
+2018/10/07 20:27:08 - Carrega tabela.0 - linenr 2700000
+2018/10/07 20:27:16 - Le Arquivo.0 - Line number : 2800000
+2018/10/07 20:27:20 - Separa Ano e Mes.0 - Linenr 2800000
+2018/10/07 20:27:24 - Select values.0 - linenr 2750000
+2018/10/07 20:27:28 - Carrega tabela.0 - linenr 2750000
+2018/10/07 20:27:36 - Le Arquivo.0 - Line number : 2850000
+2018/10/07 20:27:40 - Separa Ano e Mes.0 - Linenr 2850000
+2018/10/07 20:27:43 - Select values.0 - linenr 2800000
+2018/10/07 20:27:47 - Carrega tabela.0 - linenr 2800000
+2018/10/07 20:27:55 - Le Arquivo.0 - Line number : 2900000
+2018/10/07 20:27:59 - Separa Ano e Mes.0 - Linenr 2900000
+2018/10/07 20:28:02 - Select values.0 - linenr 2850000
+2018/10/07 20:28:06 - Carrega tabela.0 - linenr 2850000
+2018/10/07 20:28:14 - Le Arquivo.0 - Line number : 2950000
+2018/10/07 20:28:18 - Separa Ano e Mes.0 - Linenr 2950000
+2018/10/07 20:28:22 - Select values.0 - linenr 2900000
+2018/10/07 20:28:25 - Carrega tabela.0 - linenr 2900000
+2018/10/07 20:28:34 - Le Arquivo.0 - Line number : 3000000
+2018/10/07 20:28:37 - Separa Ano e Mes.0 - Linenr 3000000
+2018/10/07 20:28:41 - Select values.0 - linenr 2950000
+2018/10/07 20:28:45 - Carrega tabela.0 - linenr 2950000
+2018/10/07 20:28:53 - Le Arquivo.0 - Line number : 3050000
+2018/10/07 20:28:57 - Separa Ano e Mes.0 - Linenr 3050000
+2018/10/07 20:29:01 - Select values.0 - linenr 3000000
+2018/10/07 20:29:04 - Carrega tabela.0 - linenr 3000000
+2018/10/07 20:29:13 - Le Arquivo.0 - Line number : 3100000
+2018/10/07 20:29:17 - Separa Ano e Mes.0 - Linenr 3100000
+2018/10/07 20:29:20 - Select values.0 - linenr 3050000
+2018/10/07 20:29:24 - Carrega tabela.0 - linenr 3050000
+2018/10/07 20:29:32 - Le Arquivo.0 - Line number : 3150000
+2018/10/07 20:29:36 - Separa Ano e Mes.0 - Linenr 3150000
+2018/10/07 20:29:40 - Select values.0 - linenr 3100000
+2018/10/07 20:29:44 - Carrega tabela.0 - linenr 3100000
+2018/10/07 20:29:52 - Le Arquivo.0 - Line number : 3200000
+2018/10/07 20:29:55 - Separa Ano e Mes.0 - Linenr 3200000
+2018/10/07 20:29:59 - Select values.0 - linenr 3150000
+2018/10/07 20:30:03 - Carrega tabela.0 - linenr 3150000
+2018/10/07 20:30:11 - Le Arquivo.0 - Line number : 3250000
+2018/10/07 20:30:15 - Separa Ano e Mes.0 - Linenr 3250000
+2018/10/07 20:30:18 - Select values.0 - linenr 3200000
+2018/10/07 20:30:22 - Carrega tabela.0 - linenr 3200000
+2018/10/07 20:30:31 - Le Arquivo.0 - Line number : 3300000
+2018/10/07 20:30:35 - Separa Ano e Mes.0 - Linenr 3300000
+2018/10/07 20:30:38 - Select values.0 - linenr 3250000
+2018/10/07 20:30:42 - Carrega tabela.0 - linenr 3250000
+2018/10/07 20:30:50 - Le Arquivo.0 - Line number : 3350000
+2018/10/07 20:30:54 - Separa Ano e Mes.0 - Linenr 3350000
+2018/10/07 20:30:58 - Select values.0 - linenr 3300000
+2018/10/07 20:31:01 - Carrega tabela.0 - linenr 3300000
+2018/10/07 20:31:10 - Le Arquivo.0 - Line number : 3400000
+2018/10/07 20:31:13 - Separa Ano e Mes.0 - Linenr 3400000
+2018/10/07 20:31:17 - Select values.0 - linenr 3350000
+2018/10/07 20:31:21 - Carrega tabela.0 - linenr 3350000
+2018/10/07 20:31:29 - Le Arquivo.0 - Line number : 3450000
+2018/10/07 20:31:33 - Separa Ano e Mes.0 - Linenr 3450000
+2018/10/07 20:31:36 - Select values.0 - linenr 3400000
+2018/10/07 20:31:40 - Carrega tabela.0 - linenr 3400000
+2018/10/07 20:31:48 - Le Arquivo.0 - Line number : 3500000
+2018/10/07 20:31:52 - Separa Ano e Mes.0 - Linenr 3500000
+2018/10/07 20:31:56 - Select values.0 - linenr 3450000
+2018/10/07 20:32:00 - Carrega tabela.0 - linenr 3450000
+2018/10/07 20:32:08 - Le Arquivo.0 - Line number : 3550000
+2018/10/07 20:32:12 - Separa Ano e Mes.0 - Linenr 3550000
+2018/10/07 20:32:15 - Select values.0 - linenr 3500000
+2018/10/07 20:32:19 - Carrega tabela.0 - linenr 3500000
+2018/10/07 20:32:27 - Le Arquivo.0 - Line number : 3600000
+2018/10/07 20:32:31 - Separa Ano e Mes.0 - Linenr 3600000
+2018/10/07 20:32:35 - Select values.0 - linenr 3550000
+2018/10/07 20:32:39 - Carrega tabela.0 - linenr 3550000
+2018/10/07 20:32:47 - Le Arquivo.0 - Line number : 3650000
+2018/10/07 20:32:51 - Separa Ano e Mes.0 - Linenr 3650000
+2018/10/07 20:32:54 - Select values.0 - linenr 3600000
+2018/10/07 20:32:58 - Carrega tabela.0 - linenr 3600000
+2018/10/07 20:33:06 - Le Arquivo.0 - Line number : 3700000
+2018/10/07 20:33:10 - Separa Ano e Mes.0 - Linenr 3700000
+2018/10/07 20:33:14 - Select values.0 - linenr 3650000
+2018/10/07 20:33:18 - Carrega tabela.0 - linenr 3650000
+2018/10/07 20:33:26 - Le Arquivo.0 - Line number : 3750000
+2018/10/07 20:33:30 - Separa Ano e Mes.0 - Linenr 3750000
+2018/10/07 20:33:33 - Select values.0 - linenr 3700000
+2018/10/07 20:33:37 - Carrega tabela.0 - linenr 3700000
+2018/10/07 20:33:45 - Le Arquivo.0 - Line number : 3800000
+2018/10/07 20:33:49 - Separa Ano e Mes.0 - Linenr 3800000
+2018/10/07 20:33:53 - Select values.0 - linenr 3750000
+2018/10/07 20:33:57 - Carrega tabela.0 - linenr 3750000
+2018/10/07 20:34:05 - Le Arquivo.0 - Line number : 3850000
+2018/10/07 20:34:09 - Separa Ano e Mes.0 - Linenr 3850000
+2018/10/07 20:34:12 - Select values.0 - linenr 3800000
+2018/10/07 20:34:16 - Carrega tabela.0 - linenr 3800000
+2018/10/07 20:34:24 - Le Arquivo.0 - Line number : 3900000
+2018/10/07 20:34:28 - Separa Ano e Mes.0 - Linenr 3900000
+2018/10/07 20:34:32 - Select values.0 - linenr 3850000
+2018/10/07 20:34:36 - Carrega tabela.0 - linenr 3850000
+2018/10/07 20:34:44 - Le Arquivo.0 - Line number : 3950000
+2018/10/07 20:34:48 - Separa Ano e Mes.0 - Linenr 3950000
+2018/10/07 20:34:51 - Select values.0 - linenr 3900000
+2018/10/07 20:34:55 - Carrega tabela.0 - linenr 3900000
+2018/10/07 20:35:03 - Le Arquivo.0 - Line number : 4000000
+2018/10/07 20:35:07 - Separa Ano e Mes.0 - Linenr 4000000
+2018/10/07 20:35:11 - Select values.0 - linenr 3950000
+2018/10/07 20:35:14 - Carrega tabela.0 - linenr 3950000
+2018/10/07 20:35:23 - Le Arquivo.0 - Line number : 4050000
+2018/10/07 20:35:26 - Separa Ano e Mes.0 - Linenr 4050000
+2018/10/07 20:35:30 - Select values.0 - linenr 4000000
+2018/10/07 20:35:34 - Carrega tabela.0 - linenr 4000000
+2018/10/07 20:35:42 - Le Arquivo.0 - Line number : 4100000
+2018/10/07 20:35:46 - Separa Ano e Mes.0 - Linenr 4100000
+2018/10/07 20:35:50 - Select values.0 - linenr 4050000
+2018/10/07 20:35:53 - Carrega tabela.0 - linenr 4050000
+2018/10/07 20:36:02 - Le Arquivo.0 - Line number : 4150000
+2018/10/07 20:36:06 - Separa Ano e Mes.0 - Linenr 4150000
+2018/10/07 20:36:09 - Select values.0 - linenr 4100000
+2018/10/07 20:36:13 - Carrega tabela.0 - linenr 4100000
+2018/10/07 20:36:21 - Le Arquivo.0 - Line number : 4200000
+2018/10/07 20:36:25 - Separa Ano e Mes.0 - Linenr 4200000
+2018/10/07 20:36:29 - Select values.0 - linenr 4150000
+2018/10/07 20:36:33 - Carrega tabela.0 - linenr 4150000
+2018/10/07 20:36:41 - Le Arquivo.0 - Line number : 4250000
+2018/10/07 20:36:45 - Separa Ano e Mes.0 - Linenr 4250000
+2018/10/07 20:36:49 - Select values.0 - linenr 4200000
+2018/10/07 20:36:53 - Carrega tabela.0 - linenr 4200000
+2018/10/07 20:37:01 - Le Arquivo.0 - Line number : 4300000
+2018/10/07 20:37:05 - Separa Ano e Mes.0 - Linenr 4300000
+2018/10/07 20:37:08 - Select values.0 - linenr 4250000
+2018/10/07 20:37:12 - Carrega tabela.0 - linenr 4250000
+2018/10/07 20:37:20 - Le Arquivo.0 - Line number : 4350000
+2018/10/07 20:37:24 - Separa Ano e Mes.0 - Linenr 4350000
+2018/10/07 20:37:28 - Select values.0 - linenr 4300000
+2018/10/07 20:37:31 - Carrega tabela.0 - linenr 4300000
+2018/10/07 20:37:40 - Le Arquivo.0 - Line number : 4400000
+2018/10/07 20:37:44 - Separa Ano e Mes.0 - Linenr 4400000
+2018/10/07 20:37:47 - Select values.0 - linenr 4350000
+2018/10/07 20:37:51 - Carrega tabela.0 - linenr 4350000
+2018/10/07 20:37:59 - Le Arquivo.0 - Line number : 4450000
+2018/10/07 20:38:03 - Separa Ano e Mes.0 - Linenr 4450000
+2018/10/07 20:38:06 - Select values.0 - linenr 4400000
+2018/10/07 20:38:10 - Carrega tabela.0 - linenr 4400000
+2018/10/07 20:38:18 - Le Arquivo.0 - Line number : 4500000
+2018/10/07 20:38:22 - Separa Ano e Mes.0 - Linenr 4500000
+2018/10/07 20:38:26 - Select values.0 - linenr 4450000
+2018/10/07 20:38:30 - Carrega tabela.0 - linenr 4450000
+2018/10/07 20:38:38 - Le Arquivo.0 - Line number : 4550000
+2018/10/07 20:38:42 - Separa Ano e Mes.0 - Linenr 4550000
+2018/10/07 20:38:46 - Select values.0 - linenr 4500000
+2018/10/07 20:38:50 - Carrega tabela.0 - linenr 4500000
+2018/10/07 20:38:58 - Le Arquivo.0 - Line number : 4600000
+2018/10/07 20:39:01 - Separa Ano e Mes.0 - Linenr 4600000
+2018/10/07 20:39:05 - Select values.0 - linenr 4550000
+2018/10/07 20:39:09 - Carrega tabela.0 - linenr 4550000
+2018/10/07 20:39:17 - Le Arquivo.0 - Line number : 4650000
+2018/10/07 20:39:20 - Separa Ano e Mes.0 - Linenr 4650000
+2018/10/07 20:39:24 - Select values.0 - linenr 4600000
+2018/10/07 20:39:28 - Carrega tabela.0 - linenr 4600000
+2018/10/07 20:39:36 - Le Arquivo.0 - Line number : 4700000
+2018/10/07 20:39:40 - Separa Ano e Mes.0 - Linenr 4700000
+2018/10/07 20:39:43 - Select values.0 - linenr 4650000
+2018/10/07 20:39:47 - Carrega tabela.0 - linenr 4650000
+2018/10/07 20:39:55 - Le Arquivo.0 - Line number : 4750000
+2018/10/07 20:39:59 - Separa Ano e Mes.0 - Linenr 4750000
+2018/10/07 20:40:03 - Select values.0 - linenr 4700000
+2018/10/07 20:40:06 - Carrega tabela.0 - linenr 4700000
+2018/10/07 20:40:14 - Le Arquivo.0 - Line number : 4800000
+2018/10/07 20:40:18 - Separa Ano e Mes.0 - Linenr 4800000
+2018/10/07 20:40:22 - Select values.0 - linenr 4750000
+2018/10/07 20:40:26 - Carrega tabela.0 - linenr 4750000
+2018/10/07 20:40:34 - Le Arquivo.0 - Line number : 4850000
+2018/10/07 20:40:38 - Separa Ano e Mes.0 - Linenr 4850000
+2018/10/07 20:40:41 - Select values.0 - linenr 4800000
+2018/10/07 20:40:45 - Carrega tabela.0 - linenr 4800000
+2018/10/07 20:40:53 - Le Arquivo.0 - Line number : 4900000
+2018/10/07 20:40:57 - Separa Ano e Mes.0 - Linenr 4900000
+2018/10/07 20:41:00 - Select values.0 - linenr 4850000
+2018/10/07 20:41:04 - Carrega tabela.0 - linenr 4850000
+2018/10/07 20:41:12 - Le Arquivo.0 - Line number : 4950000
+2018/10/07 20:41:16 - Separa Ano e Mes.0 - Linenr 4950000
+2018/10/07 20:41:20 - Select values.0 - linenr 4900000
+2018/10/07 20:41:24 - Carrega tabela.0 - linenr 4900000
+2018/10/07 20:41:32 - Le Arquivo.0 - Line number : 5000000
+2018/10/07 20:41:36 - Separa Ano e Mes.0 - Linenr 5000000
+2018/10/07 20:41:39 - Select values.0 - linenr 4950000
+2018/10/07 20:41:43 - Carrega tabela.0 - linenr 4950000
+2018/10/07 20:41:51 - Le Arquivo.0 - Line number : 5050000
+2018/10/07 20:41:55 - Separa Ano e Mes.0 - Linenr 5050000
+2018/10/07 20:41:59 - Select values.0 - linenr 5000000
+2018/10/07 20:42:03 - Carrega tabela.0 - linenr 5000000
+2018/10/07 20:42:11 - Le Arquivo.0 - Line number : 5100000
+2018/10/07 20:42:15 - Separa Ano e Mes.0 - Linenr 5100000
+2018/10/07 20:42:18 - Select values.0 - linenr 5050000
+2018/10/07 20:42:22 - Carrega tabela.0 - linenr 5050000
+2018/10/07 20:42:30 - Le Arquivo.0 - Line number : 5150000
+2018/10/07 20:42:34 - Separa Ano e Mes.0 - Linenr 5150000
+2018/10/07 20:42:37 - Select values.0 - linenr 5100000
+2018/10/07 20:42:41 - Carrega tabela.0 - linenr 5100000
+2018/10/07 20:42:49 - Le Arquivo.0 - Line number : 5200000
+2018/10/07 20:42:53 - Separa Ano e Mes.0 - Linenr 5200000
+2018/10/07 20:42:57 - Select values.0 - linenr 5150000
+2018/10/07 20:43:01 - Carrega tabela.0 - linenr 5150000
+2018/10/07 20:43:09 - Le Arquivo.0 - Line number : 5250000
+2018/10/07 20:43:13 - Separa Ano e Mes.0 - Linenr 5250000
+2018/10/07 20:43:16 - Select values.0 - linenr 5200000
+2018/10/07 20:43:20 - Carrega tabela.0 - linenr 5200000
+2018/10/07 20:43:28 - Le Arquivo.0 - Line number : 5300000
+2018/10/07 20:43:32 - Separa Ano e Mes.0 - Linenr 5300000
+2018/10/07 20:43:36 - Select values.0 - linenr 5250000
+2018/10/07 20:43:40 - Carrega tabela.0 - linenr 5250000
+2018/10/07 20:43:48 - Le Arquivo.0 - Line number : 5350000
+2018/10/07 20:43:52 - Separa Ano e Mes.0 - Linenr 5350000
+2018/10/07 20:43:55 - Select values.0 - linenr 5300000
+2018/10/07 20:43:59 - Carrega tabela.0 - linenr 5300000
+2018/10/07 20:44:07 - Le Arquivo.0 - Line number : 5400000
+2018/10/07 20:44:11 - Separa Ano e Mes.0 - Linenr 5400000
+2018/10/07 20:44:15 - Select values.0 - linenr 5350000
+2018/10/07 20:44:18 - Carrega tabela.0 - linenr 5350000
+2018/10/07 20:44:27 - Le Arquivo.0 - Line number : 5450000
+2018/10/07 20:44:30 - Separa Ano e Mes.0 - Linenr 5450000
+2018/10/07 20:44:34 - Select values.0 - linenr 5400000
+2018/10/07 20:44:38 - Carrega tabela.0 - linenr 5400000
+2018/10/07 20:44:46 - Le Arquivo.0 - Line number : 5500000
+2018/10/07 20:44:50 - Separa Ano e Mes.0 - Linenr 5500000
+2018/10/07 20:44:53 - Select values.0 - linenr 5450000
+2018/10/07 20:44:57 - Carrega tabela.0 - linenr 5450000
+2018/10/07 20:45:05 - Le Arquivo.0 - Line number : 5550000
+2018/10/07 20:45:09 - Separa Ano e Mes.0 - Linenr 5550000
+2018/10/07 20:45:13 - Select values.0 - linenr 5500000
+2018/10/07 20:45:17 - Carrega tabela.0 - linenr 5500000
+2018/10/07 20:45:25 - Le Arquivo.0 - Line number : 5600000
+2018/10/07 20:45:29 - Separa Ano e Mes.0 - Linenr 5600000
+2018/10/07 20:45:32 - Select values.0 - linenr 5550000
+2018/10/07 20:45:36 - Carrega tabela.0 - linenr 5550000
+2018/10/07 20:45:44 - Le Arquivo.0 - Line number : 5650000
+2018/10/07 20:45:48 - Separa Ano e Mes.0 - Linenr 5650000
+2018/10/07 20:45:52 - Select values.0 - linenr 5600000
+2018/10/07 20:45:56 - Carrega tabela.0 - linenr 5600000
+2018/10/07 20:46:04 - Le Arquivo.0 - Line number : 5700000
+2018/10/07 20:46:08 - Separa Ano e Mes.0 - Linenr 5700000
+2018/10/07 20:46:12 - Select values.0 - linenr 5650000
+2018/10/07 20:46:16 - Carrega tabela.0 - linenr 5650000
+2018/10/07 20:46:24 - Le Arquivo.0 - Line number : 5750000
+2018/10/07 20:46:27 - Separa Ano e Mes.0 - Linenr 5750000
+2018/10/07 20:46:31 - Select values.0 - linenr 5700000
+2018/10/07 20:46:35 - Carrega tabela.0 - linenr 5700000
+2018/10/07 20:46:43 - Le Arquivo.0 - Line number : 5800000
+2018/10/07 20:46:47 - Le Arquivo.0 - Finished processing (I=5809688, O=0, R=0, W=5809687, U=0, E=0)
+2018/10/07 20:46:47 - Separa Ano e Mes.0 - Linenr 5800000
+2018/10/07 20:46:50 - Select values.0 - linenr 5750000
+2018/10/07 20:46:50 - Separa Ano e Mes.0 - Finished processing (I=0, O=0, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:46:54 - Carrega tabela.0 - linenr 5750000
+2018/10/07 20:46:54 - Corrige sal_mensal_declarado.0 - Finished processing (I=0, O=0, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:46:58 - Corrige CBO.0 - Finished processing (I=0, O=0, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:47:02 - corige_dia_mov.0 - Finished processing (I=0, O=0, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:47:05 - Corrige CNAE1.0 - Finished processing (I=0, O=0, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:47:09 - Corrige grau instrucao.0 - Finished processing (I=0, O=0, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:47:09 - Select values.0 - linenr 5800000
+2018/10/07 20:47:13 - Select values.0 - Finished processing (I=0, O=0, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:47:13 - Carrega tabela.0 - linenr 5800000
+2018/10/07 20:47:16 - Carrega tabela.0 - Finished processing (I=0, O=5809687, R=5809687, W=5809687, U=0, E=0)
+2018/10/07 20:47:16 - job_carga_caged - Starting entry [Success]
+2018/10/07 20:47:16 - job_carga_caged - Finished job entry [Success] (result=[true])
+2018/10/07 20:47:16 - job_carga_caged - Finished job entry [ktr_carga_caged] (result=[true])
+2018/10/07 20:47:16 - job_carga_caged - Job execution finished
+2018/10/07 20:47:16 - Kitchen - Finished!
+2018/10/07 20:47:16 - Kitchen - Start=2018/10/07 20:09:33.119, Stop=2018/10/07 20:47:16.845
+2018/10/07 20:47:16 - Kitchen - Processing ended after 37 minutes and 43 seconds (2263 seconds total).

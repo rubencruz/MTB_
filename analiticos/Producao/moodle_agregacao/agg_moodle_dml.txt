@@ -1,0 +1,446 @@
+-- Populate aggregate table agg_moodle_mat
+INSERT INTO agg_moodle_mat (
+    dim_genero_genero_Key,
+    dim_tempo_ano,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_tempo.ano as dim_tempo_ano,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo.mes as dim_tempo_mes,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_tempo as dim_tempo,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_tempo_matricula = dim_tempo.sk_tempo
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+group by
+    dim_genero.sk_genero,
+    dim_tempo.ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo.mes;
+
+
+
+-- Populate aggregate table agg_moodle_mat_curso
+INSERT INTO agg_moodle_mat_curso (
+    dim_genero_genero_Key,
+    dim_curso_curso_Key,
+    dim_tempo_ano,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_curso.sk_curso as dim_curso_curso_Key,
+    dim_tempo.ano as dim_tempo_ano,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo.mes as dim_tempo_mes,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_curso as dim_curso,
+    dimensao.dim_tempo as dim_tempo,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_curso = dim_curso.sk_curso
+and
+    fato_moodle.sk_tempo_matricula = dim_tempo.sk_tempo
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+group by
+    dim_genero.sk_genero,
+    dim_curso.sk_curso,
+    dim_tempo.ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo.mes;
+
+
+
+-- Populate aggregate table agg_moodle_mat_curso_faixa
+INSERT INTO agg_moodle_mat_curso_faixa (
+    dim_genero_genero_Key,
+    dim_faixa_etaria_faixas_Key,
+    dim_curso_curso_Key,
+    dim_tempo_ano,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixas_Key,
+    dim_curso.sk_curso as dim_curso_curso_Key,
+    dim_tempo.ano as dim_tempo_ano,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo.mes as dim_tempo_mes,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_curso as dim_curso,
+    dimensao.dim_tempo as dim_tempo,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_moodle.sk_curso = dim_curso.sk_curso
+and
+    fato_moodle.sk_tempo_matricula = dim_tempo.sk_tempo
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+group by
+    dim_genero.sk_genero,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_curso.sk_curso,
+    dim_tempo.ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo.mes;
+
+
+
+-- Populate aggregate table agg_moodle_mat_curso_faixa_mun
+INSERT INTO agg_moodle_mat_curso_faixa_mun (
+    dim_genero_genero_Key,
+    dim_faixa_etaria_faixas_Key,
+    dim_curso_curso_Key,
+    dim_tempo_ano,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes,
+    dim_municipio_municipio_Key,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixas_Key,
+    dim_curso.sk_curso as dim_curso_curso_Key,
+    dim_tempo.ano as dim_tempo_ano,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo.mes as dim_tempo_mes,
+    dim_municipio.sk_municipio as dim_municipio_municipio_Key,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_curso as dim_curso,
+    dimensao.dim_tempo as dim_tempo,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_municipio as dim_municipio
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_moodle.sk_curso = dim_curso.sk_curso
+and
+    fato_moodle.sk_tempo_matricula = dim_tempo.sk_tempo
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_moodle.sk_municipio = dim_municipio.sk_municipio
+group by
+    dim_genero.sk_genero,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_curso.sk_curso,
+    dim_tempo.ano,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo.mes,
+    dim_municipio.sk_municipio;
+
+
+
+-- Populate aggregate table agg_moodle_qual
+INSERT INTO agg_moodle_qual (
+    dim_genero_genero_Key,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes_qualificacao,
+    dim_tempo_ano_qualificacao,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo_1.mes as dim_tempo_mes_qualificacao,
+    dim_tempo_1.ano as dim_tempo_ano_qualificacao,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tempo as dim_tempo_1
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_moodle.sk_tempo_qualificacao = dim_tempo_1.sk_tempo
+group by
+    dim_genero.sk_genero,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo_1.mes,
+    dim_tempo_1.ano;
+
+
+
+-- Populate aggregate table agg_moodle_qual_curso
+INSERT INTO agg_moodle_qual_curso (
+    dim_genero_genero_Key,
+    dim_curso_curso_Key,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes_qualificacao,
+    dim_tempo_ano_qualificacao,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_curso.sk_curso as dim_curso_curso_Key,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo_1.mes as dim_tempo_mes_qualificacao,
+    dim_tempo_1.ano as dim_tempo_ano_qualificacao,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_curso as dim_curso,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tempo as dim_tempo_1
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_curso = dim_curso.sk_curso
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_moodle.sk_tempo_qualificacao = dim_tempo_1.sk_tempo
+group by
+    dim_genero.sk_genero,
+    dim_curso.sk_curso,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo_1.mes,
+    dim_tempo_1.ano;
+
+
+
+-- Populate aggregate table agg_moodle_qual_curso_faixa
+INSERT INTO agg_moodle_qual_curso_faixa (
+    dim_genero_genero_Key,
+    dim_faixa_etaria_faixas_Key,
+    dim_curso_curso_Key,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_tempo_mes_qualificacao,
+    dim_tempo_ano_qualificacao,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixas_Key,
+    dim_curso.sk_curso as dim_curso_curso_Key,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_tempo_1.mes as dim_tempo_mes_qualificacao,
+    dim_tempo_1.ano as dim_tempo_ano_qualificacao,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_curso as dim_curso,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_tempo as dim_tempo_1
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_moodle.sk_curso = dim_curso.sk_curso
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_moodle.sk_tempo_qualificacao = dim_tempo_1.sk_tempo
+group by
+    dim_genero.sk_genero,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_curso.sk_curso,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_tempo_1.mes,
+    dim_tempo_1.ano;
+
+
+
+-- Populate aggregate table agg_moodle_qual_curso_faixa_mu
+INSERT INTO agg_moodle_qual_curso_faixa_mu (
+    dim_genero_genero_Key,
+    dim_faixa_etaria_faixas_Key,
+    dim_curso_curso_Key,
+    dim_uf_uf_Key,
+    dim_regiao_Regiao_Key,
+    dim_municipio_municipio_Key,
+    dim_tempo_mes_qualificacao,
+    dim_tempo_ano_qualificacao,
+    fato_moodle_cadastros,
+    fato_moodle_matriculas,
+    fato_moodle_qualificados,
+    fato_moodle_fact_count)
+select
+    dim_genero.sk_genero as dim_genero_genero_Key,
+    dim_faixa_etaria.sk_faixa_etaria as dim_faixa_etaria_faixas_Key,
+    dim_curso.sk_curso as dim_curso_curso_Key,
+    dim_uf.sk_uf as dim_uf_uf_Key,
+    dim_regiao.sk_regiao as dim_regiao_Regiao_Key,
+    dim_municipio.sk_municipio as dim_municipio_municipio_Key,
+    dim_tempo_1.mes as dim_tempo_mes_qualificacao,
+    dim_tempo_1.ano as dim_tempo_ano_qualificacao,
+    sum(fato_moodle.qtd_cadastro) as fato_moodle_cadastros,
+    sum(fato_moodle.qtd_matricula) as fato_moodle_matriculas,
+    sum(fato_moodle.qtd_qualificado) as fato_moodle_qualificados,
+    count(*) as fato_moodle_fact_count
+from
+    fato.fato_moodle as fato_moodle,
+    dimensao.dim_genero as dim_genero,
+    dimensao.dim_faixa_etaria as dim_faixa_etaria,
+    dimensao.dim_curso as dim_curso,
+    dimensao.dim_uf as dim_uf,
+    dimensao.dim_regiao as dim_regiao,
+    dimensao.dim_municipio as dim_municipio,
+    dimensao.dim_tempo as dim_tempo_1
+where
+    fato_moodle.sk_genero = dim_genero.sk_genero
+and
+    fato_moodle.sk_faixa_etaria = dim_faixa_etaria.sk_faixa_etaria
+and
+    fato_moodle.sk_curso = dim_curso.sk_curso
+and
+    fato_moodle.sk_uf = dim_uf.sk_uf
+and
+    fato_moodle.sk_regiao = dim_regiao.sk_regiao
+and
+    fato_moodle.sk_municipio = dim_municipio.sk_municipio
+and
+    fato_moodle.sk_tempo_qualificacao = dim_tempo_1.sk_tempo
+group by
+    dim_genero.sk_genero,
+    dim_faixa_etaria.sk_faixa_etaria,
+    dim_curso.sk_curso,
+    dim_uf.sk_uf,
+    dim_regiao.sk_regiao,
+    dim_municipio.sk_municipio,
+    dim_tempo_1.mes,
+    dim_tempo_1.ano;
+
+-- quantitativos por dia
+select mat.data,mat.qtd_cadastro, mat.qtd_matricula, qual.qtd_qualificado
+from
+(
+	select t.data, sum(m.qtd_cadastro) as qtd_cadastro,  sum(m.qtd_matricula) as qtd_matricula
+	from fato.fato_moodle m
+	right join dimensao.dim_tempo t on (m.sk_tempo_matricula = t.sk_tempo)
+	where t.data>='2017-11-17' and t.data<= now()
+	group by t.data
+	order by 1
+) mat
+left join
+(
+	select t.data, sum(m.qtd_qualificado) as qtd_qualificado
+	from fato.fato_moodle m
+	inner join dimensao.dim_tempo t on (m.sk_tempo_qualificacao = t.sk_tempo)
+	group by t.data
+	order by t.data
+) qual
+ON (mat.data = qual.data)
+order by 1    
+
+
+

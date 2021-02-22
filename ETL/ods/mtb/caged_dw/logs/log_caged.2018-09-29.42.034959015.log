@@ -1,0 +1,178 @@
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+14:33:43,577 INFO  [KarafBoot] Checking to see if org.pentaho.clean.karaf.cache is enabled
+14:33:43,675 INFO  [KarafInstance] 
+*******************************************************************************
+*** Karaf Instance Number: 2 at /tmp/karaf8687123518106653457/caches/kitche ***
+***   n/data-1                                                              ***
+*** FastBin Provider Port:52902                                             ***
+*** Karaf Port:8803                                                         ***
+*** OSGI Service Port:9052                                                  ***
+*******************************************************************************
+set 29, 2018 2:33:43 PM org.apache.karaf.main.Main launch
+INFO: Installing and starting initial bundles
+set 29, 2018 2:33:44 PM org.apache.karaf.main.Main launch
+INFO: All initial bundles installed and set to start
+set 29, 2018 2:33:44 PM org.apache.karaf.main.Main$KarafLockCallback lockAquired
+INFO: Lock acquired. Setting startlevel to 100
+2018/09/29 14:33:44 - Kitchen - Start of run.
+Creating configuration from jmx.acl.cfg
+Creating configuration from org.apache.karaf.log.cfg
+Creating configuration from org.apache.activemq.server-default.cfg
+Creating configuration from org.apache.karaf.command.acl.scope_bundle.cfg
+Creating configuration from pentaho.geo.roles.cfg
+Creating configuration from org.apache.karaf.command.acl.feature.cfg
+Creating configuration from org.apache.karaf.command.acl.config.cfg
+Creating configuration from mondrian.cfg
+Creating configuration from org.apache.karaf.features.cfg
+Creating configuration from org.apache.karaf.webconsole.cfg
+Creating configuration from org.apache.karaf.features.repos.cfg
+Creating configuration from org.apache.activemq.webconsole.cfg
+Creating configuration from org.apache.karaf.command.acl.bundle.cfg
+Creating configuration from pentaho.big.data.impl.cluster.cfg
+Creating configuration from org.pentaho.caching-default.cfg
+Creating configuration from jmx.acl.org.apache.karaf.security.jmx.cfg
+Creating configuration from org.ops4j.pax.web.cfg
+Creating configuration from org.apache.karaf.management.cfg
+Creating configuration from org.apache.karaf.command.acl.jaas.cfg
+Creating configuration from org.apache.aries.rsa.provider.fastbin.cfg
+Creating configuration from org.ops4j.pax.logging.cfg
+Creating configuration from pentaho.marketplace.di.cfg
+Creating configuration from org.pentaho.pdi.engine.spark.cfg
+Creating configuration from jmx.acl.org.apache.karaf.bundle.cfg
+Creating configuration from org.apache.karaf.command.acl.kar.cfg
+Creating configuration from pentaho.metaverse.cfg
+Creating configuration from org.ops4j.pax.url.mvn.cfg
+Creating configuration from org.apache.felix.fileinstall-deploy.cfg
+Creating configuration from org.apache.karaf.kar.cfg
+Creating configuration from org.apache.karaf.jaas.cfg
+Creating configuration from jmx.acl.org.apache.karaf.config.cfg
+Creating configuration from org.apache.karaf.command.acl.system.cfg
+Creating configuration from jmx.acl.java.lang.Memory.cfg
+Creating configuration from org.apache.karaf.shell.cfg
+Creating configuration from jmx.acl.osgi.compendium.cm.cfg
+Creating configuration from org.apache.karaf.features.obr.cfg
+Creating configuration from org.apache.karaf.command.acl.shell.cfg
+Creating configuration from org.pentaho.features.cfg
+set 29, 2018 2:33:47 PM org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1 onSuccess
+INFO: New Caching Service registered
+2018-09-29 14:34:04.358:INFO:oejs.Server:jetty-8.1.15.v20140411
+2018-09-29 14:34:04.423:INFO:oejs.AbstractConnector:Started NIOSocketConnectorWrapper@0.0.0.0:9052
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/core
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/beans
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/parameterized-types
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/configuration/security
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/wsdl/
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2005/08/addressing
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/08/addressing
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-management (152) [org.apache.cxf.management.InstrumentationManager]
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-http (156) [org.apache.cxf.transport.http.HTTPTransportFactory, org.apache.cxf.transport.http.HTTPWSDLExtensionLoader, org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder, org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder, org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider]
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-wsdl (189) [org.apache.cxf.wsdl.WSDLManager]
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-policy (203) [org.apache.cxf.ws.policy.PolicyEngine, org.apache.cxf.policy.PolicyDataEngine, org.apache.cxf.ws.policy.AssertionBuilderRegistry, org.apache.cxf.ws.policy.PolicyInterceptorProviderRegistry, org.apache.cxf.ws.policy.PolicyBuilder, org.apache.cxf.ws.policy.PolicyAnnotationListener, org.apache.cxf.ws.policy.attachment.ServiceModelPolicyProvider, org.apache.cxf.ws.policy.attachment.external.DomainExpressionBuilderRegistry, org.apache.cxf.ws.policy.attachment.external.EndpointReferenceDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.external.URIDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.wsdl11.Wsdl11AttachmentPolicyProvider, org.apache.cxf.ws.policy.mtom.MTOMAssertionBuilder, org.apache.cxf.ws.policy.mtom.MTOMPolicyInterceptorProvider]
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/transports/http/configuration
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-soap (192) [org.apache.cxf.binding.soap.SoapBindingFactory, org.apache.cxf.binding.soap.SoapTransportFactory]
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs
+set 29, 2018 2:34:04 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs-client
+set 29, 2018 2:34:05 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /marketplace
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-xml (191) [org.apache.cxf.binding.xml.XMLBindingFactory, org.apache.cxf.binding.xml.wsdl11.XMLWSDLExtensionLoader]
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/bindings/soap
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/simple
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-frontend-jaxws (194) [org.apache.cxf.jaxws.context.WebServiceContextResourceResolver]
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxws
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/binding/coloc
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-local (199) [org.apache.cxf.transport.local.LocalTransportFactory]
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-object (200) [org.apache.cxf.binding.object.ObjectBindingFactory]
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/blueprint/binding/object
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/policy
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/ns/ws-policy
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2006/07/ws-policy
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/09/policy
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://www.w3.org/2000/09/xmldsig#
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-addr (220) [org.apache.cxf.ws.addressing.policy.AddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.UsingAddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.AddressingPolicyInterceptorProvider, org.apache.cxf.ws.addressing.impl.AddressingWSDLExtensionLoader, org.apache.cxf.ws.addressing.WSAddressingFeature$WSAddressingFeatureApplier, org.apache.cxf.ws.addressing.MAPAggregator$MAPAggregatorLoader]
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/ws/addressing
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-security (222) [org.apache.cxf.ws.security.policy.WSSecurityPolicyLoader, org.apache.cxf.ws.security.cache.CacheCleanupListener]
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-rm (224) [org.apache.cxf.ws.rm.RMManager, org.apache.cxf.ws.rm.policy.RMPolicyInterceptorProvider, org.apache.cxf.ws.rm.policy.RM10AssertionBuilder, org.apache.cxf.ws.rm.policy.RM12AssertionBuilder, org.apache.cxf.ws.rm.policy.WSRMP12PolicyLoader, org.apache.cxf.ws.rm.policy.MC11PolicyLoader, org.apache.cxf.ws.rm.policy.RSPPolicyLoader]
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://cxf.apache.org/ws/rm/manager
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer register
+INFO: Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2005/02/rm/policy
+set 29, 2018 2:34:06 PM org.apache.cxf.bus.osgi.CXFExtensionBundleListener addExtensions
+INFO: Adding the extensions from bundle org.apache.cxf.cxf-rt-javascript (225) [org.apache.cxf.javascript.JavascriptServerListener]
+set 29, 2018 2:34:06 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /lineage
+set 29, 2018 2:34:06 PM org.apache.cxf.endpoint.ServerImpl initDestination
+INFO: Setting the server's publish address to be /i18n
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/BI/data-integration/launcher/../lib/slf4j-log4j12-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/BI/data-integration/plugins/pentaho-big-data-plugin/lib/slf4j-log4j12-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+2018/09/29 14:34:06 - job_carga_caged - Start of job execution
+2018/09/29 14:34:06 - job_carga_caged - Starting entry [ktr_carga_caged]
+2018/09/29 14:34:06 - ktr_carga_caged - Loading transformation from XML file [/home/unb/MTB/ETL/ods/mtb/caged_dw/ktr_carga_caged.ktr]
+2018/09/29 14:34:07 - ktr_carga_caged - Using run configuration [Pentaho local]
+2018/09/29 14:34:07 - ktr_carga_caged - Using legacy execution engine
+2018/09/29 14:34:07 - ktr_carga_caged - Dispatching started for transformation [ktr_carga_caged]
+2018/09/29 14:34:07 - ods_caged.0 - Connected to database [comexao_ods] (commit=1000000)
+2018/09/29 14:34:07 - CSV file input.0 - Header row skipped in file '/mnt/unb/bases_mte/CAGED/CAGED_TRABALHADOR_AJUSTADO_072018.txt'
+2018/09/29 14:34:07 - CSV file input.0 - Finished processing (I=500, O=0, R=0, W=499, U=0, E=0)
+2018/09/29 14:34:07 - Formula.0 - Finished processing (I=0, O=0, R=499, W=499, U=0, E=0)
+2018/09/29 14:34:08 - ods_caged.0 - Finished processing (I=0, O=499, R=499, W=499, U=0, E=0)
+2018/09/29 14:34:08 - job_carga_caged - Starting entry [Success]
+2018/09/29 14:34:08 - job_carga_caged - Finished job entry [Success] (result=[true])
+2018/09/29 14:34:08 - job_carga_caged - Finished job entry [ktr_carga_caged] (result=[true])
+2018/09/29 14:34:08 - job_carga_caged - Job execution finished
+2018/09/29 14:34:08 - Kitchen - Finished!
+2018/09/29 14:34:08 - Kitchen - Start=2018/09/29 14:33:44.381, Stop=2018/09/29 14:34:08.125
+2018/09/29 14:34:08 - Kitchen - Processing ended after 23 seconds.
+2018-09-29 14:34:08.435:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-i18n-webservice-bundle [231], contextID=default]}
+2018-09-29 14:34:08.435:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=org.pentaho.marketplace.util.web.MarketplaceHttpContext@26c4b62e}
+2018-09-29 14:34:08.435:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-angular-ui-bootstrap-bower [170], contextID=default]}
+2018-09-29 14:34:08.436:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-angular-translate [169], contextID=default]}
+2018-09-29 14:34:08.436:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-angular-animate [168], contextID=default]}
+2018-09-29 14:34:08.436:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-angular-sanitize [167], contextID=default]}
+2018-09-29 14:34:08.437:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-angular-route [166], contextID=default]}
+2018-09-29 14:34:08.437:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-angular [165], contextID=default]}
+2018-09-29 14:34:08.438:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-jquery [164], contextID=default]}
+2018-09-29 14:34:08.438:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-webjars-underscore [163], contextID=default]}
+2018-09-29 14:34:08.438:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=org.apache.cxf.cxf-rt-transports-http [156], contextID=default]}
+2018-09-29 14:34:08.439:INFO:oejsh.ContextHandler:stopped HttpServiceContext{httpContext=DefaultHttpContext [bundle=pentaho-requirejs-osgi-manager [135], contextID=default]}

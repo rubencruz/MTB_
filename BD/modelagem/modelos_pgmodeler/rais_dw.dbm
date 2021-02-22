@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.7.0">
+<role name="mtb"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="mtb_dw" encoding="UTF8" lc-collate="pt_BR" lc-ctype="pt_BR">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" protected="true" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="dimensao" rect-visible="true" fill-color="#1b7577">
+	<role name="mtb"/>
+</schema>
+
+<schema name="fato" rect-visible="true" fill-color="#ed4a99">
+	<role name="mtb"/>
+</schema>
+
+<table name="dim_ano">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="566.667" y="80"/>
+	<column name="sk_ano" not-null="true" default-value="nextval('dim_ano_sk_ano_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="ano">
+		<type name="smallint"/>
+	</column>
+	<constraint name="dim_ano_pkey" type="pk-constr" factor="100" table="dimensao.dim_ano">
+		<columns names="sk_ano" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cbo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="897.182" y="853.334"/>
+	<column name="sk_cbo" not-null="true" default-value="nextval('dim_cbo_sk_cbo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_cbo">
+		<type name="character varying" length="400"/>
+	</column>
+	<constraint name="dim_cbo_pkey" type="pk-constr" factor="100" table="dimensao.dim_cbo">
+		<columns names="sk_cbo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cnae_classe">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="984.865" y="750"/>
+	<column name="sk_cnae_classe" not-null="true" default-value="nextval('dim_cnae_classe_sk_cnae_classe_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_classe">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_classe_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_classe">
+		<columns names="sk_cnae_classe" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cnae_divisao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="993.865" y="335"/>
+	<column name="sk_cnae_divisao" not-null="true" default-value="nextval('dim_cnae_divisao_sk_cnae_divisao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_divisao">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_divisao_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_divisao">
+		<columns names="sk_cnae_divisao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cnae_grupo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="32" y="374.067"/>
+	<column name="sk_cnae_grupo" not-null="true" default-value="nextval('dim_cnae_grupo_sk_cnae_grupo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_grupo">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_grupo_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_grupo">
+		<columns names="sk_cnae_grupo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cnae_secao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="532.266" y="871.4"/>
+	<column name="sk_cnae_secao" not-null="true" default-value="nextval('dim_cnae_secao_sk_cnae_secao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="character varying"/>
+	</column>
+	<column name="nome_secao">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_secao_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_secao">
+		<columns names="sk_cnae_secao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_cnae_subclasse">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="753.5" y="954.734"/>
+	<column name="sk_cnae_subclasse" not-null="true" default-value="nextval('dim_cnae_subclasse_sk_cnae_subclasse_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_subclasse">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_subclasse">
+		<columns names="sk_cnae_subclasse" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_genero">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="42" y="481.8"/>
+	<column name="sk_genero" not-null="true" default-value="nextval('dim_genero_sk_genero_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="nome_genero">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="sigla_genero">
+		<type name="character" length="2"/>
+	</column>
+	<constraint name="dim_genero_pkey" type="pk-constr" factor="100" table="dimensao.dim_genero">
+		<columns names="sk_genero" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_grau_instrucao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="27.6769" y="225.8"/>
+	<column name="sk_grau_instrucao" not-null="true" default-value="nextval('dim_grau_instrucao_sk_grau_instrucao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_grau_instrucao">
+		<type name="character varying"/>
+	</column>
+	<column name="ordem">
+		<type name="smallint"/>
+	</column>
+	<constraint name="dim_grau_instrucao_pkey" type="pk-constr" factor="100" table="dimensao.dim_grau_instrucao">
+		<columns names="sk_grau_instrucao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_ibge_setor">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="848.594" y="85.7999"/>
+	<column name="sk_ibge_setor" not-null="true" default-value="nextval('dim_ibge_setor_sk_ibge_setor_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo_setor">
+		<type name="integer"/>
+	</column>
+	<column name="nome_ibge_setor">
+		<type name="character varying" length="200"/>
+	</column>
+	<constraint name="dim_ibge_setor_pkey" type="pk-constr" factor="100" table="dimensao.dim_ibge_setor">
+		<columns names="sk_ibge_setor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_ibge_subsetor">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="987.49" y="188.8"/>
+	<column name="sk_ibge_subsetor" not-null="true" default-value="nextval('dim_ibge_subsetor_sk_ibge_subsetor_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo_subsetor">
+		<type name="integer"/>
+	</column>
+	<column name="nome_ibge_subsetor">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="codigo_setor">
+		<type name="integer"/>
+	</column>
+	<column name="nome_setor">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_ibge_subsetor_pkey" type="pk-constr" factor="100" table="dimensao.dim_ibge_subsetor">
+		<columns names="sk_ibge_subsetor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_motivo_desligamento">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="996.349" y="439.2"/>
+	<column name="sk_motivo_desligamento" not-null="true" default-value="nextval('dim_motivo_desligamento_sk_motivo_desligamento_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_motivo_desligamento">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_motivo_desligamento_pkey" type="pk-constr" factor="100" table="dimensao.dim_motivo_desligamento">
+		<columns names="sk_motivo_desligamento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_municipio">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="30" y="629.933"/>
+	<column name="sk_municipio" not-null="true" default-value="nextval('dim_municipio_sk_municipio_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_municipio">
+		<type name="integer"/>
+	</column>
+	<column name="nome_municipio">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_municipio" type="pk-constr" factor="100" table="dimensao.dim_municipio">
+		<columns names="sk_municipio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_portador_deficiencia">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="129.286" y="97.5998"/>
+	<column name="sk_portador_deficiencia" not-null="true" default-value="nextval('dim_portador_deficiencia_sk_portador_deficiencia_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="portador_deficiencia">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_portador_deficiencia_pkey" type="pk-constr" factor="100" table="dimensao.dim_portador_deficiencia">
+		<columns names="sk_portador_deficiencia" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_raca_cor">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="994.505" y="534.6"/>
+	<column name="sk_raca_cor" not-null="true" default-value="nextval('dim_raca_cor_sk_raca_cor_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_raca">
+		<type name="character varying"/>
+	</column>
+	<column name="cor">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_raca_cor_pkey" type="pk-constr" factor="100" table="dimensao.dim_raca_cor">
+		<columns names="sk_raca_cor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_regiao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="40" y="756.667"/>
+	<column name="sk_regiao" not-null="true" default-value="nextval('dim_regiao_sk_regiao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="sigla_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_regiao">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_regiao" type="pk-constr" factor="100" table="dimensao.dim_regiao">
+		<columns names="sk_regiao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_tipo_deficiencia">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="988.724" y="638"/>
+	<column name="sk_tipo_deficiencia" not-null="true" default-value="nextval('dim_tipo_deficiencia_sk_tipo_deficiencia_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_tipo_deficiencia">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_tipo_deficiencia_pkey" type="pk-constr" factor="100" table="dimensao.dim_tipo_deficiencia">
+		<columns names="sk_tipo_deficiencia" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_tipo_vinculo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="150" y="853.4"/>
+	<column name="sk_tipo_vinculo" not-null="true" default-value="nextval('dim_tipo_vinculo_sk_tipo_vinculo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_tipo_vinculo">
+		<type name="character varying"/>
+	</column>
+	<column name="grupo_vinculo">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_tipo_vinculo_pkey" type="pk-constr" factor="100" table="dimensao.dim_tipo_vinculo">
+		<columns names="sk_tipo_vinculo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dim_uf">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="325.839" y="962.4"/>
+	<column name="sk_uf" not-null="true" default-value="nextval('dim_uf_sk_uf_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_ibge">
+		<type name="integer"/>
+	</column>
+	<column name="uf">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_uf">
+		<type name="character varying" length="250"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<constraint name="dim_uf_pkey" type="pk-constr" factor="100" table="dimensao.dim_uf">
+		<columns names="sk_uf" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="fato_rais">
+	<schema name="fato"/>
+	<role name="mtb"/>
+	<position x="504.484" y="266.333"/>
+	<column name="sk_fato_rais" not-null="true" default-value="nextval('fato_rais_sk_fato_rais_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="ano">
+		<type name="integer"/>
+	</column>
+	<column name="cpf">
+		<type name="bigint"/>
+	</column>
+	<column name="pis">
+		<type name="bigint"/>
+	</column>
+	<column name="ativo">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_ano">
+		<type name="integer"/>
+	</column>
+	<column name="sk_regiao">
+		<type name="integer"/>
+	</column>
+	<column name="sk_uf">
+		<type name="integer"/>
+	</column>
+	<column name="sk_municipio">
+		<type name="integer"/>
+	</column>
+	<column name="sk_faixa_etaria">
+		<type name="integer"/>
+	</column>
+	<column name="sk_grau_instrucao">
+		<type name="integer"/>
+	</column>
+	<column name="sk_portador_deficiencia">
+		<type name="integer"/>
+	</column>
+	<column name="sk_tipo_deficiencia">
+		<type name="integer"/>
+	</column>
+	<column name="sk_motivo_desligamento">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cbo">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_subclasse">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_classe">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_grupo">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_divisao">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_secao">
+		<type name="integer"/>
+	</column>
+	<column name="sk_ibge_subsetor">
+		<type name="integer"/>
+	</column>
+	<column name="sk_ibge_setor">
+		<type name="integer"/>
+	</column>
+	<column name="sk_raca_cor">
+		<type name="integer"/>
+	</column>
+	<column name="sk_genero">
+		<type name="integer"/>
+	</column>
+	<column name="sk_tipo_vinculo">
+		<type name="integer"/>
+	</column>
+	<column name="qtd">
+		<type name="bigint"/>
+	</column>
+	<column name="qtd_estoque">
+		<type name="bigint"/>
+	</column>
+	<column name="sub_total_remuneracao_media">
+		<type name="numeric"/>
+	</column>
+	<column name="qtd_remuneracao_media">
+		<type name="bigint"/>
+	</column>
+	<constraint name="fato_rais_pkey" type="pk-constr" factor="100" table="fato.fato_rais">
+		<columns names="sk_fato_rais" ref-type="src-columns"/>
+	</constraint>
+	<rule name="rl_insert_2015" event-type="ON INSERT"
+		 exec-type="INSTEAD">
+		<condition><![CDATA[ (new.ano = 2015) ]]></condition>
+		<commands><![CDATA[CREATE RULE rl_insert_2015 AS
+    ON INSERT TO fato.fato_rais
+   WHERE (new.ano = 2015) DO INSTEAD  INSERT INTO fato.fato_rais_2015 (sk_fato_rais, ano, cpf, pis, ativo, sk_ano, sk_regiao, sk_uf, sk_municipio, sk_faixa_etaria, sk_grau_instrucao, sk_portador_deficiencia, sk_tipo_deficiencia, sk_motivo_desligamento, sk_cbo, sk_cnae_subclasse, sk_cnae_classe, sk_cnae_grupo, sk_cnae_divisao, sk_cnae_secao, sk_ibge_subsetor, sk_ibge_setor, sk_raca_cor, sk_genero, sk_tipo_vinculo, qtd, qtd_estoque, sub_total_remuneracao_media, qtd_remuneracao_media)
+  VALUES (new.sk_fato_rais, new.ano, new.cpf, new.pis, new.ativo, new.sk_ano, new.sk_regiao, new.sk_uf, new.sk_municipio, new.sk_faixa_etaria, new.sk_grau_instrucao, new.sk_portador_deficiencia, new.sk_tipo_deficiencia, new.sk_motivo_desligamento, new.sk_cbo, new.sk_cnae_subclasse, new.sk_cnae_classe, new.sk_cnae_grupo, new.sk_cnae_divisao, new.sk_cnae_secao, new.sk_ibge_subsetor, new.sk_ibge_setor, new.sk_raca_cor, new.sk_genero, new.sk_tipo_vinculo, new.qtd, new.qtd_estoque, new.sub_total_remuneracao_media, new.qtd_remuneracao_med]]></commands>
+	</rule>
+	<rule name="rl_insert_2016" event-type="ON INSERT"
+		 exec-type="INSTEAD">
+		<condition><![CDATA[ (new.ano = 2016) ]]></condition>
+		<commands><![CDATA[CREATE RULE rl_insert_2016 AS
+    ON INSERT TO fato.fato_rais
+   WHERE (new.ano = 2016) DO INSTEAD  INSERT INTO fato.fato_rais_2016 (sk_fato_rais, ano, cpf, pis, ativo, sk_ano, sk_regiao, sk_uf, sk_municipio, sk_faixa_etaria, sk_grau_instrucao, sk_portador_deficiencia, sk_tipo_deficiencia, sk_motivo_desligamento, sk_cbo, sk_cnae_subclasse, sk_cnae_classe, sk_cnae_grupo, sk_cnae_divisao, sk_cnae_secao, sk_ibge_subsetor, sk_ibge_setor, sk_raca_cor, sk_genero, sk_tipo_vinculo, qtd, qtd_estoque, sub_total_remuneracao_media, qtd_remuneracao_media)
+  VALUES (new.sk_fato_rais, new.ano, new.cpf, new.pis, new.ativo, new.sk_ano, new.sk_regiao, new.sk_uf, new.sk_municipio, new.sk_faixa_etaria, new.sk_grau_instrucao, new.sk_portador_deficiencia, new.sk_tipo_deficiencia, new.sk_motivo_desligamento, new.sk_cbo, new.sk_cnae_subclasse, new.sk_cnae_classe, new.sk_cnae_grupo, new.sk_cnae_divisao, new.sk_cnae_secao, new.sk_ibge_subsetor, new.sk_ibge_setor, new.sk_raca_cor, new.sk_genero, new.sk_tipo_vinculo, new.qtd, new.qtd_estoque, new.sub_total_remuneracao_media, new.qtd_remuneracao_med]]></commands>
+	</rule>
+	<rule name="rl_insert_2017" event-type="ON INSERT"
+		 exec-type="INSTEAD">
+		<condition><![CDATA[ (new.ano = 2017) ]]></condition>
+		<commands><![CDATA[CREATE RULE rl_insert_2017 AS
+    ON INSERT TO fato.fato_rais
+   WHERE (new.ano = 2017) DO INSTEAD  INSERT INTO fato.fato_rais_2017 (sk_fato_rais, ano, cpf, pis, ativo, sk_ano, sk_regiao, sk_uf, sk_municipio, sk_faixa_etaria, sk_grau_instrucao, sk_portador_deficiencia, sk_tipo_deficiencia, sk_motivo_desligamento, sk_cbo, sk_cnae_subclasse, sk_cnae_classe, sk_cnae_grupo, sk_cnae_divisao, sk_cnae_secao, sk_ibge_subsetor, sk_ibge_setor, sk_raca_cor, sk_genero, sk_tipo_vinculo, qtd, qtd_estoque, sub_total_remuneracao_media, qtd_remuneracao_media)
+  VALUES (new.sk_fato_rais, new.ano, new.cpf, new.pis, new.ativo, new.sk_ano, new.sk_regiao, new.sk_uf, new.sk_municipio, new.sk_faixa_etaria, new.sk_grau_instrucao, new.sk_portador_deficiencia, new.sk_tipo_deficiencia, new.sk_motivo_desligamento, new.sk_cbo, new.sk_cnae_subclasse, new.sk_cnae_classe, new.sk_cnae_grupo, new.sk_cnae_divisao, new.sk_cnae_secao, new.sk_ibge_subsetor, new.sk_ibge_setor, new.sk_raca_cor, new.sk_genero, new.sk_tipo_vinculo, new.qtd, new.qtd_estoque, new.sub_total_remuneracao_media, new.qtd_remuneracao_med]]></commands>
+	</rule>
+</table>
+
+<constraint name="fato_rais_sk_ano_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_ano" table="fato.fato_rais">
+	<columns names="sk_ano" ref-type="src-columns"/>
+	<columns names="sk_ano" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_regiao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_regiao" table="fato.fato_rais">
+	<columns names="sk_regiao" ref-type="src-columns"/>
+	<columns names="sk_regiao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_uf_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_uf" table="fato.fato_rais">
+	<columns names="sk_uf" ref-type="src-columns"/>
+	<columns names="sk_uf" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_municipio_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_municipio" table="fato.fato_rais">
+	<columns names="sk_municipio" ref-type="src-columns"/>
+	<columns names="sk_municipio" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_grau_instrucao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_grau_instrucao" table="fato.fato_rais">
+	<columns names="sk_grau_instrucao" ref-type="src-columns"/>
+	<columns names="sk_grau_instrucao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_portador_deficiencia_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_portador_deficiencia" table="fato.fato_rais">
+	<columns names="sk_portador_deficiencia" ref-type="src-columns"/>
+	<columns names="sk_portador_deficiencia" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_tipo_deficiencia_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tipo_deficiencia" table="fato.fato_rais">
+	<columns names="sk_tipo_deficiencia" ref-type="src-columns"/>
+	<columns names="sk_tipo_deficiencia" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_motivo_desligamento_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_motivo_desligamento" table="fato.fato_rais">
+	<columns names="sk_motivo_desligamento" ref-type="src-columns"/>
+	<columns names="sk_motivo_desligamento" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_cbo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cbo" table="fato.fato_rais">
+	<columns names="sk_cbo" ref-type="src-columns"/>
+	<columns names="sk_cbo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_cnae_subclasse_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_subclasse" table="fato.fato_rais">
+	<columns names="sk_cnae_subclasse" ref-type="src-columns"/>
+	<columns names="sk_cnae_subclasse" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_cnae_classe_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_classe" table="fato.fato_rais">
+	<columns names="sk_cnae_classe" ref-type="src-columns"/>
+	<columns names="sk_cnae_classe" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_cnae_grupo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_grupo" table="fato.fato_rais">
+	<columns names="sk_cnae_grupo" ref-type="src-columns"/>
+	<columns names="sk_cnae_grupo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_cnae_divisao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_divisao" table="fato.fato_rais">
+	<columns names="sk_cnae_divisao" ref-type="src-columns"/>
+	<columns names="sk_cnae_divisao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_cnae_secao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_secao" table="fato.fato_rais">
+	<columns names="sk_cnae_secao" ref-type="src-columns"/>
+	<columns names="sk_cnae_secao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_ibge_subsetor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_ibge_subsetor" table="fato.fato_rais">
+	<columns names="sk_ibge_subsetor" ref-type="src-columns"/>
+	<columns names="sk_ibge_subsetor" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_ibge_setor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_ibge_setor" table="fato.fato_rais">
+	<columns names="sk_ibge_setor" ref-type="src-columns"/>
+	<columns names="sk_ibge_setor" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_raca_cor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_raca_cor" table="fato.fato_rais">
+	<columns names="sk_raca_cor" ref-type="src-columns"/>
+	<columns names="sk_raca_cor" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_genero_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_genero" table="fato.fato_rais">
+	<columns names="sk_genero" ref-type="src-columns"/>
+	<columns names="sk_genero" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_rais_sk_tipo_vinculo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tipo_vinculo" table="fato.fato_rais">
+	<columns names="sk_tipo_vinculo" ref-type="src-columns"/>
+	<columns names="sk_tipo_vinculo" ref-type="dst-columns"/>
+</constraint>
+<relationship name="rel_fato_rais_dim_ano" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_ano"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_regiao" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_regiao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_uf" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_uf"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_municipio" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_municipio"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_grau_instrucao" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_grau_instrucao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_portador_deficiencia" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_portador_deficiencia"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_tipo_deficiencia" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_tipo_deficiencia"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_motivo_desligamento" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_motivo_desligamento"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_cbo" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_cbo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_cnae_subclasse" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_cnae_subclasse"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_cnae_classe" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_cnae_classe"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_cnae_grupo" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_cnae_grupo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_cnae_divisao" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_cnae_divisao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_cnae_secao" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_cnae_secao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_ibge_subsetor" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_ibge_subsetor"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_ibge_setor" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_ibge_setor"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_raca_cor" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_raca_cor"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_genero" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_genero"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_rais_dim_tipo_vinculo" type="relfk"
+	 src-table="fato.fato_rais"
+	 dst-table="dimensao.dim_tipo_vinculo"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>

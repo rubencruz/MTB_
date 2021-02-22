@@ -1,0 +1,29 @@
+-- Aggregate table agg_gerencial_base
+-- Estimated 356038 rows, 5696616 bytes
+CREATE TABLE agg_gerencial_base (
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes int2,
+    dim_tempo_ano int2,
+    fato_gerencial_qtd_no_mercado FLOAT8,
+    fato_gerencial_qtd_entraran_me FLOAT8,
+    fato_gerencial_qtd_sairam_merc FLOAT8,
+    fato_gerencial_qtd_seguro_dese FLOAT8,
+    fato_gerencial_qtd_fora_mercad FLOAT8,
+    fato_gerencial_fact_count INT8);
+
+-- Aggregate table agg_gerencial_base_mun
+-- Estimated 410617 rows, 8212340 bytes
+CREATE TABLE agg_gerencial_base_mun (
+    dim_uf_uf_Key int,
+    dim_regiao_Regiao_Key int,
+    dim_tempo_mes int2,
+    dim_tempo_ano int2,
+    dim_municipio_municipio_Key int,
+    fato_gerencial_qtd_no_mercado FLOAT8,
+    fato_gerencial_qtd_entraran_me FLOAT8,
+    fato_gerencial_qtd_sairam_merc FLOAT8,
+    fato_gerencial_qtd_seguro_dese FLOAT8,
+    fato_gerencial_qtd_fora_mercad FLOAT8,
+    fato_gerencial_fact_count INT8);
+

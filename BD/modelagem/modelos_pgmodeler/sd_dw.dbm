@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.7.0">
+<role name="mtb"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="mtb_dw" encoding="UTF8" lc-collate="pt_BR" lc-ctype="pt_BR">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" protected="true" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="dimensao" rect-visible="true" fill-color="#6a3d58">
+	<role name="mtb"/>
+</schema>
+
+<schema name="fato" rect-visible="true" fill-color="#d53652">
+	<role name="mtb"/>
+</schema>
+
+<sequence name="dim_ano_sk_ano_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_aprendiz_sk_aprendiz_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_cbo_sk_cbo_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_cbo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="30.5153" y="500"/>
+	<column name="sk_cbo" not-null="true" default-value="nextval('dim_cbo_sk_cbo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_cbo">
+		<type name="character varying" length="400"/>
+	</column>
+	<constraint name="dim_cbo_pkey" type="pk-constr" factor="100" table="dimensao.dim_cbo">
+		<columns names="sk_cbo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_cnae_classe_sk_cnae_classe_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_cnae_classe">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="141.531" y="690"/>
+	<column name="sk_cnae_classe" not-null="true" default-value="nextval('dim_cnae_classe_sk_cnae_classe_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_classe">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_classe_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_classe">
+		<columns names="sk_cnae_classe" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_cnae_divisao_sk_cnae_divisao_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_cnae_grupo_sk_cnae_grupo_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_cnae_secao_sk_cnae_secao_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_cnae_subclasse_sk_cnae_subclasse_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_cnae_subclasse">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="38.4997" y="593.9"/>
+	<column name="sk_cnae_subclasse" not-null="true" default-value="nextval('dim_cnae_subclasse_sk_cnae_subclasse_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_subclasse">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_cnae_pkey" type="pk-constr" factor="100" table="dimensao.dim_cnae_subclasse">
+		<columns names="sk_cnae_subclasse" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_curso_sk_curso_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_faixa_etaria_sk_faixa_etaria_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_genero_sk_genero_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_genero">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="890" y="598.3"/>
+	<column name="sk_genero" not-null="true" default-value="nextval('dim_genero_sk_genero_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="nome_genero">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="sigla_genero">
+		<type name="character" length="2"/>
+	</column>
+	<constraint name="dim_genero_pkey" type="pk-constr" factor="100" table="dimensao.dim_genero">
+		<columns names="sk_genero" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_grau_instrucao_sk_grau_instrucao_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_grau_instrucao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="827.344" y="140.8"/>
+	<column name="sk_grau_instrucao" not-null="true" default-value="nextval('dim_grau_instrucao_sk_grau_instrucao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="integer"/>
+	</column>
+	<column name="nome_grau_instrucao">
+		<type name="character varying"/>
+	</column>
+	<column name="ordem">
+		<type name="smallint"/>
+	</column>
+	<constraint name="dim_grau_instrucao_pkey" type="pk-constr" factor="100" table="dimensao.dim_grau_instrucao">
+		<columns names="sk_grau_instrucao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_ibge_grupo_setor_sk_ibge_grupo_setor_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_ibge_setor_sk_ibge_setor_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_ibge_setor">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="913.594" y="488.3"/>
+	<column name="sk_ibge_setor" not-null="true" default-value="nextval('dim_ibge_setor_sk_ibge_setor_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo_setor">
+		<type name="integer"/>
+	</column>
+	<column name="nome_ibge_setor">
+		<type name="character varying" length="200"/>
+	</column>
+	<constraint name="dim_ibge_setor_pkey" type="pk-constr" factor="100" table="dimensao.dim_ibge_setor">
+		<columns names="sk_ibge_setor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_ibge_subsetor_sk_ibge_subsetor_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_idade_sk_idade_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_mesmo_emprego_sk_mesmo_emprego_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_mesmo_emprego">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="876.735" y="283.2"/>
+	<column name="sk_mesmo_emprego" not-null="true" default-value="nextval('dim_mesmo_emprego_sk_mesmo_emprego_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="mesmo_emprego">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="dim_mesmo_emprego_pkey" type="pk-constr" factor="100" table="dimensao.dim_mesmo_emprego">
+		<columns names="sk_mesmo_emprego" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_modalidade_sk_modalidade_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_motivo_desligamento_sk_motivo_desligamento_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_movimento_desagregado_sk_movimento_desagregado_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_municipio_sk_municipio_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_municipio">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="112.5" y="127.1"/>
+	<column name="sk_municipio" not-null="true" default-value="nextval('dim_municipio_sk_municipio_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_municipio">
+		<type name="integer"/>
+	</column>
+	<column name="nome_municipio">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_municipio" type="pk-constr" factor="100" table="dimensao.dim_municipio">
+		<columns names="sk_municipio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_periodo_sk_periodo_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_portador_deficiencia_sk_portador_deficiencia_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_pronatec_sk_pronatec_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_pronatec">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="448.531" y="772.1"/>
+	<column name="sk_pronatec" not-null="true" default-value="nextval('dim_pronatec_sk_pronatec_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="pronatec">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="dim_pronatec_pkey" type="pk-constr" factor="100" table="dimensao.dim_pronatec">
+		<columns names="sk_pronatec" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_raca_cor_sk_raca_cor_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_regiao_sk_regiao_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_regiao">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="20" y="247"/>
+	<column name="sk_regiao" not-null="true" default-value="nextval('dim_regiao_sk_regiao_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="sigla_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_regiao">
+		<type name="character varying" length="250"/>
+	</column>
+	<constraint name="pk_dim_regiao" type="pk-constr" factor="100" table="dimensao.dim_regiao">
+		<columns names="sk_regiao" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_situacao_requerimento_sk_situacao_requerimento_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_situacao_requerimento">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="891.032" y="379.5"/>
+	<column name="sk_situacao_requerimento" not-null="true" default-value="nextval('dim_situacao_requerimento_sk_situacao_requerimento_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="nome_situacao_requerimento">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_situacao_requerimento_pkey" type="pk-constr" factor="100" table="dimensao.dim_situacao_requerimento">
+		<columns names="sk_situacao_requerimento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_status_requerimento_sk_status_requerimento_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_status_requerimento">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="763.656" y="732"/>
+	<column name="sk_status_requerimento" not-null="true" default-value="nextval('dim_status_requerimento_sk_status_requerimento_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="codigo">
+		<type name="smallint"/>
+	</column>
+	<column name="nome_status_requerimento">
+		<type name="character varying"/>
+	</column>
+	<constraint name="dim_status_requerimento_pkey" type="pk-constr" factor="100" table="dimensao.dim_status_requerimento">
+		<columns names="sk_status_requerimento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_tempo_sk_tempo_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_tempo">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="481.265" y="26.9997"/>
+	<column name="sk_tempo" not-null="true" default-value="nextval('dim_tempo_sk_tempo_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="data">
+		<type name="date"/>
+	</column>
+	<column name="ano">
+		<type name="smallint"/>
+	</column>
+	<column name="mes">
+		<type name="smallint"/>
+	</column>
+	<column name="dia_ano">
+		<type name="smallint"/>
+	</column>
+	<column name="dia_mes">
+		<type name="smallint"/>
+	</column>
+	<column name="dia_semana">
+		<type name="smallint"/>
+	</column>
+	<column name="semana_ano">
+		<type name="smallint"/>
+	</column>
+	<column name="desc_semana">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="sigla_semana">
+		<type name="character varying" length="3"/>
+	</column>
+	<column name="desc_mes">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="sigla_mes">
+		<type name="character varying" length="3"/>
+	</column>
+	<column name="trimestre">
+		<type name="character varying"/>
+	</column>
+	<constraint name="pk_dim_tempo" type="pk-constr" factor="100" table="dimensao.dim_tempo">
+		<columns names="sk_tempo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="dim_tipo_deficiencia_sk_tipo_deficiencia_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_tipo_vinculo_sk_tipo_vinculo_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<sequence name="dim_uf_sk_uf_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+</sequence>
+
+<table name="dim_uf">
+	<schema name="dimensao"/>
+	<role name="mtb"/>
+	<position x="29.1719" y="363.4"/>
+	<column name="sk_uf" not-null="true" default-value="nextval('dim_uf_sk_uf_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="cod_ibge">
+		<type name="integer"/>
+	</column>
+	<column name="uf">
+		<type name="character varying" length="2"/>
+	</column>
+	<column name="nome_uf">
+		<type name="character varying" length="250"/>
+	</column>
+	<column name="cod_regiao">
+		<type name="character varying" length="2"/>
+	</column>
+	<constraint name="dim_uf_pkey" type="pk-constr" factor="100" table="dimensao.dim_uf">
+		<columns names="sk_uf" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="fato_seguro_desemprego">
+	<schema name="fato"/>
+	<role name="mtb"/>
+	<position x="461.984" y="332"/>
+	<column name="sk_fato_seguro_desemprego" not-null="true" default-value="nextval('fato_seguro_desemprego_sk_fato_seguro_desemprego_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="ano">
+		<type name="smallint"/>
+	</column>
+	<column name="mes">
+		<type name="smallint"/>
+	</column>
+	<column name="cpf">
+		<type name="bigint"/>
+	</column>
+	<column name="pis">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_situacao_requerimento">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_status_requerimento">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_cbo">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_classe">
+		<type name="integer"/>
+	</column>
+	<column name="sk_cnae_subclasse">
+		<type name="integer"/>
+	</column>
+	<column name="sk_ibge_grupo_setor">
+		<type name="integer"/>
+	</column>
+	<column name="sk_mesmo_emprego">
+		<type name="integer"/>
+	</column>
+	<column name="sk_genero">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_grau_instrucao">
+		<type name="integer"/>
+	</column>
+	<column name="sk_pronatec">
+		<type name="integer"/>
+	</column>
+	<column name="sk_municipio_demissao">
+		<type name="bigint"/>
+	</column>
+	<column name="sk_uf">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_regiao">
+		<type name="smallint"/>
+	</column>
+	<column name="sk_tempo">
+		<type name="bigint"/>
+	</column>
+	<column name="qtd">
+		<type name="bigint"/>
+	</column>
+	<constraint name="fato_seguro_desemprego_pkey" type="pk-constr" factor="100" table="fato.fato_seguro_desemprego">
+		<columns names="sk_fato_seguro_desemprego" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fato_seguro_desemprego_sk_situacao_requerimento_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_situacao_requerimento" table="fato.fato_seguro_desemprego">
+	<columns names="sk_situacao_requerimento" ref-type="src-columns"/>
+	<columns names="sk_situacao_requerimento" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_status_requerimento_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_status_requerimento" table="fato.fato_seguro_desemprego">
+	<columns names="sk_status_requerimento" ref-type="src-columns"/>
+	<columns names="sk_status_requerimento" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_cbo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cbo" table="fato.fato_seguro_desemprego">
+	<columns names="sk_cbo" ref-type="src-columns"/>
+	<columns names="sk_cbo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_cnae_classe_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_classe" table="fato.fato_seguro_desemprego">
+	<columns names="sk_cnae_classe" ref-type="src-columns"/>
+	<columns names="sk_cnae_classe" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_cnae_subclasse_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_cnae_subclasse" table="fato.fato_seguro_desemprego">
+	<columns names="sk_cnae_subclasse" ref-type="src-columns"/>
+	<columns names="sk_cnae_subclasse" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_ibge_grupo_setor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_ibge_setor" table="fato.fato_seguro_desemprego">
+	<columns names="sk_ibge_grupo_setor" ref-type="src-columns"/>
+	<columns names="sk_ibge_setor" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_mesmo_emprego_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_mesmo_emprego" table="fato.fato_seguro_desemprego">
+	<columns names="sk_mesmo_emprego" ref-type="src-columns"/>
+	<columns names="sk_mesmo_emprego" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_genero_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_genero" table="fato.fato_seguro_desemprego">
+	<columns names="sk_genero" ref-type="src-columns"/>
+	<columns names="sk_genero" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_grau_instrucao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_grau_instrucao" table="fato.fato_seguro_desemprego">
+	<columns names="sk_grau_instrucao" ref-type="src-columns"/>
+	<columns names="sk_grau_instrucao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_pronatec_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_pronatec" table="fato.fato_seguro_desemprego">
+	<columns names="sk_pronatec" ref-type="src-columns"/>
+	<columns names="sk_pronatec" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_municipio_demissao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_municipio" table="fato.fato_seguro_desemprego">
+	<columns names="sk_municipio_demissao" ref-type="src-columns"/>
+	<columns names="sk_municipio" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_uf_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_uf" table="fato.fato_seguro_desemprego">
+	<columns names="sk_uf" ref-type="src-columns"/>
+	<columns names="sk_uf" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_regiao_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_regiao" table="fato.fato_seguro_desemprego">
+	<columns names="sk_regiao" ref-type="src-columns"/>
+	<columns names="sk_regiao" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fato_seguro_desemprego_sk_tempo_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="dimensao.dim_tempo" table="fato.fato_seguro_desemprego">
+	<columns names="sk_tempo" ref-type="src-columns"/>
+	<columns names="sk_tempo" ref-type="dst-columns"/>
+</constraint>
+<relationship name="rel_fato_seguro_desemprego_dim_situacao_requerimento" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_situacao_requerimento"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_status_requerimento" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_status_requerimento"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_cbo" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_cbo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_cnae_classe" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_cnae_classe"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_cnae_subclasse" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_cnae_subclasse"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_ibge_setor" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_ibge_setor"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_mesmo_emprego" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_mesmo_emprego"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_genero" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_genero"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_grau_instrucao" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_grau_instrucao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_pronatec" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_pronatec"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_municipio" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_municipio"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_uf" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_uf"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_regiao" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_regiao"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_fato_seguro_desemprego_dim_tempo" type="relfk"
+	 src-table="fato.fato_seguro_desemprego"
+	 dst-table="dimensao.dim_tempo"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>

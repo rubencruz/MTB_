@@ -1,0 +1,140 @@
+<Schema name="Escola do Trabalhador">
+	<Cube name="cubo gerencial" caption="Dados Gerenciais" visible="true" cache="true" enabled="true">
+		<Table name="fato_gerencial" schema="fato">
+			<AggName name="agg_gerencial_base">
+				<AggFactCount column="fato_gerencial_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_gerencial_qtd_no_mercado" name="[Measures].[qtd_no_mercado]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_entraran_me" name="[Measures].[qtd_entraran_mercado]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_sairam_merc" name="[Measures].[qtd_sairam_mercado]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_seguro_dese" name="[Measures].[qtd_seguro_desemprego]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_fora_mercad" name="[Measures].[qtd_fora_mercado]">
+				</AggMeasure>
+				<AggLevel column="dim_uf_uf_Key" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_Regiao_Key" name="[regiao].[Regiao]">
+				</AggLevel>
+				<AggLevel column="dim_tempo_mes" name="[tempo.mes].[mes]">
+				</AggLevel>
+				<AggLevel column="dim_tempo_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_gerencial_base_mun">
+				<AggFactCount column="fato_gerencial_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_gerencial_qtd_no_mercado" name="[Measures].[qtd_no_mercado]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_entraran_me" name="[Measures].[qtd_entraran_mercado]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_sairam_merc" name="[Measures].[qtd_sairam_mercado]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_seguro_dese" name="[Measures].[qtd_seguro_desemprego]">
+				</AggMeasure>
+				<AggMeasure column="fato_gerencial_qtd_fora_mercad" name="[Measures].[qtd_fora_mercado]">
+				</AggMeasure>
+				<AggLevel column="dim_uf_uf_Key" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_Regiao_Key" name="[regiao].[Regiao]">
+				</AggLevel>
+				<AggLevel column="dim_tempo_mes" name="[tempo.mes].[mes]">
+				</AggLevel>
+				<AggLevel column="dim_tempo_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio_Key" name="[municipio].[municipio]">
+				</AggLevel>
+			</AggName>
+		</Table>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_genero" highCardinality="false" name="genero" caption="por G&#234;nero">
+			<Hierarchy name="genero" visible="true" hasAll="true" primaryKey="sk_genero" caption="G&#234;nero">
+				<Table name="dim_genero" schema="dimensao">
+				</Table>
+				<Level name="genero" visible="true" column="sk_genero" nameColumn="nome_genero" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="G&#234;nero">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_faixa_etaria" highCardinality="false" name="faixa_etaria" caption="por Faixa Etaria">
+			<Hierarchy name="faixa_etaria" visible="true" hasAll="true" primaryKey="sk_faixa_etaria" caption="por Faixa Et&#225;ria">
+				<Table name="dim_faixa_etaria" schema="dimensao">
+				</Table>
+				<Level name="faixas" visible="true" column="sk_faixa_etaria" nameColumn="faixa_etaria" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Faixa et&#225;ria">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="TimeDimension" visible="true" foreignKey="sk_tempo_matricula" highCardinality="false" name="tempo" caption="por Mes/Ano - Matricula">
+			<Hierarchy name="ano" visible="true" hasAll="true" primaryKey="sk_tempo" caption="Ano">
+				<Table name="dim_tempo" schema="dimensao">
+				</Table>
+				<Level name="ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never" caption="Ano">
+				</Level>
+			</Hierarchy>
+			<Hierarchy name="mes" visible="true" hasAll="true" primaryKey="sk_tempo" caption="M&#234;s">
+				<Table name="dim_tempo" schema="dimensao">
+				</Table>
+				<Level name="mes" visible="true" column="mes" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_uf" highCardinality="false" name="uf" caption="por UF">
+			<Hierarchy name="uf" visible="true" hasAll="true" primaryKey="sk_uf">
+				<Table name="dim_uf" schema="dimensao">
+				</Table>
+				<Level name="uf" visible="true" column="sk_uf" nameColumn="nome_uf" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="UF">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_regiao" highCardinality="false" name="regiao" caption="Regiao">
+			<Hierarchy name="regiao" visible="true" hasAll="true" primaryKey="sk_regiao">
+				<Table name="dim_regiao" schema="dimensao">
+				</Table>
+				<Level name="Regiao" visible="true" column="sk_regiao" nameColumn="nome_regiao" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Regiao">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_idade" highCardinality="false" name="idade" caption="Idade">
+			<Hierarchy name="idade" visible="true" hasAll="true" primaryKey="sk_idade">
+				<Table name="dim_idade" schema="dimensao">
+				</Table>
+				<Level name="idade" visible="true" column="sk_idade" nameColumn="idade" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="false" foreignKey="sk_tempo_matricula" highCardinality="false" name="mes">
+			<Hierarchy name="mes" visible="false" hasAll="true" primaryKey="sk_tempo">
+				<Table name="dim_tempo" schema="dimensao">
+				</Table>
+				<Level name="mes" visible="false" column="mes" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="TimeDimension" visible="false" foreignKey="sk_tempo_matricula" highCardinality="false" name="ano">
+			<Hierarchy name="ano" visible="false" hasAll="true" primaryKey="sk_tempo">
+				<Table name="dim_tempo" schema="dimensao">
+				</Table>
+				<Level name="ano" visible="false" column="ano" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="false" foreignKey="sk_municipio" highCardinality="false" name="municipio" caption="Municipio">
+			<Hierarchy name="municipio" visible="false" hasAll="true" primaryKey="sk_municipio">
+				<Table name="dim_municipio" schema="dimensao">
+				</Table>
+				<Level name="municipio" visible="false" column="sk_municipio" nameColumn="nome_municipio" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Measure name="qtd_no_mercado" column="qtd_dentro_mercado" datatype="Integer" aggregator="sum" caption="Qtd. Dentro do Mercado" visible="true">
+		</Measure>
+		<Measure name="qtd_entraran_mercado" column="qtd_entraram_mercado" datatype="Integer" aggregator="sum" caption="Qtd. Entraram no Mercado" visible="true">
+		</Measure>
+		<Measure name="qtd_sairam_mercado" column="qtd_sairam_mercado" datatype="Integer" aggregator="sum" caption="Qtd. Sairam do Mercado" visible="true">
+		</Measure>
+		<Measure name="qtd_seguro_desemprego" column="qtd_seguro_desemprego" datatype="Integer" aggregator="sum" caption="Qtd. Recebem SD" visible="true">
+		</Measure>
+		<Measure name="qtd_fora_mercado" column="qtd_fora_mercado" datatype="Integer" aggregator="sum" caption="Qtd. Fora do Mercado" visible="true">
+		</Measure>
+	</Cube>
+</Schema>

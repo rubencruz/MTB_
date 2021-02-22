@@ -1,0 +1,748 @@
+<Schema name="RAIS">
+	<Cube name="cubo_rais" caption="RAIS" visible="true" cache="true" enabled="true">
+		<Table name="fato_rais" schema="fato">
+			<AggName name="agg_rais_base">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_esc">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_grau_instrucao_escolaridad" name="[escolaridade].[escolaridade]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_esc_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_grau_instrucao_escolaridad" name="[escolaridade].[escolaridade]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_esc">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_grau_instrucao_escolaridad" name="[escolaridade].[escolaridade]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_esc_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_grau_instrucao_escolaridad" name="[escolaridade].[escolaridade]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_fai">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_faixa_etaria_faixa_etaria" name="[faixa_etaria].[faixa_etaria]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_fai_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_faixa_etaria_faixa_etaria" name="[faixa_etaria].[faixa_etaria]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_fai">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_faixa_etaria_faixa_etaria" name="[faixa_etaria].[faixa_etaria]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_fai_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_faixa_etaria_faixa_etaria" name="[faixa_etaria].[faixa_etaria]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_tp">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_tipo_deficiencia_tipo_pcd" name="[tipo_pcd].[tipo_pcd]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_tp_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_tipo_deficiencia_tipo_pcd" name="[tipo_pcd].[tipo_pcd]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_tp">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_tipo_deficiencia_tipo_pcd" name="[tipo_pcd].[tipo_pcd]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_tp_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_tipo_deficiencia_tipo_pcd" name="[tipo_pcd].[tipo_pcd]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_subc">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cnae_subclasse_cnae_subcla" name="[cnae_subclasse].[cnae_subclasse]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_subc_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cnae_subclasse_cnae_subcla" name="[cnae_subclasse].[cnae_subclasse]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_subc">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_cnae_subclasse_cnae_subcla" name="[cnae_subclasse].[cnae_subclasse]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_subc_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_cnae_subclasse_cnae_subcla" name="[cnae_subclasse].[cnae_subclasse]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_ibge">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_ibge_setor_ibge_setor" name="[ibge_setor].[ibge_setor]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_ibge_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_ibge_setor_ibge_setor" name="[ibge_setor].[ibge_setor]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_ibge">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_ibge_setor_ibge_setor" name="[ibge_setor].[ibge_setor]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+			<AggName name="agg_rais_base_cbo_ibge_mun">
+				<AggFactCount column="fato_rais_fact_count">
+				</AggFactCount>
+				<AggMeasure column="fato_rais_qtd_trabalhadores" name="[Measures].[qtd_trabalhadores]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_estoque" name="[Measures].[qtd_estoque]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_remuneracao_media" name="[Measures].[remuneracao_media]">
+				</AggMeasure>
+				<AggMeasure column="fato_rais_qtd_remuneracao_medi" name="[Measures].[qtd_remuneracao_media]">
+				</AggMeasure>
+				<AggLevel column="dim_ano_ano" name="[tempo.ano].[ano]">
+				</AggLevel>
+				<AggLevel column="dim_municipio_municipio" name="[municipio].[municipio]">
+				</AggLevel>
+				<AggLevel column="dim_uf_uf" name="[uf].[uf]">
+				</AggLevel>
+				<AggLevel column="dim_regiao_regiao" name="[regiao].[regiao]">
+				</AggLevel>
+				<AggLevel column="dim_cbo_cbo" name="[cbo].[cbo]">
+				</AggLevel>
+				<AggLevel column="dim_ibge_setor_ibge_setor" name="[ibge_setor].[ibge_setor]">
+				</AggLevel>
+				<AggLevel column="dim_genero_genero" name="[genero].[genero]">
+				</AggLevel>
+			</AggName>
+		</Table>
+		<Dimension type="TimeDimension" visible="true" foreignKey="sk_ano" highCardinality="false" name="tempo">
+			<Hierarchy name="ano" visible="true" hasAll="true" primaryKey="sk_ano">
+				<Table name="dim_ano" schema="dimensao">
+				</Table>
+				<Level name="ano" visible="true" column="sk_ano" nameColumn="ano" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never" caption="Ano">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_municipio" highCardinality="false" name="municipio">
+			<Hierarchy name="municipio" visible="true" hasAll="true" primaryKey="sk_municipio" caption="Municipio">
+				<Table name="dim_municipio" schema="dimensao">
+				</Table>
+				<Level name="municipio" visible="true" column="sk_municipio" nameColumn="nome_municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Munic&#237;pio">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_uf" highCardinality="false" name="uf">
+			<Hierarchy name="uf" visible="true" hasAll="true" primaryKey="sk_uf">
+				<Table name="dim_uf" schema="dimensao">
+				</Table>
+				<Level name="uf" visible="true" column="sk_uf" nameColumn="uf" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_regiao" highCardinality="false" name="regiao">
+			<Hierarchy name="regiao" visible="true" hasAll="true" primaryKey="sk_regiao">
+				<Table name="dim_regiao" schema="dimensao">
+				</Table>
+				<Level name="regiao" visible="true" column="sk_regiao" nameColumn="nome_regiao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_faixa_etaria" highCardinality="false" name="faixa_etaria">
+			<Hierarchy name="faixa_etaria" visible="true" hasAll="true" primaryKey="sk_faixa_etaria">
+				<Table name="dim_faixa_etaria" schema="dimensao">
+				</Table>
+				<Level name="faixa_etaria" visible="true" column="sk_faixa_etaria" nameColumn="faixa_etaria" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_grau_instrucao" highCardinality="false" name="escolaridade">
+			<Hierarchy name="escolaridade" visible="true" hasAll="true" primaryKey="sk_grau_instrucao">
+				<Table name="dim_grau_instrucao" schema="dimensao">
+				</Table>
+				<Level name="escolaridade" visible="true" column="sk_grau_instrucao" nameColumn="nome_grau_instrucao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_portador_deficiencia" highCardinality="false" name="pcd">
+			<Hierarchy name="pcd" visible="true" hasAll="true" primaryKey="sk_portador_deficiencia">
+				<Table name="dim_portador_deficiencia" schema="dimensao">
+				</Table>
+				<Level name="pcd" visible="true" column="sk_portador_deficiencia" nameColumn="portador_deficiencia" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_tipo_deficiencia" highCardinality="false" name="tipo_pcd">
+			<Hierarchy name="tipo_pcd" visible="true" hasAll="true" primaryKey="sk_tipo_deficiencia">
+				<Table name="dim_tipo_deficiencia" schema="dimensao">
+				</Table>
+				<Level name="tipo_pcd" visible="true" column="sk_tipo_deficiencia" nameColumn="nome_tipo_deficiencia" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_motivo_desligamento" highCardinality="false" name="motivo_desligamento">
+			<Hierarchy name="motivo_deliagamento" visible="true" hasAll="true" primaryKey="sk_motivo_desligamento">
+				<Table name="dim_motivo_desligamento" schema="dimensao">
+				</Table>
+				<Level name="motivo_desligamento" visible="true" column="sk_motivo_desligamento" nameColumn="nome_motivo_desligamento" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_cbo" highCardinality="false" name="cbo">
+			<Hierarchy name="cbo" visible="true" hasAll="true" primaryKey="sk_cbo">
+				<Table name="dim_cbo" schema="dimensao">
+				</Table>
+				<Level name="cbo" visible="true" column="sk_cbo" nameColumn="nome_cbo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_cnae_subclasse" highCardinality="false" name="cnae_subclasse">
+			<Hierarchy name="cnae_subclasse" visible="true" hasAll="true" primaryKey="sk_cnae_subclasse">
+				<Table name="dim_cnae_subclasse" schema="dimensao">
+				</Table>
+				<Level name="cnae_subclasse" visible="true" column="sk_cnae_subclasse" nameColumn="nome_subclasse" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_cnae_classe" highCardinality="false" name="cnae_classe">
+			<Hierarchy name="cnae_classe" visible="true" hasAll="true" primaryKey="sk_cnae_classe">
+				<Table name="dim_cnae_classe" schema="dimensao">
+				</Table>
+				<Level name="cnae_classe" visible="true" column="sk_cnae_classe" nameColumn="nome_classe" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_cnae_grupo" highCardinality="false" name="cnae_grupo">
+			<Hierarchy name="cnae_grupo" visible="true" hasAll="true" primaryKey="sk_cnae_grupo">
+				<Table name="dim_cnae_grupo" schema="dimensao">
+				</Table>
+				<Level name="cnae_grupo" visible="true" column="sk_cnae_grupo" nameColumn="nome_grupo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_cnae_divisao" highCardinality="false" name="cnae_divisao">
+			<Hierarchy name="cnae_divisao" visible="true" hasAll="true" primaryKey="sk_cnae_divisao">
+				<Table name="dim_cnae_divisao" schema="dimensao">
+				</Table>
+				<Level name="cnae_divisao" visible="true" column="sk_cnae_divisao" nameColumn="nome_divisao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_cnae_secao" highCardinality="false" name="cnae_secao">
+			<Hierarchy name="cnae_secao" visible="true" hasAll="true" primaryKey="sk_cnae_secao">
+				<Table name="dim_cnae_secao" schema="dimensao">
+				</Table>
+				<Level name="cnae_secao" visible="true" column="sk_cnae_secao" nameColumn="nome_secao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_ibge_subsetor" highCardinality="false" name="ibge_subsetor">
+			<Hierarchy name="ibge_subsetor" visible="true" hasAll="true" primaryKey="sk_ibge_subsetor">
+				<Table name="dim_ibge_subsetor" schema="dimensao">
+				</Table>
+				<Level name="ibge_subsetor" visible="true" column="sk_ibge_subsetor" nameColumn="nome_ibge_subsetor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_ibge_setor" highCardinality="false" name="ibge_setor">
+			<Hierarchy name="ibge_setor" visible="true" hasAll="true" primaryKey="sk_ibge_setor">
+				<Table name="dim_ibge_setor" schema="dimensao">
+				</Table>
+				<Level name="ibge_setor" visible="true" column="sk_ibge_setor" nameColumn="nome_ibge_setor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_raca_cor" highCardinality="false" name="raca_cor">
+			<Hierarchy name="raca_cor" visible="true" hasAll="true" primaryKey="sk_raca_cor">
+				<Table name="dim_raca_cor" schema="dimensao">
+				</Table>
+				<Level name="raca" visible="true" column="sk_raca_cor" nameColumn="nome_raca" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+				<Level name="cor" visible="true" column="sk_raca_cor" nameColumn="cor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_genero" highCardinality="false" name="genero">
+			<Hierarchy name="genero" visible="true" hasAll="true" primaryKey="sk_genero">
+				<Table name="dim_genero" schema="dimensao">
+				</Table>
+				<Level name="genero" visible="true" column="sk_genero" nameColumn="nome_genero" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="sk_tipo_vinculo" highCardinality="false" name="tipo_vinculo">
+			<Hierarchy name="tipo_vinculo" visible="true" hasAll="true" primaryKey="sk_tipo_vinculo">
+				<Table name="dim_tipo_vinculo" schema="dimensao">
+				</Table>
+				<Level name="tipo_vinculo" visible="true" column="sk_tipo_vinculo" nameColumn="nome_tipo_vinculo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+				<Level name="grupo_tipo_vinculo" visible="true" column="sk_tipo_vinculo" nameColumn="grupo_vinculo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Measure name="qtd_trabalhadores" column="qtd" aggregator="sum" visible="true">
+		</Measure>
+		<Measure name="qtd_estoque" column="qtd_estoque" aggregator="sum" visible="true">
+		</Measure>
+		<Measure name="remuneracao_media" column="sub_total_remuneracao_media" aggregator="sum" visible="false">
+		</Measure>
+		<Measure name="qtd_remuneracao_media" column="qtd_remuneracao_media" datatype="Integer" aggregator="sum" visible="false">
+		</Measure>
+		<CalculatedMember name="valor_remuneracao_media" formula="[Measures].[remuneracao_media]/[Measures].[qtd_remuneracao_media]" dimension="Measures" visible="true">
+		</CalculatedMember>
+	</Cube>
+</Schema>

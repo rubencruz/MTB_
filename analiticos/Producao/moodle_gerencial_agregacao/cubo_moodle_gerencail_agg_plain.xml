@@ -1,0 +1,207 @@
+<list>
+  <string>1.0</string>
+  <org.pentaho.di.core.database.DatabaseMeta>  &lt;connection&gt;
+    &lt;name&gt;mtb_dw&lt;/name&gt;
+    &lt;server&gt;localhost&lt;/server&gt;
+    &lt;type&gt;POSTGRESQL&lt;/type&gt;
+    &lt;access&gt;Native&lt;/access&gt;
+    &lt;database&gt;mtb_dw&lt;/database&gt;
+    &lt;port&gt;5432&lt;/port&gt;
+    &lt;username&gt;mtb&lt;/username&gt;
+    &lt;password&gt;Encrypted 2be98afc86aa7f2e4cb14ba728cc2fe82&lt;/password&gt;
+    &lt;servername/&gt;
+    &lt;data_tablespace/&gt;
+    &lt;index_tablespace/&gt;
+    &lt;attributes&gt;
+      &lt;attribute&gt;&lt;code&gt;FORCE_IDENTIFIERS_TO_LOWERCASE&lt;/code&gt;&lt;attribute&gt;N&lt;/attribute&gt;&lt;/attribute&gt;
+      &lt;attribute&gt;&lt;code&gt;FORCE_IDENTIFIERS_TO_UPPERCASE&lt;/code&gt;&lt;attribute&gt;N&lt;/attribute&gt;&lt;/attribute&gt;
+      &lt;attribute&gt;&lt;code&gt;PORT_NUMBER&lt;/code&gt;&lt;attribute&gt;5432&lt;/attribute&gt;&lt;/attribute&gt;
+      &lt;attribute&gt;&lt;code&gt;PRESERVE_RESERVED_WORD_CASE&lt;/code&gt;&lt;attribute&gt;Y&lt;/attribute&gt;&lt;/attribute&gt;
+      &lt;attribute&gt;&lt;code&gt;QUOTE_ALL_FIELDS&lt;/code&gt;&lt;attribute&gt;N&lt;/attribute&gt;&lt;/attribute&gt;
+      &lt;attribute&gt;&lt;code&gt;SUPPORTS_BOOLEAN_DATA_TYPE&lt;/code&gt;&lt;attribute&gt;Y&lt;/attribute&gt;&lt;/attribute&gt;
+      &lt;attribute&gt;&lt;code&gt;SUPPORTS_TIMESTAMP_DATA_TYPE&lt;/code&gt;&lt;attribute&gt;Y&lt;/attribute&gt;&lt;/attribute&gt;
+    &lt;/attributes&gt;
+  &lt;/connection&gt;
+</org.pentaho.di.core.database.DatabaseMeta>
+  <org.pentaho.aggdes.ui.ext.impl.MondrianFileSchemaModel>
+    <schemaChecksum>854792298</schemaChecksum>
+    <mondrianSchemaFilename>/home/unb/MTB/analiticos/Producao/moodle_gerencial_agregacao/cubo_moodle_gerencial_agg.xml</mondrianSchemaFilename>
+    <cubeName>cubo gerencial</cubeName>
+  </org.pentaho.aggdes.ui.ext.impl.MondrianFileSchemaModel>
+  <org.pentaho.aggdes.ui.model.impl.AggListImpl>
+    <aggregation>
+      <algoAgg>false</algoAgg>
+      <name>agg_gerencial_base</name>
+      <description></description>
+      <attributes>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+          <label>[dim_uf].[uf (Key)]</label>
+          <table>dim_uf</table>
+        </org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+          <label>[dim_regiao].[Regiao (Key)]</label>
+          <table>dim_regiao</table>
+        </org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+          <label>[dim_tempo].[mes]</label>
+          <table>dim_tempo</table>
+        </org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+          <label>[dim_tempo].[ano]</label>
+          <table>dim_tempo</table>
+        </org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+      </attributes>
+      <output class="org.pentaho.aggdes.output.impl.AggregateTableOutput">
+        <tableName>agg_gerencial_base</tableName>
+        <aggregate class="org.pentaho.aggdes.ui.model.impl.UIAggregateImpl" reference="../.."/>
+        <columns>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_uf_uf_(Key)</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_regiao_Regiao_(Key)</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[2]"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_tempo_mes</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[3]"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_tempo_ano</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[4]"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_no_mercado</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure">
+              <label>fato_gerencial.qtd_no_mercado</label>
+              <table>fato_gerencial</table>
+            </attribute>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_entraran_me</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure">
+              <label>fato_gerencial.qtd_entraran_mercado</label>
+              <table>fato_gerencial</table>
+            </attribute>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_sairam_merc</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure">
+              <label>fato_gerencial.qtd_sairam_mercado</label>
+              <table>fato_gerencial</table>
+            </attribute>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_seguro_dese</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure">
+              <label>fato_gerencial.qtd_seguro_desemprego</label>
+              <table>fato_gerencial</table>
+            </attribute>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_fora_mercad</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure">
+              <label>fato_gerencial.qtd_fora_mercado</label>
+              <table>fato_gerencial</table>
+            </attribute>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_fact_count</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure">
+              <label>fato_gerencial.fact_count</label>
+              <table>fato_gerencial</table>
+            </attribute>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+        </columns>
+      </output>
+      <measures>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[5]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[6]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[7]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[8]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[9]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[10]/attribute"/>
+      </measures>
+      <enabled>true</enabled>
+      <estimateRowCount>356038.5525744513</estimateRowCount>
+      <estimateSpace>5696616.841191221</estimateSpace>
+    </aggregation>
+    <aggregation>
+      <algoAgg>false</algoAgg>
+      <name>agg_gerencial_base_mun</name>
+      <description></description>
+      <attributes>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute reference="../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute reference="../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[2]"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute reference="../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[3]"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute reference="../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[4]"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+          <label>[dim_municipio].[municipio (Key)]</label>
+          <table>dim_municipio</table>
+        </org.pentaho.aggdes.model.mondrian.MondrianAttribute>
+      </attributes>
+      <output class="org.pentaho.aggdes.output.impl.AggregateTableOutput">
+        <tableName>agg_gerencial_base_mun</tableName>
+        <aggregate class="org.pentaho.aggdes.ui.model.impl.UIAggregateImpl" reference="../.."/>
+        <columns>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_uf_uf_(Key)</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_regiao_Regiao_(Key)</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[2]"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_tempo_mes</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[3]"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_tempo_ano</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../../aggregation/attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[4]"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>dim_municipio_municipio_(Key)</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianAttribute" reference="../../../../attributes/org.pentaho.aggdes.model.mondrian.MondrianAttribute[5]"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_no_mercado</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure" reference="../../../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[5]/attribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_entraran_me</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure" reference="../../../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[6]/attribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_sairam_merc</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure" reference="../../../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[7]/attribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_seguro_dese</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure" reference="../../../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[8]/attribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_qtd_fora_mercad</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure" reference="../../../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[9]/attribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+          <org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+            <name>fato_gerencial_fact_count</name>
+            <attribute class="org.pentaho.aggdes.model.mondrian.MondrianMeasure" reference="../../../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[10]/attribute"/>
+          </org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput>
+        </columns>
+      </output>
+      <measures>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[5]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[6]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[7]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[8]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[9]/attribute"/>
+        <org.pentaho.aggdes.model.mondrian.MondrianMeasure reference="../../../aggregation/output/columns/org.pentaho.aggdes.output.impl.AggregateTableOutput_-ColumnOutput[10]/attribute"/>
+      </measures>
+      <enabled>true</enabled>
+      <estimateRowCount>410617.0</estimateRowCount>
+      <estimateSpace>8212340.0</estimateSpace>
+    </aggregation>
+  </org.pentaho.aggdes.ui.model.impl.AggListImpl>
+</list>
